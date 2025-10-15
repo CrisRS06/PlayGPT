@@ -1,8 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { ArrowRight, MessageCircle, Languages } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function Hero() {
+  const { language, setLanguage, t } = useLanguage();
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-green-50 via-white to-blue-50 py-20 lg:py-32">
       {/* Decorative background elements */}
@@ -12,27 +16,40 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-4">
+        {/* Language Selector - Top Right */}
+        <div className="absolute right-4 top-4 lg:right-8 lg:top-8">
+          <Button
+            variant="outline"
+            size="sm"
+            className="gap-2 bg-white/80 backdrop-blur-sm hover:bg-white"
+            onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+            title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+          >
+            <Languages className="h-4 w-4" />
+            <span className="font-medium">{language.toUpperCase()}</span>
+          </Button>
+        </div>
+
         <div className="mx-auto max-w-4xl text-center">
           {/* Badge */}
           <div className="mb-6 inline-flex items-center rounded-full border border-green-200 bg-green-50 px-4 py-1.5 text-sm font-medium text-green-700">
             <MessageCircle className="mr-2 h-4 w-4" />
-            Asistente IA de Juego Responsable
+            {t.hero.badge}
           </div>
 
           {/* Main Heading */}
           <h1 className="mb-6 text-5xl font-bold tracking-tight text-gray-900 lg:text-7xl">
-            Juega{' '}
+            {t.hero.title}{' '}
             <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-              Responsable
+              {t.hero.titleHighlight}
             </span>
             <br />
-            con PlayGPT
+            {t.hero.titleSuffix}
           </h1>
 
           {/* Description */}
           <p className="mx-auto mb-12 max-w-2xl text-xl text-gray-600 lg:text-2xl">
-            Tu asistente personal impulsado por IA para aprender sobre juego
-            responsable, autoexclusión y prevención de ludopatía.
+            {t.hero.description}
           </p>
 
           {/* CTA Buttons */}
@@ -42,7 +59,7 @@ export function Hero() {
                 size="lg"
                 className="group w-full text-lg sm:w-auto"
               >
-                Habla con el Bot
+                {t.hero.ctaPrimary}
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
@@ -51,7 +68,7 @@ export function Hero() {
               variant="outline"
               className="w-full text-lg sm:w-auto"
             >
-              Ver Demo
+              {t.hero.ctaSecondary}
             </Button>
           </div>
 
@@ -59,15 +76,15 @@ export function Hero() {
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-gray-500">
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-green-500" />
-              <span>Disponible 24/7</span>
+              <span>{t.hero.trust1}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-green-500" />
-              <span>100% Confidencial</span>
+              <span>{t.hero.trust2}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-green-500" />
-              <span>Sin registro requerido</span>
+              <span>{t.hero.trust3}</span>
             </div>
           </div>
         </div>

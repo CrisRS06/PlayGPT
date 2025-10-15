@@ -1,9 +1,13 @@
+'use client';
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Info } from 'lucide-react';
+import { ArrowLeft, Info, Languages } from 'lucide-react';
 import { siteConfig } from '@/config/site';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ChatHeader() {
+  const { language, setLanguage, t } = useLanguage();
   return (
     <header className="border-b bg-white shadow-sm">
       <div className="container mx-auto px-4">
@@ -12,7 +16,7 @@ export default function ChatHeader() {
           <Link href="/">
             <Button variant="ghost" size="sm" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
-              Volver al inicio
+              {t.chatHeader.backButton}
             </Button>
           </Link>
 
@@ -24,11 +28,26 @@ export default function ChatHeader() {
             <h1 className="text-lg font-bold text-gray-900">{siteConfig.name}</h1>
           </div>
 
-          {/* Right: Info button */}
-          <Button variant="ghost" size="sm" className="gap-2">
-            <Info className="h-4 w-4" />
-            <span className="hidden sm:inline">Ayuda</span>
-          </Button>
+          {/* Right: Language selector and Info button */}
+          <div className="flex items-center gap-2">
+            {/* Language selector */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="gap-2"
+              onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+              title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+            >
+              <Languages className="h-4 w-4" />
+              <span className="font-medium">{language.toUpperCase()}</span>
+            </Button>
+
+            {/* Info button */}
+            <Button variant="ghost" size="sm" className="gap-2">
+              <Info className="h-4 w-4" />
+              <span className="hidden sm:inline">{t.chatHeader.helpButton}</span>
+            </Button>
+          </div>
         </div>
       </div>
     </header>

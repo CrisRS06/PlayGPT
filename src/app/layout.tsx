@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/config/site';
+import ClientProviders from '@/components/providers/ClientProviders';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -70,7 +71,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.variable}>
       <body className="min-h-screen bg-background font-sans antialiased">
-        {children}
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );

@@ -1,0 +1,78 @@
+{
+  "hero": {
+    "badge": "Asistente IA de Juego Responsable",
+    "title": "Juega",
+    "titleHighlight": "Responsable",
+    "titleSuffix": "con PlayGPT",
+    "description": "Tu asistente personal impulsado por IA para aprender sobre juego responsable, autoexclusión y prevención de ludopatía.",
+    "ctaPrimary": "Habla con el Bot",
+    "ctaSecondary": "Ver Demo",
+    "trust1": "Disponible 24/7",
+    "trust2": "100% Confidencial",
+    "trust3": "Sin registro requerido"
+  },
+  "features": {
+    "title": "¿Por qué elegir PlayGPT?",
+    "subtitle": "Una herramienta completa diseñada para ayudarte a desarrollar hábitos de juego saludables y responsables",
+    "items": {
+      "education": {
+        "title": "Educación Personalizada",
+        "description": "Aprende a tu ritmo con respuestas adaptadas a tus necesidades específicas"
+      },
+      "available": {
+        "title": "Disponible 24/7",
+        "description": "Acceso inmediato cuando lo necesites, sin esperas ni horarios limitados"
+      },
+      "confidential": {
+        "title": "100% Confidencial",
+        "description": "Conversaciones privadas y seguras. Tu información está protegida"
+      },
+      "resources": {
+        "title": "Recursos Educativos",
+        "description": "Accede a guías, artículos y materiales sobre juego responsable"
+      },
+      "support": {
+        "title": "Apoyo Empático",
+        "description": "Asistencia comprensiva sin juicios, diseñada para ayudarte"
+      },
+      "community": {
+        "title": "Comunidad de Apoyo",
+        "description": "Conecta con recursos y comunidades de ayuda profesional"
+      }
+    }
+  },
+  "cta": {
+    "title": "¿Listo para jugar de forma responsable?",
+    "description": "Únete a miles de personas que ya están tomando control de sus hábitos de juego",
+    "button": "Comenzar Ahora"
+  },
+  "footer": {
+    "description": "Tu compañero de confianza para desarrollar hábitos de juego responsables y saludables.",
+    "product": "Producto",
+    "resources": "Recursos",
+    "company": "Compañía",
+    "legal": "Legal",
+    "features": "Características",
+    "pricing": "Precios",
+    "faq": "Preguntas Frecuentes",
+    "blog": "Blog",
+    "guides": "Guías",
+    "support": "Soporte",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "careers": "Carreras",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "cookies": "Cookies",
+    "disclaimer": "PlayGPT es una herramienta educativa y no reemplaza ayuda profesional.",
+    "allRightsReserved": "Todos los derechos reservados."
+  },
+  "chatHeader": {
+    "backButton": "Volver al inicio",
+    "helpButton": "Ayuda"
+  },
+  "chatContainer": {
+    "welcome": "Bienvenido a PlayGPT",
+    "subtitle": "Estoy aquí para ayudarte con información sobre juego responsable. ¿En qué puedo asistirte hoy?"
+  }
+}

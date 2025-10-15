@@ -1,7 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="border-t bg-gray-50">
       <div className="container mx-auto px-4 py-12">
@@ -12,24 +16,23 @@ export function Footer() {
               {siteConfig.name}
             </h3>
             <p className="mb-4 max-w-md text-sm text-gray-600">
-              Asistente de IA dedicado a promover el juego responsable,
-              la prevención de ludopatía y el bienestar de los jugadores.
+              {t.footer.description}
             </p>
             <p className="text-xs text-gray-500">
-              © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.
+              © {new Date().getFullYear()} {siteConfig.name}. {t.footer.allRightsReserved}
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold text-gray-900">Recursos</h4>
+            <h4 className="mb-3 text-sm font-semibold text-gray-900">{t.footer.resources}</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/chat"
+                  href="#"
                   className="text-gray-600 transition-colors hover:text-green-600"
                 >
-                  Chat con el Bot
+                  {t.footer.blog}
                 </Link>
               </li>
               <li>
@@ -37,7 +40,7 @@ export function Footer() {
                   href="#"
                   className="text-gray-600 transition-colors hover:text-green-600"
                 >
-                  Guías Educativas
+                  {t.footer.guides}
                 </Link>
               </li>
               <li>
@@ -45,30 +48,22 @@ export function Footer() {
                   href="#"
                   className="text-gray-600 transition-colors hover:text-green-600"
                 >
-                  Autoexclusión
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-gray-600 transition-colors hover:text-green-600"
-                >
-                  Ayuda Profesional
+                  {t.footer.support}
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Legal */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold text-gray-900">Soporte</h4>
+            <h4 className="mb-3 text-sm font-semibold text-gray-900">{t.footer.legal}</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   href="#"
                   className="text-gray-600 transition-colors hover:text-green-600"
                 >
-                  Centro de Ayuda
+                  {t.footer.about}
                 </Link>
               </li>
               <li>
@@ -76,7 +71,7 @@ export function Footer() {
                   href="#"
                   className="text-gray-600 transition-colors hover:text-green-600"
                 >
-                  Preguntas Frecuentes
+                  {t.footer.privacy}
                 </Link>
               </li>
               <li>
@@ -84,7 +79,7 @@ export function Footer() {
                   href="#"
                   className="text-gray-600 transition-colors hover:text-green-600"
                 >
-                  Privacidad
+                  {t.footer.terms}
                 </Link>
               </li>
               <li>
@@ -92,7 +87,7 @@ export function Footer() {
                   href="#"
                   className="text-gray-600 transition-colors hover:text-green-600"
                 >
-                  Términos de Uso
+                  {t.footer.contact}
                 </Link>
               </li>
             </ul>
@@ -102,10 +97,7 @@ export function Footer() {
         {/* Disclaimer */}
         <div className="mt-8 border-t pt-8">
           <p className="text-center text-xs text-gray-500">
-            <strong>Aviso importante:</strong> PlayGPT es una herramienta educativa
-            de IA y no reemplaza la ayuda profesional. Si necesitas apoyo urgente,
-            contacta a un profesional de la salud mental o llama a una línea de ayuda
-            especializada en ludopatía.
+            {t.footer.disclaimer}
           </p>
         </div>
       </div>

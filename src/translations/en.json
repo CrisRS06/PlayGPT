@@ -1,0 +1,78 @@
+{
+  "hero": {
+    "badge": "Responsible Gaming AI Assistant",
+    "title": "Play",
+    "titleHighlight": "Responsibly",
+    "titleSuffix": "with PlayGPT",
+    "description": "Your AI-powered personal assistant to learn about responsible gaming, self-exclusion, and gambling addiction prevention.",
+    "ctaPrimary": "Talk to the Bot",
+    "ctaSecondary": "View Demo",
+    "trust1": "Available 24/7",
+    "trust2": "100% Confidential",
+    "trust3": "No registration required"
+  },
+  "features": {
+    "title": "Why choose PlayGPT?",
+    "subtitle": "A comprehensive tool designed to help you develop healthy and responsible gaming habits",
+    "items": {
+      "education": {
+        "title": "Personalized Education",
+        "description": "Learn at your own pace with answers tailored to your specific needs"
+      },
+      "available": {
+        "title": "Available 24/7",
+        "description": "Immediate access when you need it, with no waiting times or limited hours"
+      },
+      "confidential": {
+        "title": "100% Confidential",
+        "description": "Private and secure conversations. Your information is protected"
+      },
+      "resources": {
+        "title": "Educational Resources",
+        "description": "Access guides, articles, and materials about responsible gaming"
+      },
+      "support": {
+        "title": "Empathetic Support",
+        "description": "Non-judgmental, understanding assistance designed to help you"
+      },
+      "community": {
+        "title": "Support Community",
+        "description": "Connect with professional help resources and support communities"
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to play responsibly?",
+    "description": "Join thousands of people who are already taking control of their gaming habits",
+    "button": "Get Started Now"
+  },
+  "footer": {
+    "description": "Your trusted companion for developing responsible and healthy gaming habits.",
+    "product": "Product",
+    "resources": "Resources",
+    "company": "Company",
+    "legal": "Legal",
+    "features": "Features",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "guides": "Guides",
+    "support": "Support",
+    "about": "About",
+    "contact": "Contact",
+    "careers": "Careers",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "disclaimer": "PlayGPT is an educational tool and does not replace professional help.",
+    "allRightsReserved": "All rights reserved."
+  },
+  "chatHeader": {
+    "backButton": "Back to home",
+    "helpButton": "Help"
+  },
+  "chatContainer": {
+    "welcome": "Welcome to PlayGPT",
+    "subtitle": "I'm here to help you with information about responsible gaming. How can I assist you today?"
+  }
+}
