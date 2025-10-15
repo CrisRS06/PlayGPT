@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow admin routes (futuro)
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://playgpt.ai/sitemap.xml
