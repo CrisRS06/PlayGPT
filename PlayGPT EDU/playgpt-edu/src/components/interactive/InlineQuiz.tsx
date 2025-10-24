@@ -80,7 +80,7 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
   const [isCompleted, setIsCompleted] = useState(false)
 
   const { addXP } = useGamificationStore()
-  const celebrate = useCelebration()
+  const { celebrate } = useCelebration()
 
   const currentQuestion = questions[currentQuestionIndex]
   const progress = ((currentQuestionIndex + 1) / questions.length) * 100

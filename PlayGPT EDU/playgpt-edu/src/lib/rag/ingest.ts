@@ -242,8 +242,7 @@ export async function ingestDocument(
 
     return chunks.length
   } catch (error) {
-    logger.error(`\n❌ Failed to ingest document: ${filePath}`)
-    logger.error(error)
+    logger.error(`\n❌ Failed to ingest document: ${filePath}`, error)
     throw error
   }
 }

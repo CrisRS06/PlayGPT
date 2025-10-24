@@ -217,7 +217,7 @@ export default function QuizTakePage({
 
                   return (
                     <div
-                      key={question.id || `question-${index}`}
+                      key={`question-${quizId}-${index}`}
                       className={`p-6 rounded-lg border ${
                         evaluation.correct
                           ? "bg-green-500/10 border-green-500/30"

@@ -13,7 +13,7 @@ import { useLearningProgressStore } from "@/stores/learning-progress-store"
 
 type SkillStatus = "locked" | "available" | "in-progress" | "completed" | "mastered"
 
-interface SkillNodeData {
+interface SkillNodeData extends Record<string, unknown> {
   label: string
   description: string
   status: SkillStatus
@@ -117,13 +117,14 @@ const nodeTypes = {
 }
 
 export function SkillTree() {
-  const { modules, concepts } = useLearningProgressStore()
+  const { modules } = useLearningProgressStore()
 
   // Define skill tree structure
   const initialNodes: Node<SkillNodeData>[] = useMemo(() => {
-    // Safe access to concepts with defaults
+    // Safe access to modules with defaults
     const safeModules = modules || {}
-    const safeConcepts = concepts || {}
+    // Temporary: concepts system not yet implemented, use empty defaults
+    const safeConcepts = {} as Record<string, { masteryLevel: number }>
 
     return [
     // Foundation Level (Row 1)
@@ -135,7 +136,7 @@ export function SkillTree() {
         label: "Fundamentos",
         description: "Introducción al juego responsable",
         status: safeModules["module-1"]?.status === "completed" ? "completed" :
-                safeModules["module-1"]?.status === "in_progress" ? "in-progress" : "available",
+                safeModules["module-1"]?.status === "in-progress" ? "in-progress" : "available",
         progress: safeModules["module-1"]?.progress || 0,
         xpReward: 50,
         icon: "🎯"
@@ -292,7 +293,7 @@ export function SkillTree() {
       }
     }
   ]
-  }, [modules, concepts])
+  }, [modules])
 
   const initialEdges: Edge[] = useMemo(() => [
     // Foundation connections

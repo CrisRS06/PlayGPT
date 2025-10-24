@@ -36,7 +36,7 @@ export const XP_REWARDS = {
  * Calculate XP for quiz completion based on score and attempts
  */
 export function calculateQuizXP(score: number, attempts: number): number {
-  let xp = XP_REWARDS.QUIZ_ATTEMPT
+  let xp: number = XP_REWARDS.QUIZ_ATTEMPT
 
   if (score >= 1.0) {
     // Perfect score

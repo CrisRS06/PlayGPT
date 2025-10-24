@@ -39,6 +39,7 @@ export function UserMenu({ user }: UserMenuProps) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 rounded-full hover:bg-white/5 transition-colors p-1"
+        aria-label={isOpen ? "Cerrar menú de usuario" : "Abrir menú de usuario"}
       >
         <Avatar className="h-8 w-8">
           <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-white text-sm">

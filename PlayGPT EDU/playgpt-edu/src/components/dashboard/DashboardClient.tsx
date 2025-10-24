@@ -199,7 +199,7 @@ export function DashboardClient({
                               : "from-orange-500 to-red-500"
 
                         return (
-                          <div key={quiz.id || `quiz-${index}`} className="flex-1 flex flex-col items-center gap-2">
+                          <div key={quiz.quiz_id || `quiz-${index}`} className="flex-1 flex flex-col items-center gap-2">
                             <div className="relative w-full group">
                               <motion.div
                                 initial={{ height: 0 }}

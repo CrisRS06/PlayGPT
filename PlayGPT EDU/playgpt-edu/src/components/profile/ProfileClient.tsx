@@ -297,7 +297,7 @@ export function ProfileClient({
                     <div className="space-y-3">
                       {quizAttempts.slice(0, 5).map((attempt, index) => (
                         <div
-                          key={attempt.id || `attempt-${index}`}
+                          key={attempt.quiz_id || `attempt-${index}`}
                           className="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
                         >
                           <div>

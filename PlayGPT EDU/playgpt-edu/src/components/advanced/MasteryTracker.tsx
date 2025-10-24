@@ -84,14 +84,13 @@ function getMasteryLevel(proficiency: number): MasteryBadge {
 }
 
 export function MasteryTracker() {
-  const { concepts, modules } = useLearningProgressStore()
+  const { modules } = useLearningProgressStore()
 
-  const conceptsList = Object.values(concepts)
   const modulesList = Object.values(modules)
 
-  // Calculate overall mastery
-  const totalProficiency = conceptsList.length > 0
-    ? conceptsList.reduce((sum, concept) => sum + concept.masteryLevel, 0) / conceptsList.length
+  // Calculate overall mastery based on module progress
+  const totalProficiency = modulesList.length > 0
+    ? modulesList.reduce((sum, module) => sum + (module.progress / 100), 0) / modulesList.length
     : 0
 
   const currentMastery = getMasteryLevel(totalProficiency)
@@ -99,16 +98,16 @@ export function MasteryTracker() {
 
   // Calculate mastery distribution
   const masteryDistribution = MASTERY_LEVELS.map(level => {
-    const count = conceptsList.filter(c => {
-      const cLevel = getMasteryLevel(c.masteryLevel)
-      return cLevel.level === level.level
+    const count = modulesList.filter(m => {
+      const mLevel = getMasteryLevel(m.progress / 100)
+      return mLevel.level === level.level
     }).length
     return { ...level, count }
   })
 
-  // Get top concepts
-  const topConcepts = [...conceptsList]
-    .sort((a, b) => b.masteryLevel - a.masteryLevel)
+  // Get top modules
+  const topModules = [...modulesList]
+    .sort((a, b) => b.progress - a.progress)
     .slice(0, 5)
 
   return (
@@ -157,7 +156,7 @@ export function MasteryTracker() {
         <div className="space-y-3">
           {masteryDistribution.map((level, index) => {
             const Icon = level.icon
-            const percentage = conceptsList.length > 0 ? (level.count / conceptsList.length) * 100 : 0
+            const percentage = modulesList.length > 0 ? (level.count / modulesList.length) * 100 : 0
 
             return (
               <motion.div
@@ -173,7 +172,7 @@ export function MasteryTracker() {
                     <span className="text-sm font-medium text-white">{level.title}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-gray-400">{level.count} conceptos</span>
+                    <span className="text-sm text-gray-400">{level.count} módulos</span>
                     <span className="text-sm font-semibold text-white min-w-[3rem] text-right">
                       {percentage.toFixed(0)}%
                     </span>
@@ -186,18 +185,18 @@ export function MasteryTracker() {
         </div>
       </Card>
 
-      {/* Top Concepts */}
-      {topConcepts.length > 0 && (
+      {/* Top Modules */}
+      {topModules.length > 0 && (
         <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
-          <h4 className="text-lg font-semibold text-white mb-4">Conceptos con Mayor Dominio</h4>
+          <h4 className="text-lg font-semibold text-white mb-4">Módulos con Mayor Progreso</h4>
           <div className="space-y-3">
-            {topConcepts.map((concept, index) => {
-              const mastery = getMasteryLevel(concept.masteryLevel)
+            {topModules.map((module, index) => {
+              const mastery = getMasteryLevel(module.progress / 100)
               const Icon = mastery.icon
 
               return (
                 <motion.div
-                  key={concept.id}
+                  key={module.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
@@ -210,16 +209,16 @@ export function MasteryTracker() {
                   <div className="flex items-center justify-center w-8 h-8 rounded-full bg-black/30 text-lg font-bold text-white">
                     {index + 1}
                   </div>
-                  <Icon className={cn("w-5 h-5", mastery.color)} />
+                  <div className="text-2xl">{module.icon}</div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-white truncate">{concept.name}</p>
+                    <p className="text-sm font-medium text-white truncate">{module.title}</p>
                     <p className="text-xs text-gray-400">
-                      {concept.attempts} intentos • {concept.lastPracticed ? new Date(concept.lastPracticed).toLocaleDateString() : 'No practicado'}
+                      {module.completedLessons}/{module.totalLessons} lecciones completadas
                     </p>
                   </div>
                   <div className="text-right">
                     <p className={cn("text-lg font-bold", mastery.color)}>
-                      {(concept.masteryLevel * 100).toFixed(0)}%
+                      {module.progress.toFixed(0)}%
                     </p>
                     <p className="text-xs text-gray-500">{mastery.title}</p>
                   </div>

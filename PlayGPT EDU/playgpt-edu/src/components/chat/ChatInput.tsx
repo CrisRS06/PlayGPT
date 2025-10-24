@@ -45,6 +45,7 @@ export function ChatInput({ onSendMessage, isLoading, disabled }: ChatInputProps
           size="icon"
           disabled={!input.trim() || isLoading || disabled}
           className="absolute bottom-2 right-2 h-10 w-10 rounded-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity disabled:opacity-50"
+          aria-label={isLoading ? "Enviando mensaje..." : "Enviar mensaje"}
         >
           {isLoading ? (
             <Loader2 className="h-5 w-5 animate-spin" />

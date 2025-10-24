@@ -44,13 +44,13 @@ export function KnowledgeProgressChart({
   showLegend = true,
   className
 }: KnowledgeProgressChartProps) {
-  const { modules, concepts } = useLearningProgressStore()
+  const { modules } = useLearningProgressStore()
 
-  // If no topics provided, generate from store data
-  const topicData: TopicMastery[] = topics || Object.values(concepts).map(concept => ({
-    topic: concept.name,
-    mastery: concept.masteryLevel * 100,
-    attempts: concept.attempts,
+  // If no topics provided, generate from modules data
+  const topicData: TopicMastery[] = topics || Object.values(modules).map(module => ({
+    topic: module.title,
+    mastery: module.progress,
+    attempts: module.completedLessons,
     lastPracticed: new Date().toLocaleDateString()
   }))
 

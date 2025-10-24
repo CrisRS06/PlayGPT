@@ -188,6 +188,7 @@ export function OnboardingTour() {
                 size="icon"
                 onClick={handleSkip}
                 className="text-gray-400 hover:text-white"
+                aria-label="Saltar tutorial"
               >
                 <X className="w-5 h-5" />
               </Button>
