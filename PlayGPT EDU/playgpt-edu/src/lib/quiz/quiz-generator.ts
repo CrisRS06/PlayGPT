@@ -7,6 +7,7 @@ import { openai } from '@ai-sdk/openai'
 import { generateObject } from 'ai'
 import { z } from 'zod'
 import { createClient } from '@/lib/supabase/server'
+import { logger } from '@/lib/utils/logger'
 
 // Schema for quiz questions
 const QuestionSchema = z.object({
@@ -88,7 +89,7 @@ export async function saveQuiz(
     .single()
 
   if (error) {
-    console.error('Error saving quiz:', error)
+    logger.error('Error saving quiz:', error)
     throw new Error('Failed to save quiz')
   }
 
@@ -108,7 +109,7 @@ export async function getQuiz(quizId: string) {
     .single()
 
   if (error) {
-    console.error('Error loading quiz:', error)
+    logger.error('Error loading quiz:', error)
     return null
   }
 
@@ -141,7 +142,7 @@ export async function saveQuizAttempt(
     .single()
 
   if (error) {
-    console.error('Error saving quiz attempt:', error)
+    logger.error('Error saving quiz attempt:', error)
     throw new Error('Failed to save quiz attempt')
   }
 

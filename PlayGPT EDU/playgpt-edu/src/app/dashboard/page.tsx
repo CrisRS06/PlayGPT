@@ -1,30 +1,42 @@
-import { getUser } from "@/lib/auth/actions"
-import { getStudentProfile, getKnowledgeComponents, getQuizAttempts, getInteractionStats } from "@/lib/profile/student-profile"
-import { redirect } from "next/navigation"
-import { DashboardClient } from "@/components/dashboard/DashboardClient"
+"use client"
 
-export default async function DashboardPage() {
-  const user = await getUser()
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { ArrowLeft } from "lucide-react"
+import Link from "next/link"
+import { ProgressDashboard } from "@/components/dashboard/ProgressDashboard"
 
-  if (!user) {
-    redirect("/auth/login")
-  }
-
-  // Load all data
-  const [profile, knowledgeComponents, quizAttempts, interactionStats] = await Promise.all([
-    getStudentProfile(user.id),
-    getKnowledgeComponents(user.id),
-    getQuizAttempts(user.id),
-    getInteractionStats(user.id),
-  ])
-
+export default function DashboardPage() {
   return (
-    <DashboardClient
-      user={user}
-      profile={profile}
-      knowledgeComponents={knowledgeComponents}
-      quizAttempts={quizAttempts}
-      interactionStats={interactionStats}
-    />
+    <div className="min-h-screen bg-black text-white">
+      {/* Header */}
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="border-b border-white/10 backdrop-blur-xl bg-black/50 px-6 py-4"
+      >
+        <div className="flex items-center gap-4">
+          <Button variant="ghost" size="icon" asChild aria-label="Volver al chat">
+            <Link href="/chat">
+              <ArrowLeft className="h-5 w-5" />
+            </Link>
+          </Button>
+          <div>
+            <h1 className="text-lg font-semibold text-white">Dashboard</h1>
+            <p className="text-xs text-gray-400">Panel de Progreso</p>
+          </div>
+        </div>
+      </motion.header>
+
+      {/* Dashboard Content */}
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="max-w-7xl mx-auto"
+      >
+        <ProgressDashboard />
+      </motion.main>
+    </div>
   )
 }

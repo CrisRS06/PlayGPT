@@ -30,7 +30,7 @@ export function UserMenu({ user }: UserMenuProps) {
     try {
       await logout()
     } catch (error) {
-      console.error("Error logging out:", error)
+      // Silent fail - logout will redirect regardless
     }
   }
 

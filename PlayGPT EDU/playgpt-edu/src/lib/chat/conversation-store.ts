@@ -4,6 +4,7 @@
  */
 
 import { createClient } from '@/lib/supabase/server'
+import { logger } from '@/lib/utils/logger'
 
 export interface Message {
   id: string
@@ -78,7 +79,7 @@ export async function saveConversation(
       .eq('id', conversationId)
 
     if (error) {
-      console.error('Error updating conversation:', error)
+      logger.error('Error updating conversation:', error)
       throw error
     }
 
@@ -92,7 +93,7 @@ export async function saveConversation(
       .single()
 
     if (error) {
-      console.error('Error creating conversation:', error)
+      logger.error('Error creating conversation:', error)
       throw error
     }
 
@@ -125,7 +126,7 @@ export async function loadConversation(conversationId: string): Promise<Conversa
     .single()
 
   if (error) {
-    console.error('Error loading conversation:', error)
+    logger.error('Error loading conversation:', error)
     return null
   }
 
@@ -143,7 +144,7 @@ export async function loadConversation(conversationId: string): Promise<Conversa
       metadata: dbConversation.metadata,
     }
   } catch (err) {
-    console.error('Error transforming conversation data:', err)
+    logger.error('Error transforming conversation data:', err)
     return null
   }
 }
@@ -161,7 +162,7 @@ export async function getUserConversations(userId: string): Promise<Conversation
     .order('metadata->updated_at', { ascending: false })
 
   if (error) {
-    console.error('Error loading conversations:', error)
+    logger.error('Error loading conversations:', error)
     return []
   }
 
@@ -177,7 +178,7 @@ export async function getUserConversations(userId: string): Promise<Conversation
       metadata: conv.metadata,
     }))
   } catch (err) {
-    console.error('Error transforming conversations data:', err)
+    logger.error('Error transforming conversations data:', err)
     return []
   }
 }
@@ -194,7 +195,7 @@ export async function deleteConversation(conversationId: string): Promise<boolea
     .eq('id', conversationId)
 
   if (error) {
-    console.error('Error deleting conversation:', error)
+    logger.error('Error deleting conversation:', error)
     return false
   }
 

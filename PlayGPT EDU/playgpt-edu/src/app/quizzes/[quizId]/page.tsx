@@ -57,7 +57,6 @@ export default function QuizTakePage({
         setQuiz(data)
         setUserAnswers(new Array(data.questions.length).fill(-1))
       } catch (err) {
-        console.error("Error loading quiz:", err)
         setError("Error al cargar el quiz")
         toast.error("No se pudo cargar el quiz. Por favor intenta de nuevo.")
       } finally {
@@ -117,7 +116,6 @@ export default function QuizTakePage({
       const percentage = (data.score * 100).toFixed(0)
       toast.success(`¡Quiz completado! Obtuviste ${percentage}%`, { id: "quiz-submit" })
     } catch (err) {
-      console.error("Error submitting quiz:", err)
       setError("Error al enviar el quiz")
       toast.error("Error al enviar el quiz. Por favor intenta de nuevo.", { id: "quiz-submit" })
     } finally {
@@ -219,7 +217,7 @@ export default function QuizTakePage({
 
                   return (
                     <div
-                      key={index}
+                      key={question.id || `question-${index}`}
                       className={`p-6 rounded-lg border ${
                         evaluation.correct
                           ? "bg-green-500/10 border-green-500/30"
@@ -347,7 +345,7 @@ export default function QuizTakePage({
               <CardContent className="space-y-4">
                 {currentQ.options.map((option, index) => (
                   <button
-                    key={index}
+                    key={typeof option === 'string' ? option : `option-${index}`}
                     onClick={() => handleAnswerSelect(index)}
                     className={`w-full text-left p-4 rounded-lg border transition-all ${
                       userAnswers[currentQuestion] === index

@@ -199,7 +199,7 @@ export function DashboardClient({
                               : "from-orange-500 to-red-500"
 
                         return (
-                          <div key={index} className="flex-1 flex flex-col items-center gap-2">
+                          <div key={quiz.id || `quiz-${index}`} className="flex-1 flex flex-col items-center gap-2">
                             <div className="relative w-full group">
                               <motion.div
                                 initial={{ height: 0 }}
@@ -281,7 +281,7 @@ export function DashboardClient({
                     <div className="space-y-3">
                       <h4 className="text-sm font-medium text-gray-400">Top 5 Conceptos</h4>
                       {knowledgeComponents.slice(0, 5).map((kc, index) => (
-                        <div key={index} className="space-y-1">
+                        <div key={kc.component_name} className="space-y-1">
                           <div className="flex items-center justify-between text-sm">
                             <span className="text-white truncate">
                               {kc.component_name}

@@ -13,6 +13,7 @@ import { join } from 'path'
 import { RecursiveCharacterTextSplitter } from '@langchain/textsplitters'
 import { OpenAI } from 'openai'
 import { getAdminClient } from '@/lib/supabase/admin'
+import { logger } from '@/lib/utils/logger'
 
 // Dynamic import for pdf-parse due to module format issues
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -62,25 +63,25 @@ export async function loadDocument(
   const fullPath = join(process.cwd(), filePath)
   const fileExtension = filePath.split('.').pop()?.toLowerCase()
 
-  console.log(`📄 Loading document: ${filePath}`)
+  logger.info(`📄 Loading document: ${filePath}`)
 
   try {
     if (fileExtension === 'pdf') {
       // Load PDF
       const dataBuffer = readFileSync(fullPath)
       const data = await pdfParse(dataBuffer)
-      console.log(`   ✅ Loaded PDF (${data.numpages} pages, ${data.text.length} chars)`)
+      logger.info(`   ✅ Loaded PDF (${data.numpages} pages, ${data.text.length} chars)`)
       return data.text
     } else if (fileExtension === 'txt' || fileExtension === 'md') {
       // Load text file
       const text = readFileSync(fullPath, 'utf-8')
-      console.log(`   ✅ Loaded text file (${text.length} chars)`)
+      logger.info(`   ✅ Loaded text file (${text.length} chars)`)
       return text
     } else {
       throw new Error(`Unsupported file type: ${fileExtension}`)
     }
   } catch (error) {
-    console.error(`   ❌ Error loading document: ${error}`)
+    logger.error(`   ❌ Error loading document: ${error}`)
     throw error
   }
 }
@@ -89,7 +90,7 @@ export async function loadDocument(
  * Split document into chunks
  */
 export async function chunkDocument(text: string): Promise<string[]> {
-  console.log(`✂️  Chunking document...`)
+  logger.info(`✂️  Chunking document...`)
 
   const splitter = new RecursiveCharacterTextSplitter({
     chunkSize: CHUNK_SIZE,
@@ -99,8 +100,8 @@ export async function chunkDocument(text: string): Promise<string[]> {
 
   const chunks = await splitter.splitText(text)
 
-  console.log(`   ✅ Created ${chunks.length} chunks`)
-  console.log(`   📊 Avg chunk size: ${Math.round(chunks.reduce((sum, c) => sum + c.length, 0) / chunks.length)} chars`)
+  logger.info(`   ✅ Created ${chunks.length} chunks`)
+  logger.info(`   📊 Avg chunk size: ${Math.round(chunks.reduce((sum, c) => sum + c.length, 0) / chunks.length)} chars`)
 
   return chunks
 }
@@ -119,7 +120,7 @@ export async function generateEmbedding(text: string): Promise<number[]> {
 
     return response.data[0].embedding
   } catch (error) {
-    console.error('❌ Error generating embedding:', error)
+    logger.error('❌ Error generating embedding:', error)
     throw error
   }
 }
@@ -131,7 +132,7 @@ export async function generateEmbeddings(
   texts: string[],
   batchSize: number = 100
 ): Promise<number[][]> {
-  console.log(`🔮 Generating embeddings for ${texts.length} chunks...`)
+  logger.info(`🔮 Generating embeddings for ${texts.length} chunks...`)
 
   const openai = getOpenAIClient()
   const embeddings: number[][] = []
@@ -140,7 +141,7 @@ export async function generateEmbeddings(
   for (let i = 0; i < texts.length; i += batchSize) {
     const batch = texts.slice(i, i + batchSize)
 
-    console.log(`   Processing batch ${Math.floor(i / batchSize) + 1}/${Math.ceil(texts.length / batchSize)}...`)
+    logger.info(`   Processing batch ${Math.floor(i / batchSize) + 1}/${Math.ceil(texts.length / batchSize)}...`)
 
     const response = await openai.embeddings.create({
       model: EMBEDDING_MODEL,
@@ -156,7 +157,7 @@ export async function generateEmbeddings(
     }
   }
 
-  console.log(`   ✅ Generated ${embeddings.length} embeddings`)
+  logger.info(`   ✅ Generated ${embeddings.length} embeddings`)
 
   return embeddings
 }
@@ -165,7 +166,7 @@ export async function generateEmbeddings(
  * Store chunks with embeddings in Supabase
  */
 export async function storeChunks(chunks: DocumentChunk[]): Promise<void> {
-  console.log(`💾 Storing ${chunks.length} chunks in Supabase...`)
+  logger.info(`💾 Storing ${chunks.length} chunks in Supabase...`)
 
   const supabase = getAdminClient()
 
@@ -188,15 +189,15 @@ export async function storeChunks(chunks: DocumentChunk[]): Promise<void> {
       .insert(batch)
 
     if (error) {
-      console.error(`❌ Error inserting batch: ${error.message}`)
+      logger.error(`❌ Error inserting batch: ${error.message}`)
       throw error
     }
 
     inserted += batch.length
-    console.log(`   ✅ Inserted ${inserted}/${records.length} chunks`)
+    logger.info(`   ✅ Inserted ${inserted}/${records.length} chunks`)
   }
 
-  console.log(`   ✅ All chunks stored successfully!`)
+  logger.info(`   ✅ All chunks stored successfully!`)
 }
 
 /**
@@ -206,9 +207,9 @@ export async function ingestDocument(
   filePath: string,
   metadata: Omit<DocumentMetadata, 'source'>
 ): Promise<number> {
-  console.log(`\n🚀 Starting ingestion pipeline for: ${filePath}`)
-  console.log(`   Module: ${metadata.module}`)
-  console.log(`   Topic: ${metadata.topic}\n`)
+  logger.info(`\n🚀 Starting ingestion pipeline for: ${filePath}`)
+  logger.info(`   Module: ${metadata.module}`)
+  logger.info(`   Topic: ${metadata.topic}\n`)
 
   try {
     // Step 1: Load document
@@ -235,14 +236,14 @@ export async function ingestDocument(
     // Step 5: Store in Supabase
     await storeChunks(documentChunks)
 
-    console.log(`\n✅ Successfully ingested document: ${filePath}`)
-    console.log(`   Total chunks: ${chunks.length}`)
-    console.log(`   Total embeddings: ${embeddings.length}\n`)
+    logger.info(`\n✅ Successfully ingested document: ${filePath}`)
+    logger.info(`   Total chunks: ${chunks.length}`)
+    logger.info(`   Total embeddings: ${embeddings.length}\n`)
 
     return chunks.length
   } catch (error) {
-    console.error(`\n❌ Failed to ingest document: ${filePath}`)
-    console.error(error)
+    logger.error(`\n❌ Failed to ingest document: ${filePath}`)
+    logger.error(error)
     throw error
   }
 }
@@ -256,7 +257,7 @@ export async function ingestDocuments(
     metadata: Omit<DocumentMetadata, 'source'>
   }>
 ): Promise<{ success: number; failed: number; totalChunks: number }> {
-  console.log(`\n📚 Ingesting ${documents.length} documents...\n`)
+  logger.info(`\n📚 Ingesting ${documents.length} documents...\n`)
 
   let success = 0
   let failed = 0
@@ -269,14 +270,14 @@ export async function ingestDocuments(
       totalChunks += chunks
     } catch {
       failed++
-      console.error(`Failed to ingest: ${doc.filePath}`)
+      logger.error(`Failed to ingest: ${doc.filePath}`)
     }
   }
 
-  console.log(`\n📊 Ingestion Summary:`)
-  console.log(`   ✅ Successful: ${success}/${documents.length}`)
-  console.log(`   ❌ Failed: ${failed}/${documents.length}`)
-  console.log(`   📦 Total chunks: ${totalChunks}`)
+  logger.info(`\n📊 Ingestion Summary:`)
+  logger.info(`   ✅ Successful: ${success}/${documents.length}`)
+  logger.info(`   ❌ Failed: ${failed}/${documents.length}`)
+  logger.info(`   📦 Total chunks: ${totalChunks}`)
 
   return { success, failed, totalChunks }
 }

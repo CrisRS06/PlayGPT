@@ -7,10 +7,18 @@ import { ChatInput } from "@/components/chat/ChatInput"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
-import { ArrowLeft, Sparkles, MessageSquare } from "lucide-react"
+import { ArrowLeft, Sparkles, MessageSquare, BookOpen, BarChart3, Zap, Crown } from "lucide-react"
 import type { Message } from "@/components/chat/ChatMessage"
 import { saveConversationAction, loadConversationAction } from "@/lib/chat/conversation-actions"
 import { ConversationSidebar } from "@/components/chat/ConversationSidebar"
+import { LearningPathSidebar } from "@/components/learning/LearningPathSidebar"
+import { XPProgressBar } from "@/components/gamification/XPProgressBar"
+import { StreakIndicator } from "@/components/gamification/StreakIndicator"
+import { AchievementToast } from "@/components/gamification/AchievementToast"
+import { ModeToggle } from "@/components/learning/ModeToggle"
+import { QuickActions } from "@/components/chat/QuickActions"
+import { OnboardingTour } from "@/components/onboarding/OnboardingTour"
+import { useGamificationStore } from "@/stores/gamification-store"
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([])
@@ -18,6 +26,8 @@ export default function ChatPage() {
   const [error, setError] = useState<Error | null>(null)
   const [currentConversationId, setCurrentConversationId] = useState<string | null>(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [learningPathOpen, setLearningPathOpen] = useState(false)
+  const { currentAchievement, clearCurrentAchievement } = useGamificationStore()
 
   // Save conversation after messages update
   useEffect(() => {
@@ -29,7 +39,7 @@ export default function ChatPage() {
             setCurrentConversationId(conversationId)
           }
         } catch (err) {
-          console.error("Error saving conversation:", err)
+          // Silent fail - conversation auto-save is not critical
         }
       }
     }
@@ -49,6 +59,21 @@ export default function ChatPage() {
       setCurrentConversationId(conversationId)
       setSidebarOpen(false)
     }
+  }
+
+  // Handlers to ensure only one sidebar is open at a time
+  const handleToggleConversationSidebar = () => {
+    if (!sidebarOpen && learningPathOpen) {
+      setLearningPathOpen(false)
+    }
+    setSidebarOpen(!sidebarOpen)
+  }
+
+  const handleToggleLearningPath = () => {
+    if (!learningPathOpen && sidebarOpen) {
+      setSidebarOpen(false)
+    }
+    setLearningPathOpen(!learningPathOpen)
   }
 
   const handleSendMessage = async (content: string) => {
@@ -123,7 +148,6 @@ export default function ChatPage() {
         )
       }
     } catch (err) {
-      console.error("Error sending message:", err)
       setError(err as Error)
     } finally {
       setIsLoading(false)
@@ -132,6 +156,21 @@ export default function ChatPage() {
 
   return (
     <div className="flex h-screen bg-black text-white">
+      {/* Onboarding Tour */}
+      <OnboardingTour />
+
+      {/* Achievement Toast */}
+      <AchievementToast
+        achievement={currentAchievement}
+        onClose={clearCurrentAchievement}
+      />
+
+      {/* Learning Path Sidebar */}
+      <LearningPathSidebar
+        isOpen={learningPathOpen}
+        onClose={() => setLearningPathOpen(false)}
+      />
+
       {/* Conversation Sidebar */}
       <ConversationSidebar
         isOpen={sidebarOpen}
@@ -160,11 +199,54 @@ export default function ChatPage() {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => setSidebarOpen(!sidebarOpen)}
+                onClick={handleToggleConversationSidebar}
                 className="relative"
                 aria-label={sidebarOpen ? "Cerrar conversaciones" : "Abrir conversaciones"}
               >
                 <MessageSquare className="h-5 w-5" />
+              </Button>
+              <Separator orientation="vertical" className="h-6" />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={handleToggleLearningPath}
+                className="relative"
+                aria-label={learningPathOpen ? "Cerrar ruta de aprendizaje" : "Abrir ruta de aprendizaje"}
+              >
+                <BookOpen className="h-5 w-5" />
+              </Button>
+              <Separator orientation="vertical" className="h-6" />
+              <Button
+                variant="ghost"
+                size="icon"
+                asChild
+                aria-label="Ver dashboard"
+              >
+                <Link href="/dashboard">
+                  <BarChart3 className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Separator orientation="vertical" className="h-6" />
+              <Button
+                variant="ghost"
+                size="icon"
+                asChild
+                aria-label="Herramientas interactivas"
+              >
+                <Link href="/tools">
+                  <Zap className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Separator orientation="vertical" className="h-6" />
+              <Button
+                variant="ghost"
+                size="icon"
+                asChild
+                aria-label="Características avanzadas"
+              >
+                <Link href="/advanced">
+                  <Crown className="h-5 w-5" />
+                </Link>
               </Button>
               <Separator orientation="vertical" className="h-6" />
               <div className="flex items-center gap-2">
@@ -179,11 +261,12 @@ export default function ChatPage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-xs font-medium text-green-500">En línea</span>
-              </div>
+            <div className="hidden md:flex items-center gap-3">
+              <ModeToggle compact />
+              <Separator orientation="vertical" className="h-6" />
+              <XPProgressBar compact />
+              <Separator orientation="vertical" className="h-6" />
+              <StreakIndicator compact />
             </div>
           </div>
         </motion.header>
@@ -196,7 +279,10 @@ export default function ChatPage() {
         className="flex-1 flex flex-col overflow-hidden"
       >
         {/* Messages */}
-        <ChatContainer messages={messages} isLoading={isLoading} />
+        <ChatContainer messages={messages} isLoading={isLoading} onSendMessage={handleSendMessage} />
+
+        {/* Quick Actions */}
+        <QuickActions />
 
         {/* Input Area */}
         <div className="border-t border-white/10 bg-black/50 backdrop-blur-xl p-6">

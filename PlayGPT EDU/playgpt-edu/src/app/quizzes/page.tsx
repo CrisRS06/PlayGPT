@@ -77,7 +77,6 @@ export default function QuizzesPage() {
         router.push(`/quizzes/${quizId}`)
       }, 500)
     } catch (err) {
-      console.error("Error generating quiz:", err)
       toast.error("Error al generar el quiz. Por favor intenta de nuevo.", { id: "quiz-generation" })
       setError("Hubo un error al generar el quiz. Por favor intenta de nuevo.")
     } finally {

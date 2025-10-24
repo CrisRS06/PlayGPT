@@ -8,6 +8,7 @@ import { getQuiz, evaluateQuiz, saveQuizAttempt, type QuizQuestion } from '@/lib
 import { getUser } from '@/lib/auth/actions'
 import { updateKnowledgeFromQuiz, logInteraction } from '@/lib/knowledge/knowledge-tracker'
 import { quizSubmissionRateLimiter, getRateLimitIdentifier, createRateLimitResponse, addRateLimitHeaders } from '@/lib/rate-limit'
+import { logger } from '@/lib/utils/logger'
 
 export const runtime = 'nodejs'
 
@@ -79,7 +80,7 @@ export async function POST(
       score
     )
 
-    console.log(`✅ Quiz attempt saved: ${attemptId} - Score: ${(score * 100).toFixed(0)}%`)
+    logger.info(`✅ Quiz attempt saved: ${attemptId} - Score: ${(score * 100).toFixed(0)}%`)
 
     // Update knowledge components based on quiz performance
     await updateKnowledgeFromQuiz(
@@ -98,7 +99,7 @@ export async function POST(
       totalQuestions: questions.length,
     })
 
-    console.log(`📊 Knowledge components updated for user ${user.id}`)
+    logger.info(`📊 Knowledge components updated for user ${user.id}`)
 
     const response = NextResponse.json({
       attemptId,
@@ -113,7 +114,7 @@ export async function POST(
 
     return response
   } catch (error) {
-    console.error('❌ Error submitting quiz:', error)
+    logger.error('❌ Error submitting quiz:', error)
 
     return NextResponse.json(
       {

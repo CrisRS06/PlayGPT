@@ -13,6 +13,7 @@ import { streamText } from 'ai'
 import { searchDocuments, formatSearchResultsAsContext } from '@/lib/rag/search'
 import { chatRateLimiter, getRateLimitIdentifier, createRateLimitResponse, addRateLimitHeaders } from '@/lib/rate-limit'
 import { getUser } from '@/lib/auth/actions'
+import { logger } from '@/lib/utils/logger'
 
 export const runtime = 'nodejs'
 export const maxDuration = 30
@@ -51,7 +52,7 @@ export async function POST(req: Request) {
     }
 
     // Step 1: Search knowledge base using RAG
-    console.log('🔍 Searching knowledge base for:', lastMessage.content)
+    logger.info('🔍 Searching knowledge base for:', lastMessage.content)
 
     const searchResults = await searchDocuments(lastMessage.content, {
       matchThreshold: 0.6, // Lower threshold for better recall
@@ -61,7 +62,7 @@ export async function POST(req: Request) {
     // Step 2: Format context from search results
     const context = formatSearchResultsAsContext(searchResults)
 
-    console.log(`📚 Found ${searchResults.length} relevant documents`)
+    logger.info(`📚 Found ${searchResults.length} relevant documents`)
 
     // Step 3: Build system prompt with context
     const systemPrompt = `Eres PlayGPT EDU, un asistente educativo experto en juego responsable, probabilidad, valor esperado y gestión de bankroll.
@@ -101,7 +102,7 @@ Responde en español de forma clara y estructurada.`
 
     return response
   } catch (error) {
-    console.error('❌ Chat API error:', error)
+    logger.error('❌ Chat API error:', error)
 
     return new Response(
       JSON.stringify({

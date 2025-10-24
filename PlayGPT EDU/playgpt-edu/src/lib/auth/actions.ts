@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 import { createClient } from "@/lib/supabase/server"
 import { getAdminClient } from "@/lib/supabase/admin"
+import { logger } from "@/lib/utils/logger"
 
 export async function login(email: string, password: string) {
   const supabase = await createClient()
@@ -52,7 +53,7 @@ export async function signup(email: string, password: string, name?: string) {
       })
 
     if (profileError) {
-      console.error("Error creating profile:", profileError)
+      logger.error("Error creating profile:", profileError)
       throw new Error("Error al crear el perfil del estudiante")
     }
   }

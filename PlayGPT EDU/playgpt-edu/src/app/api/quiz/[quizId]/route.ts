@@ -6,6 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getQuiz } from '@/lib/quiz/quiz-generator'
 import { getUser } from '@/lib/auth/actions'
+import { logger } from '@/lib/utils/logger'
 
 export const runtime = 'nodejs'
 
@@ -39,7 +40,7 @@ export async function GET(
 
     return NextResponse.json(quiz)
   } catch (error) {
-    console.error('❌ Error retrieving quiz:', error)
+    logger.error('❌ Error retrieving quiz:', error)
 
     return NextResponse.json(
       {

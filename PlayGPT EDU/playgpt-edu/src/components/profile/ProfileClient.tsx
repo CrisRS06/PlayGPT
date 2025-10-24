@@ -231,7 +231,7 @@ export function ProfileClient({
                   ) : (
                     <div className="space-y-4">
                       {knowledgeComponents.slice(0, 10).map((kc, index) => (
-                        <div key={index} className="space-y-2">
+                        <div key={kc.component_name} className="space-y-2">
                           <div className="flex items-center justify-between">
                             <span className="text-sm font-medium text-white">
                               {kc.component_name}
@@ -297,7 +297,7 @@ export function ProfileClient({
                     <div className="space-y-3">
                       {quizAttempts.slice(0, 5).map((attempt, index) => (
                         <div
-                          key={index}
+                          key={attempt.id || `attempt-${index}`}
                           className="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
                         >
                           <div>

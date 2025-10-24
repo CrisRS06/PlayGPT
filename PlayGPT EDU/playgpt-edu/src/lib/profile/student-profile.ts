@@ -4,6 +4,7 @@
  */
 
 import { createClient } from '@/lib/supabase/server'
+import { logger } from '@/lib/utils/logger'
 
 export interface StudentProfile {
   id: string
@@ -31,7 +32,7 @@ export async function getStudentProfile(userId: string): Promise<StudentProfile 
     .single()
 
   if (error) {
-    console.error('Error loading student profile:', error)
+    logger.error('Error loading student profile:', error)
     return null
   }
 
@@ -56,7 +57,7 @@ export async function updateStudentProfile(
     .eq('user_id', userId)
 
   if (error) {
-    console.error('Error updating student profile:', error)
+    logger.error('Error updating student profile:', error)
     return false
   }
 
@@ -76,7 +77,7 @@ export async function getKnowledgeComponents(userId: string) {
     .order('mastery_level', { ascending: false })
 
   if (error) {
-    console.error('Error loading knowledge components:', error)
+    logger.error('Error loading knowledge components:', error)
     return []
   }
 
@@ -97,7 +98,7 @@ export async function getQuizAttempts(userId: string) {
     .limit(10)
 
   if (error) {
-    console.error('Error loading quiz attempts:', error)
+    logger.error('Error loading quiz attempts:', error)
     return []
   }
 
@@ -118,7 +119,7 @@ export async function getInteractionStats(userId: string) {
     .limit(100)
 
   if (error) {
-    console.error('Error loading interaction stats:', error)
+    logger.error('Error loading interaction stats:', error)
     return {
       total_interactions: 0,
       total_tokens: 0,

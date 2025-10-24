@@ -99,7 +99,7 @@ export function Features() {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {features.map((feature, index) => (
-            <motion.div key={index} variants={item}>
+            <motion.div key={feature.title} variants={item}>
               <Card className="group relative h-full overflow-hidden border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm hover:border-white/20 transition-all duration-300 hover:scale-105">
                 <CardContent className="p-6 space-y-4">
                   {/* Icon */}

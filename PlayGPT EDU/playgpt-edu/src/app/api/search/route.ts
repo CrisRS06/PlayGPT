@@ -7,6 +7,7 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { searchDocuments, formatSearchResultsAsContext } from '@/lib/rag/search'
+import { logger } from '@/lib/utils/logger'
 
 export const runtime = 'nodejs' // Use Node.js runtime for OpenAI SDK
 
@@ -62,7 +63,7 @@ export async function POST(request: NextRequest) {
       })
     }
   } catch (error) {
-    console.error('Search API error:', error)
+    logger.error('Search API error:', error)
     return NextResponse.json(
       {
         error: 'Failed to perform search',
@@ -97,7 +98,7 @@ export async function GET(request: NextRequest) {
       resultCount: results.length,
     })
   } catch (error) {
-    console.error('Search API error:', error)
+    logger.error('Search API error:', error)
     return NextResponse.json(
       {
         error: 'Failed to perform search',

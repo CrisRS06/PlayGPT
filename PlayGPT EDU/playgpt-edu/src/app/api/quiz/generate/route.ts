@@ -7,6 +7,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { generateQuiz, saveQuiz } from '@/lib/quiz/quiz-generator'
 import { getUser } from '@/lib/auth/actions'
 import { quizGenerationRateLimiter, getRateLimitIdentifier, createRateLimitResponse, addRateLimitHeaders } from '@/lib/rate-limit'
+import { logger } from '@/lib/utils/logger'
 
 export const runtime = 'nodejs'
 export const maxDuration = 30
@@ -47,7 +48,7 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    console.log(`📝 Generating quiz on "${topic}" for user ${user.id}`)
+    logger.info(`📝 Generating quiz on "${topic}" for user ${user.id}`)
 
     // Generate quiz with AI
     const quiz = await generateQuiz(topic, level, numberOfQuestions)
@@ -58,7 +59,7 @@ export async function POST(req: NextRequest) {
     // Save quiz to database
     const quizId = await saveQuiz(user.id, topic, bloomsLevel, quiz.questions)
 
-    console.log(`✅ Quiz generated successfully with ID: ${quizId}`)
+    logger.info(`✅ Quiz generated successfully with ID: ${quizId}`)
 
     const response = NextResponse.json({
       quizId,
@@ -72,7 +73,7 @@ export async function POST(req: NextRequest) {
 
     return response
   } catch (error) {
-    console.error('❌ Error generating quiz:', error)
+    logger.error('❌ Error generating quiz:', error)
 
     return NextResponse.json(
       {

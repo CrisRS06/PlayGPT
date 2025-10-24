@@ -9,6 +9,7 @@
 
 import { OpenAI } from 'openai'
 import { getAdminClient } from '@/lib/supabase/admin'
+import { logger } from '@/lib/utils/logger'
 
 // Configuration
 const EMBEDDING_MODEL = 'text-embedding-3-small'
@@ -54,7 +55,7 @@ export interface SearchOptions {
  * Generate embedding for a search query
  */
 export async function generateQueryEmbedding(query: string): Promise<number[]> {
-  console.log(`🔮 Generating embedding for query: "${query.substring(0, 50)}..."`)
+  logger.debug(`🔮 Generating embedding for query: "${query.substring(0, 50)}..."`)
 
   try {
     const openai = getOpenAIClient()
@@ -64,10 +65,10 @@ export async function generateQueryEmbedding(query: string): Promise<number[]> {
       dimensions: EMBEDDING_DIMENSIONS,
     })
 
-    console.log('   ✅ Query embedding generated')
+    logger.debug('   ✅ Query embedding generated')
     return response.data[0].embedding
   } catch (error) {
-    console.error('❌ Error generating query embedding:', error)
+    logger.error('❌ Error generating query embedding:', error)
     throw error
   }
 }
@@ -85,11 +86,11 @@ export async function searchDocuments(
     filterModule,
   } = options
 
-  console.log(`\n🔍 Searching for: "${query}"`)
-  console.log(`   Match threshold: ${matchThreshold}`)
-  console.log(`   Max results: ${matchCount}`)
+  logger.debug(`\n🔍 Searching for: "${query}"`)
+  logger.debug(`   Match threshold: ${matchThreshold}`)
+  logger.debug(`   Max results: ${matchCount}`)
   if (filterModule) {
-    console.log(`   Filter module: ${filterModule}`)
+    logger.debug(`   Filter module: ${filterModule}`)
   }
 
   try {
@@ -107,11 +108,11 @@ export async function searchDocuments(
     })
 
     if (error) {
-      console.error('❌ Error searching documents:', error)
+      logger.error('❌ Error searching documents:', error)
       throw error
     }
 
-    console.log(`   ✅ Found ${data?.length || 0} matching documents\n`)
+    logger.debug(`   ✅ Found ${data?.length || 0} matching documents\n`)
 
     // Step 3: Format and return results
     const results: SearchResult[] = (data || []).map((item) => ({
@@ -123,7 +124,7 @@ export async function searchDocuments(
 
     return results
   } catch (error) {
-    console.error('❌ Search failed:', error)
+    logger.error('❌ Search failed:', error)
     throw error
   }
 }
@@ -135,22 +136,22 @@ export async function searchDocumentsVerbose(
   query: string,
   options: SearchOptions = {}
 ): Promise<SearchResult[]> {
-  console.log('\n' + '='.repeat(60))
-  console.log('RAG SEARCH DEBUG')
-  console.log('='.repeat(60))
+  logger.debug('\n' + '='.repeat(60))
+  logger.debug('RAG SEARCH DEBUG')
+  logger.debug('='.repeat(60))
 
   const results = await searchDocuments(query, options)
 
-  console.log('\n📊 Search Results:')
+  logger.debug('\n📊 Search Results:')
   results.forEach((result, index) => {
-    console.log(`\n${index + 1}. Similarity: ${(result.similarity * 100).toFixed(1)}%`)
-    console.log(`   Topic: ${result.metadata.topic}`)
-    console.log(`   Module: ${result.metadata.module}`)
-    console.log(`   Source: ${result.metadata.source}`)
-    console.log(`   Content: ${result.content.substring(0, 150)}...`)
+    logger.debug(`\n${index + 1}. Similarity: ${(result.similarity * 100).toFixed(1)}%`)
+    logger.debug(`   Topic: ${result.metadata.topic}`)
+    logger.debug(`   Module: ${result.metadata.module}`)
+    logger.debug(`   Source: ${result.metadata.source}`)
+    logger.debug(`   Content: ${result.content.substring(0, 150)}...`)
   })
 
-  console.log('\n' + '='.repeat(60) + '\n')
+  logger.debug('\n' + '='.repeat(60) + '\n')
 
   return results
 }
