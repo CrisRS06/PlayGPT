@@ -339,12 +339,12 @@ export function SkillTree() {
               <Trophy className="w-5 h-5 text-icon-primary" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-text-primary >Árbol de Habilidades</h3>
+              <h3 className="text-lg font-semibold text-text-primary">Árbol de Habilidades</h3>
               <p className="text-xs text-text-secondary">Progreso del curriculum educativo</p>
             </div>
           </div>
           <div className="text-right">
-            <p className="text-2xl font-bold text-text-primary >{stats.completed}/{stats.total}</p>
+            <p className="text-2xl font-bold text-text-primary">{stats.completed}/{stats.total}</p>
             <p className="text-xs text-text-secondary">Completadas</p>
           </div>
         </div>

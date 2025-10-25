@@ -122,12 +122,12 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
               <Brain className="w-6 h-6 text-icon-primary" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-text-primary >{conceptName}</h3>
+              <h3 className="text-xl font-bold text-text-primary">{conceptName}</h3>
               <p className="text-sm text-text-secondary">Sistema de Aprendizaje Adaptativo</p>
             </div>
           </div>
           <div className="text-right">
-            <p className="text-3xl font-bold text-text-primary >{(knowledge.pLn * 100).toFixed(0)}%</p>
+            <p className="text-3xl font-bold text-text-primary">{(knowledge.pLn * 100).toFixed(0)}%</p>
             <p className="text-xs text-text-secondary">Probabilidad de dominio</p>
           </div>
         </div>
@@ -151,7 +151,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
             <span className="text-xs text-text-secondary">Intentos</span>
             <Target className="w-4 h-4 text-text-tertiary" />
           </div>
-          <p className="text-2xl font-bold text-text-primary >{knowledge.attempts}</p>
+          <p className="text-2xl font-bold text-text-primary">{knowledge.attempts}</p>
           <p className="text-xs text-text-tertiary">Total de preguntas</p>
         </Card>
 
@@ -160,7 +160,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
             <span className="text-xs text-text-secondary">Precisión</span>
             <Zap className="w-4 h-4 text-text-tertiary" />
           </div>
-          <p className="text-2xl font-bold text-text-primary >
+          <p className="text-2xl font-bold text-text-primary">
             {knowledge.attempts > 0 ? ((knowledge.correctAnswers / knowledge.attempts) * 100).toFixed(0) : 0}%
           </p>
           <p className="text-xs text-text-tertiary">{knowledge.correctAnswers} correctas</p>
@@ -171,7 +171,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
             <span className="text-xs text-text-secondary">Siguiente</span>
             <Calendar className="w-4 h-4 text-text-tertiary" />
           </div>
-          <p className="text-lg font-bold text-text-primary >
+          <p className="text-lg font-bold text-text-primary">
             {Math.ceil((nextReview.getTime() - Date.now()) / (1000 * 60 * 60 * 24))}d
           </p>
           <p className="text-xs text-text-tertiary">Próxima revisión</p>
@@ -182,7 +182,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
             <span className="text-xs text-text-secondary">Predicción</span>
             <TrendingUp className="w-4 h-4 text-text-tertiary" />
           </div>
-          <p className="text-2xl font-bold text-text-primary >
+          <p className="text-2xl font-bold text-text-primary">
             {(predictedSuccess * 100).toFixed(0)}%
           </p>
           <p className="text-xs text-text-tertiary">Próximo acierto</p>

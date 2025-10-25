@@ -136,7 +136,7 @@ export function ProgressDashboard() {
           <div className="space-y-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-text-secondary">Progreso general</span>
-              <span className="text-sm font-semibold text-text-primary >
+              <span className="text-sm font-semibold text-text-primary">
                 {completedModules}/{totalModules} completados
               </span>
             </div>
@@ -228,7 +228,7 @@ export function ProgressDashboard() {
             <div className="flex items-start gap-3 p-3 rounded-lg border border-blue-500/20 bg-blue-500/5">
               <Trophy className="w-5 h-5 text-info flex-shrink-0 mt-0.5" />
               <div className="flex-1">
-                <p className="text-sm font-medium text-text-primary >Alcanza Nivel {level + 1}</p>
+                <p className="text-sm font-medium text-text-primary">Alcanza Nivel {level + 1}</p>
                 <p className="text-xs text-text-secondary mt-1">
                   Faltan {(level * 100) - totalXP} XP para subir de nivel
                 </p>
@@ -243,7 +243,7 @@ export function ProgressDashboard() {
             <div className="flex items-start gap-3 p-3 rounded-lg border border-orange-500/20 bg-orange-500/5">
               <Flame className="w-5 h-5 text-streak-orange flex-shrink-0 mt-0.5" />
               <div className="flex-1">
-                <p className="text-sm font-medium text-text-primary >Racha de 7 Días</p>
+                <p className="text-sm font-medium text-text-primary">Racha de 7 Días</p>
                 <p className="text-xs text-text-secondary mt-1">
                   Continúa tu racha {7 - currentStreak} días más para obtener +50 XP
                 </p>
@@ -258,7 +258,7 @@ export function ProgressDashboard() {
             <div className="flex items-start gap-3 p-3 rounded-lg border border-green-500/20 bg-green-500/5">
               <BookOpen className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
               <div className="flex-1">
-                <p className="text-sm font-medium text-text-primary >Completa Todos los Módulos</p>
+                <p className="text-sm font-medium text-text-primary">Completa Todos los Módulos</p>
                 <p className="text-xs text-text-secondary mt-1">
                   Te faltan {totalModules - completedModules} módulos para completar el curso
                 </p>

@@ -162,7 +162,7 @@ export function BettingSimulator() {
             <Play className="w-5 h-5 text-success" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-text-primary >Simulador de Apuestas</h3>
+            <h3 className="text-lg font-semibold text-text-primary">Simulador de Apuestas</h3>
             <p className="text-xs text-text-secondary">Visualiza el impacto a largo plazo de las apuestas</p>
           </div>
         </div>
@@ -174,7 +174,7 @@ export function BettingSimulator() {
               Tipo de Juego
             </Label>
             <Select value={selectedGame} onValueChange={setSelectedGame}>
-              <SelectTrigger id="game" className="bg-black/50 border-white/10 text-text-primary >
+              <SelectTrigger id="game" className="bg-black/50 border-white/10 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-gray-900 border-white/10">
@@ -235,11 +235,11 @@ export function BettingSimulator() {
         <div className="grid grid-cols-3 gap-3">
           <div className="rounded-lg border border-white/10 bg-black/30 p-3">
             <p className="text-xs text-text-secondary mb-1">Prob. Ganar</p>
-            <p className="text-lg font-bold text-text-primary >{(game.winProbability * 100).toFixed(1)}%</p>
+            <p className="text-lg font-bold text-text-primary">{(game.winProbability * 100).toFixed(1)}%</p>
           </div>
           <div className="rounded-lg border border-white/10 bg-black/30 p-3">
             <p className="text-xs text-text-secondary mb-1">Pago</p>
-            <p className="text-lg font-bold text-text-primary >{game.payout}x</p>
+            <p className="text-lg font-bold text-text-primary">{game.payout}x</p>
           </div>
           <div className="rounded-lg border border-orange-500/20 bg-orange-500/5 p-3">
             <p className="text-xs text-text-secondary mb-1">Ventaja Casa</p>

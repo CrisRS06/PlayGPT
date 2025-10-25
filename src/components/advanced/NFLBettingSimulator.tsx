@@ -224,7 +224,7 @@ export function NFLBettingSimulator() {
             <Trophy className="w-5 h-5 text-streak-orange" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-text-primary >Simulador NFL</h3>
+            <h3 className="text-lg font-semibold text-text-primary">Simulador NFL</h3>
             <p className="text-xs text-text-secondary">Aprende sobre apuestas deportivas</p>
           </div>
         </div>
@@ -234,7 +234,7 @@ export function NFLBettingSimulator() {
           <div className="space-y-2">
             <Label htmlFor="team1" className="text-sm text-text-body">Equipo Local</Label>
             <Select value={team1} onValueChange={setTeam1}>
-              <SelectTrigger id="team1" className="bg-black/50 border-white/10 text-text-primary >
+              <SelectTrigger id="team1" className="bg-black/50 border-white/10 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-gray-900 border-white/10">
@@ -250,7 +250,7 @@ export function NFLBettingSimulator() {
           <div className="space-y-2">
             <Label htmlFor="team2" className="text-sm text-text-body">Equipo Visitante</Label>
             <Select value={team2} onValueChange={setTeam2}>
-              <SelectTrigger id="team2" className="bg-black/50 border-white/10 text-text-primary >
+              <SelectTrigger id="team2" className="bg-black/50 border-white/10 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-gray-900 border-white/10">
@@ -268,7 +268,7 @@ export function NFLBettingSimulator() {
         <div className="rounded-lg border border-white/10 bg-black/30 p-4">
           <div className="flex items-center justify-between">
             <div className="text-center flex-1">
-              <p className="text-lg font-bold text-text-primary >{team1Data.city} {team1Data.name}</p>
+              <p className="text-lg font-bold text-text-primary">{team1Data.city} {team1Data.name}</p>
               <p className="text-sm text-text-secondary">Power: {team1Data.power}</p>
               <Badge variant="outline" className={cn("mt-2", team1WinProb > 0.5 ? "bg-green-500/10 text-success" : "bg-orange-500/10 text-streak-orange")}>
                 {team1Odds > 0 ? '+' : ''}{team1Odds}
@@ -276,7 +276,7 @@ export function NFLBettingSimulator() {
             </div>
             <div className="px-4 text-text-tertiary font-bold">VS</div>
             <div className="text-center flex-1">
-              <p className="text-lg font-bold text-text-primary >{team2Data.city} {team2Data.name}</p>
+              <p className="text-lg font-bold text-text-primary">{team2Data.city} {team2Data.name}</p>
               <p className="text-sm text-text-secondary">Power: {team2Data.power}</p>
               <Badge variant="outline" className={cn("mt-2", team2WinProb > 0.5 ? "bg-green-500/10 text-success" : "bg-orange-500/10 text-streak-orange")}>
                 {team2Odds > 0 ? '+' : ''}{team2Odds}
@@ -290,7 +290,7 @@ export function NFLBettingSimulator() {
           <div className="space-y-2">
             <Label htmlFor="betType" className="text-sm text-text-body">Tipo de Apuesta</Label>
             <Select value={betType} onValueChange={(v) => setBetType(v as BetType)}>
-              <SelectTrigger id="betType" className="bg-black/50 border-white/10 text-text-primary >
+              <SelectTrigger id="betType" className="bg-black/50 border-white/10 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-gray-900 border-white/10">
@@ -336,7 +336,7 @@ export function NFLBettingSimulator() {
                 )}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-semibold text-text-primary >{option.description}</span>
+                  <span className="font-semibold text-text-primary">{option.description}</span>
                   <Badge variant="outline" className="bg-white/5">
                     {option.odds > 0 ? '+' : ''}{option.odds}
                   </Badge>

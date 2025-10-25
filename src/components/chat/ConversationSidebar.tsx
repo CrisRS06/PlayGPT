@@ -99,7 +99,7 @@ export function ConversationSidebar({
             {/* Header */}
             <div className="p-4 border-b border-white/10">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold text-text-primary >Conversaciones</h2>
+                <h2 className="text-lg font-semibold text-text-primary">Conversaciones</h2>
                 <Button
                   variant="ghost"
                   size="icon"

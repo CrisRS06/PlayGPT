@@ -53,7 +53,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
           </div>
         </div>
         <div className="space-y-2 text-center">
-          <CardTitle className="text-2xl font-bold text-text-primary >
+          <CardTitle className="text-2xl font-bold text-text-primary">
             {isLogin ? "Bienvenido de vuelta" : "Crear cuenta"}
           </CardTitle>
           <CardDescription className="text-text-body">
@@ -68,7 +68,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
         <form onSubmit={handleSubmit} className="space-y-4">
           {!isLogin && (
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-medium text-text-primary >
+              <label htmlFor="name" className="text-sm font-medium text-text-primary">
                 Nombre completo
               </label>
               <Input
@@ -85,7 +85,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
           )}
 
           <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium text-text-primary >
+            <label htmlFor="email" className="text-sm font-medium text-text-primary">
               Correo electrónico
             </label>
             <Input
@@ -101,7 +101,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="password" className="text-sm font-medium text-text-primary >
+            <label htmlFor="password" className="text-sm font-medium text-text-primary">
               Contraseña
             </label>
             <Input

@@ -53,7 +53,7 @@ export function DashboardClient({
   const recentQuizzes = quizAttempts.slice(0, 5).reverse()
 
   return (
-    <div className="min-h-screen bg-black text-text-primary >
+    <div className="min-h-screen bg-black text-text-primary">
       {/* Header */}
       <div className="border-b border-white/10 bg-black/50 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 py-6">
@@ -64,7 +64,7 @@ export function DashboardClient({
               </Link>
             </Button>
             <div>
-              <h1 className="text-2xl font-bold text-text-primary >Dashboard de Progreso</h1>
+              <h1 className="text-2xl font-bold text-text-primary">Dashboard de Progreso</h1>
               <p className="text-sm text-text-secondary">
                 Visualiza tu evolución y métricas de aprendizaje
               </p>
@@ -86,7 +86,7 @@ export function DashboardClient({
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm text-text-secondary mb-1">Quizzes Completados</p>
-                    <p className="text-3xl font-bold text-text-primary >{quizAttempts.length}</p>
+                    <p className="text-3xl font-bold text-text-primary">{quizAttempts.length}</p>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                     <Trophy className="h-6 w-6 text-primary" />
@@ -106,7 +106,7 @@ export function DashboardClient({
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm text-text-secondary mb-1">Promedio de Calificación</p>
-                    <p className="text-3xl font-bold text-text-primary >
+                    <p className="text-3xl font-bold text-text-primary">
                       {(averageScore * 100).toFixed(0)}%
                     </p>
                   </div>
@@ -128,7 +128,7 @@ export function DashboardClient({
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm text-text-secondary mb-1">Conceptos Dominados</p>
-                    <p className="text-3xl font-bold text-text-primary >
+                    <p className="text-3xl font-bold text-text-primary">
                       {masteredComponents}/{knowledgeComponents.length}
                     </p>
                   </div>
@@ -150,7 +150,7 @@ export function DashboardClient({
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm text-text-secondary mb-1">Total Interacciones</p>
-                    <p className="text-3xl font-bold text-text-primary >
+                    <p className="text-3xl font-bold text-text-primary">
                       {interactionStats.total_interactions}
                     </p>
                   </div>
@@ -257,7 +257,7 @@ export function DashboardClient({
                     <div className="mb-6">
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-sm text-text-secondary">Dominio General</span>
-                        <span className="text-sm font-bold text-text-primary >
+                        <span className="text-sm font-bold text-text-primary">
                           {(averageMastery * 100).toFixed(0)}%
                         </span>
                       </div>

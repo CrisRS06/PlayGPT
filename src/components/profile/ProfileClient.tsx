@@ -72,7 +72,7 @@ export function ProfileClient({
   ).length
 
   return (
-    <div className="min-h-screen bg-black text-text-primary >
+    <div className="min-h-screen bg-black text-text-primary">
       {/* Header */}
       <div className="border-b border-white/10 bg-black/50 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 py-6">
@@ -83,7 +83,7 @@ export function ProfileClient({
               </Link>
             </Button>
             <div>
-              <h1 className="text-2xl font-bold text-text-primary >Mi Perfil</h1>
+              <h1 className="text-2xl font-bold text-text-primary">Mi Perfil</h1>
               <p className="text-sm text-text-secondary">
                 Gestiona tu información y visualiza tu progreso
               </p>
@@ -109,7 +109,7 @@ export function ProfileClient({
                       <User className="w-8 h-8 text-text-primary  />
                     </div>
                     <div>
-                      <CardTitle className="text-text-primary >
+                      <CardTitle className="text-text-primary">
                         {user.user_metadata?.full_name || "Usuario"}
                       </CardTitle>
                       <p className="text-sm text-text-secondary">{user.email}</p>
@@ -133,7 +133,7 @@ export function ProfileClient({
                         <p className="text-sm text-text-secondary mb-2">
                           Estilo de Aprendizaje
                         </p>
-                        <Badge variant="outline" className="border-primary/30 text-text-primary >
+                        <Badge variant="outline" className="border-primary/30 text-text-primary">
                           {learningStyleLabels[profile.learning_style]}
                         </Badge>
                       </div>
@@ -169,7 +169,7 @@ export function ProfileClient({
                     <span className="text-sm text-text-secondary">
                       Interacciones
                     </span>
-                    <span className="text-lg font-bold text-text-primary >
+                    <span className="text-lg font-bold text-text-primary">
                       {interactionStats.total_interactions}
                     </span>
                   </div>
@@ -177,7 +177,7 @@ export function ProfileClient({
                     <span className="text-sm text-text-secondary">
                       Conceptos Dominados
                     </span>
-                    <span className="text-lg font-bold text-text-primary >
+                    <span className="text-lg font-bold text-text-primary">
                       {masteredComponents}/{knowledgeComponents.length}
                     </span>
                   </div>
@@ -185,7 +185,7 @@ export function ProfileClient({
                     <span className="text-sm text-text-secondary">
                       Promedio Quizzes
                     </span>
-                    <span className="text-lg font-bold text-text-primary >
+                    <span className="text-lg font-bold text-text-primary">
                       {(averageQuizScore * 100).toFixed(0)}%
                     </span>
                   </div>
@@ -193,7 +193,7 @@ export function ProfileClient({
                     <span className="text-sm text-text-secondary">
                       Quizzes Completados
                     </span>
-                    <span className="text-lg font-bold text-text-primary >
+                    <span className="text-lg font-bold text-text-primary">
                       {quizAttempts.length}
                     </span>
                   </div>
@@ -233,14 +233,14 @@ export function ProfileClient({
                       {knowledgeComponents.slice(0, 10).map((kc, index) => (
                         <div key={kc.component_name} className="space-y-2">
                           <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-text-primary >
+                            <span className="text-sm font-medium text-text-primary">
                               {kc.component_name}
                             </span>
                             <div className="flex items-center gap-2">
                               <span className="text-xs text-text-secondary">
                                 {kc.attempts || 0} intentos
                               </span>
-                              <span className="text-sm font-bold text-text-primary >
+                              <span className="text-sm font-bold text-text-primary">
                                 {((kc.mastery_level || 0) * 100).toFixed(0)}%
                               </span>
                             </div>
@@ -301,7 +301,7 @@ export function ProfileClient({
                           className="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
                         >
                           <div>
-                            <p className="text-sm font-medium text-text-primary >
+                            <p className="text-sm font-medium text-text-primary">
                               Quiz {index + 1}
                             </p>
                             <p className="text-xs text-text-secondary">

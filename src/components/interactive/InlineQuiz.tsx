@@ -170,7 +170,7 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
             <div className="grid grid-cols-3 gap-4">
               <div className="rounded-lg border border-white/10 bg-black/30 p-3">
                 <p className="text-xs text-text-secondary mb-1">Puntuación</p>
-                <p className="text-2xl font-bold text-text-primary >{percentage.toFixed(0)}%</p>
+                <p className="text-2xl font-bold text-text-primary">{percentage.toFixed(0)}%</p>
               </div>
               <div className="rounded-lg border border-white/10 bg-black/30 p-3">
                 <p className="text-xs text-text-secondary mb-1">Correctas</p>
@@ -210,7 +210,7 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
                 <Target className="w-4 h-4 text-icon-primary" />
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-text-primary >{title}</h3>
+                <h3 className="text-sm font-semibold text-text-primary">{title}</h3>
                 <p className="text-xs text-text-secondary">
                   Pregunta {currentQuestionIndex + 1} de {questions.length}
                 </p>
@@ -291,7 +291,7 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
                       {isSelected && !isAnswered && <div className="w-2 h-2 rounded-full bg-blue-400" />}
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-text-primary >{option.text}</p>
+                      <p className="text-sm text-text-primary">{option.text}</p>
                       {showFeedback && option.explanation && (
                         <motion.p
                           initial={{ opacity: 0 }}

@@ -108,7 +108,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
               ) : (
                 <Compass className="h-4 w-4 text-info" />
               )}
-              <span className="text-sm font-medium text-text-primary >{modeInfo.title}</span>
+              <span className="text-sm font-medium text-text-primary">{modeInfo.title}</span>
             </motion.div>
           </AnimatePresence>
           <Info className="h-3 w-3 ml-2 text-text-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -148,7 +148,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
                 <BookOpen className={cn("h-5 w-5", isGuided ? "text-icon-primary" : "text-text-tertiary")} />
               </div>
               <div className="flex-1">
-                <p className="text-sm font-medium text-text-primary >Modo Guiado</p>
+                <p className="text-sm font-medium text-text-primary">Modo Guiado</p>
                 <p className="text-xs text-text-secondary">Estructura activa del aprendizaje</p>
               </div>
               <Switch checked={isGuided} onCheckedChange={handleToggle} />
@@ -170,7 +170,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
                 <Compass className={cn("h-5 w-5", !isGuided ? "text-info" : "text-text-tertiary")} />
               </div>
               <div className="flex-1">
-                <p className="text-sm font-medium text-text-primary >Modo Libre</p>
+                <p className="text-sm font-medium text-text-primary">Modo Libre</p>
                 <p className="text-xs text-text-secondary">Conversación a tu propio ritmo</p>
               </div>
               <Switch checked={!isGuided} onCheckedChange={handleToggle} />
@@ -220,12 +220,12 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
               exit={{ opacity: 0, height: 0 }}
               className="pt-3 border-t border-white/10 space-y-3"
             >
-              <p className="text-xs font-medium text-text-primary >Configuración del Modo Guiado:</p>
+              <p className="text-xs font-medium text-text-primary">Configuración del Modo Guiado:</p>
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <p className="text-xs text-text-primary >Auto-sugerir temas</p>
+                    <p className="text-xs text-text-primary">Auto-sugerir temas</p>
                     <p className="text-xs text-text-tertiary">Recomendar qué estudiar siguiente</p>
                   </div>
                   <Switch
@@ -236,7 +236,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
 
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <p className="text-xs text-text-primary >Quizzes inline</p>
+                    <p className="text-xs text-text-primary">Quizzes inline</p>
                     <p className="text-xs text-text-tertiary">Insertar evaluaciones automáticas</p>
                   </div>
                   <Switch
@@ -247,7 +247,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
 
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <p className="text-xs text-text-primary >Recomendaciones proactivas</p>
+                    <p className="text-xs text-text-primary">Recomendaciones proactivas</p>
                     <p className="text-xs text-text-tertiary">Sugerencias de refuerzo</p>
                   </div>
                   <Switch

@@ -93,7 +93,7 @@ export function KnowledgeProgressChart({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Brain className="w-5 h-5 text-icon-primary" />
-              <h4 className="text-sm font-semibold text-text-primary >Dominio de Temas</h4>
+              <h4 className="text-sm font-semibold text-text-primary">Dominio de Temas</h4>
             </div>
             <Badge variant="outline" className="bg-purple-500/10 text-icon-primary border-purple-500/20">
               {averageMastery.toFixed(0)}% Promedio
@@ -145,12 +145,12 @@ export function KnowledgeProgressChart({
                 <Target className="w-5 h-5 text-info" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-text-primary >Progreso por Tema</h3>
+                <h3 className="text-lg font-semibold text-text-primary">Progreso por Tema</h3>
                 <p className="text-xs text-text-secondary">Nivel de dominio en cada área</p>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-2xl font-bold text-text-primary >{averageMastery.toFixed(0)}%</p>
+              <p className="text-2xl font-bold text-text-primary">{averageMastery.toFixed(0)}%</p>
               <p className="text-xs text-text-secondary">Promedio</p>
             </div>
           </div>
@@ -234,7 +234,7 @@ export function KnowledgeProgressChart({
               <Brain className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-text-primary >Mapa de Conocimiento</h3>
+              <h3 className="text-lg font-semibold text-text-primary">Mapa de Conocimiento</h3>
               <p className="text-xs text-text-secondary">Visualización del dominio por área</p>
             </div>
           </div>

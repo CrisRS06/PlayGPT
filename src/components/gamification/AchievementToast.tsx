@@ -157,7 +157,7 @@ export function AchievementToast({ achievement, onClose, duration = 5000 }: Achi
                     </motion.div>
                   )}
                 </div>
-                <p className="font-semibold text-text-primary >
+                <p className="font-semibold text-text-primary">
                   {achievement.title}
                 </p>
                 <p className="text-sm text-text-body">

@@ -124,7 +124,7 @@ export function MasteryTracker() {
           </div>
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-2">
-              <h3 className="text-2xl font-bold text-text-primary >{currentMastery.title}</h3>
+              <h3 className="text-2xl font-bold text-text-primary">{currentMastery.title}</h3>
               <Badge variant="outline" className={cn("text-xs", currentMastery.color)}>
                 Nivel {MASTERY_LEVELS.findIndex(l => l.level === currentMastery.level) + 1}/5
               </Badge>
@@ -169,7 +169,7 @@ export function MasteryTracker() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Icon className={cn("w-4 h-4", level.color)} />
-                    <span className="text-sm font-medium text-text-primary >{level.title}</span>
+                    <span className="text-sm font-medium text-text-primary">{level.title}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-sm text-text-secondary">{level.count} módulos</span>
@@ -206,7 +206,7 @@ export function MasteryTracker() {
                     mastery.bgColor
                   )}
                 >
-                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-black/30 text-lg font-bold text-text-primary >
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-black/30 text-lg font-bold text-text-primary">
                     {index + 1}
                   </div>
                   <div className="text-2xl">{module.icon}</div>
