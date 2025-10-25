@@ -12,42 +12,50 @@ const modules = [
     module: "Módulo 1: Fundamentos",
     topics: ["Concepto de EV", "Cálculo de probabilidades", "Análisis de decisiones"],
     color: "from-primary to-accent",
-    bgGradient: "from-primary/20 to-accent/20",
+    bgGradient: "from-primary/30 to-accent/30",
+    badgeClass: "border-primary/60 bg-primary/30 text-white font-medium backdrop-blur-sm",
   },
   {
     icon: Lightbulb,
     title: "Probabilidad Básica",
     module: "Módulo 1: Fundamentos",
     topics: ["Teoría de probabilidad", "Eventos independientes", "Distribuciones"],
-    color: "from-accent to-secondary",
-    bgGradient: "from-accent/20 to-secondary/20",
+    color: "from-accent to-info",
+    bgGradient: "from-accent/30 to-info/30",
+    badgeClass: "border-accent/60 bg-accent/30 text-white font-medium backdrop-blur-sm",
   },
   {
     icon: Brain,
     title: "Sesgos Cognitivos",
     module: "Módulo 1: Fundamentos",
     topics: ["Gamblers fallacy", "Hot hand fallacy", "Toma de decisiones"],
-    color: "from-secondary to-chart-1",
-    bgGradient: "from-secondary/20 to-chart-1/20",
+    color: "from-warning to-primary",
+    bgGradient: "from-warning/30 to-primary/30",
+    badgeClass: "border-warning/60 bg-warning/30 text-white font-medium backdrop-blur-sm",
   },
   {
     icon: DollarSign,
     title: "Gestión de Bankroll",
     module: "Módulo 2: Estrategia",
     topics: ["Kelly Criterion", "Gestión de riesgo", "Planificación financiera"],
-    color: "from-chart-1 to-primary",
-    bgGradient: "from-chart-1/20 to-primary/20",
+    color: "from-success to-accent",
+    bgGradient: "from-success/30 to-accent/30",
+    badgeClass: "border-success/60 bg-success/30 text-white font-medium backdrop-blur-sm",
   },
 ]
 
 export function Modules() {
   return (
     <section id="modules" className="relative py-24 px-6 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
+      {/* Background Effects - Enhanced */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 gradient-mesh opacity-20" />
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/15 rounded-full filter blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-accent/15 rounded-full filter blur-3xl" />
+      </div>
 
       <div className="mx-auto max-w-7xl">
-        {/* Section Header */}
+        {/* Section Header - Enhanced */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,15 +63,15 @@ export function Modules() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-text-primary">
             Módulos de Aprendizaje
           </h2>
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-text-body">
             Contenido estructurado y curado por expertos para un aprendizaje progresivo
           </p>
         </motion.div>
 
-        {/* Modules Grid */}
+        {/* Modules Grid - Enhanced */}
         <div className="grid md:grid-cols-2 gap-6">
           {modules.map((module, index) => (
             <motion.div
@@ -73,36 +81,36 @@ export function Modules() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="group relative overflow-hidden border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
-                {/* Background Decoration */}
-                <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${module.bgGradient} rounded-full filter blur-3xl opacity-20 group-hover:opacity-30 transition-opacity`} />
+              <Card className="group relative overflow-hidden border-border-strong glass-card hover:border-primary/30 transition-all duration-300 hover-lift hover:shadow-elevated">
+                {/* Background Decoration - Enhanced */}
+                <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${module.bgGradient} rounded-full filter blur-3xl opacity-30 group-hover:opacity-50 transition-opacity`} />
 
                 <CardHeader>
                   <div className="flex items-start justify-between mb-4">
-                    {/* Icon */}
+                    {/* Icon - Enhanced */}
                     <div className="relative">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${module.color} rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity`} />
-                      <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${module.color} flex items-center justify-center`}>
-                        <module.icon className="w-7 h-7 text-white" />
+                      <div className={`absolute inset-0 bg-gradient-to-br ${module.color} rounded-xl blur-lg opacity-50 group-hover:opacity-100 transition-opacity`} />
+                      <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${module.color} flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform`}>
+                        <module.icon className="w-7 h-7 text-white drop-shadow-lg" />
                       </div>
                     </div>
 
-                    {/* Module Badge */}
+                    {/* Module Badge - Enhanced */}
                     <Badge
                       variant="outline"
-                      className="border-primary/40 bg-primary/20 text-white font-medium backdrop-blur-sm"
+                      className={module.badgeClass}
                     >
                       {module.module}
                     </Badge>
                   </div>
 
-                  <CardTitle className="text-2xl text-white">{module.title}</CardTitle>
+                  <CardTitle className="text-2xl text-text-primary">{module.title}</CardTitle>
                 </CardHeader>
 
                 <CardContent className="space-y-4">
-                  {/* Topics List */}
+                  {/* Topics List - Enhanced */}
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-gray-300">
+                    <p className="text-sm font-medium text-text-secondary">
                       Temas clave:
                     </p>
                     <ul className="space-y-2">
@@ -111,8 +119,8 @@ export function Modules() {
                           key={topicIndex}
                           className="flex items-center gap-2 text-sm"
                         >
-                          <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${module.color}`} />
-                          <span className="text-gray-200">{topic}</span>
+                          <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${module.color} shadow-sm`} />
+                          <span className="text-text-body">{topic}</span>
                         </li>
                       ))}
                     </ul>
