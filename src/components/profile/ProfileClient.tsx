@@ -106,7 +106,7 @@ export function ProfileClient({
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                      <User className="w-8 h-8 text-text-primary  />
+                      <User className="w-8 h-8 text-text-primary" />
                     </div>
                     <div>
                       <CardTitle className="text-text-primary">

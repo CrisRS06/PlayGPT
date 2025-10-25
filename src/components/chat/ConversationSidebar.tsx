@@ -175,7 +175,7 @@ export function ConversationSidebar({
                           <div className="flex-1 min-w-0">
                             <h3
                               className={`text-sm font-medium truncate ${
-                                isActive ? "text-text-primary  : "text-text-body"
+                                isActive ? "text-text-primary" : "text-text-body"
                               }`}
                             >
                               {title}

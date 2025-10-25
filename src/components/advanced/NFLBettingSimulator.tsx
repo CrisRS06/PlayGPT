@@ -314,7 +314,7 @@ export function NFLBettingSimulator() {
               type="number"
               value={betAmount}
               onChange={(e) => setBetAmount(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary 
+              className="bg-black/50 border-white/10 text-text-primary"
               placeholder="100"
             />
           </div>

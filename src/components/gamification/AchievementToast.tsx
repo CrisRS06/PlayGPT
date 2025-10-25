@@ -139,7 +139,7 @@ export function AchievementToast({ achievement, onClose, duration = 5000 }: Achi
                   shadow-lg ${colors.glow}
                 `}
               >
-                <Icon className="w-7 h-7 text-text-primary  />
+                <Icon className="w-7 h-7 text-text-primary" />
               </motion.div>
 
               {/* Text Content */}

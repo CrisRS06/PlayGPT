@@ -1,9 +1,9 @@
 import { redirect } from "next/navigation"
-import { createServerClient } from "@/lib/supabase/server"
+import { createClient } from "@/lib/supabase/server"
 import { DashboardClient } from "@/components/dashboard/DashboardClient"
 
 export default async function DashboardPage() {
-  const supabase = await createServerClient()
+  const supabase = await createClient()
 
   // Get authenticated user
   const { data: { user }, error: userError } = await supabase.auth.getUser()

@@ -153,7 +153,7 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
               transition={{ type: "spring", delay: 0.2 }}
               className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center"
             >
-              <Trophy className="w-10 h-10 text-text-primary  />
+              <Trophy className="w-10 h-10 text-text-primary" />
             </motion.div>
 
             <div>

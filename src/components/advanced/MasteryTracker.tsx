@@ -255,7 +255,7 @@ export function MasteryTracker() {
                   <div className="flex items-center gap-2 mb-1">
                     <h5 className={cn(
                       "text-sm font-semibold",
-                      isAchieved ? "text-text-primary  : "text-text-tertiary"
+                      isAchieved ? "text-text-primary" : "text-text-tertiary"
                     )}>
                       {level.title}
                     </h5>

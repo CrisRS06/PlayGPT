@@ -197,7 +197,7 @@ export function BettingSimulator() {
               type="number"
               value={initialBankroll}
               onChange={(e) => setInitialBankroll(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary 
+              className="bg-black/50 border-white/10 text-text-primary"
               placeholder="1000"
             />
           </div>
@@ -211,7 +211,7 @@ export function BettingSimulator() {
               type="number"
               value={betSize}
               onChange={(e) => setBetSize(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary 
+              className="bg-black/50 border-white/10 text-text-primary"
               placeholder="10"
             />
           </div>
@@ -225,7 +225,7 @@ export function BettingSimulator() {
               type="number"
               value={numRounds}
               onChange={(e) => setNumRounds(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary 
+              className="bg-black/50 border-white/10 text-text-primary"
               placeholder="100"
             />
           </div>
