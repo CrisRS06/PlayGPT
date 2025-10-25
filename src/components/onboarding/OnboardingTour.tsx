@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Sparkles, MessageSquare, BookOpen, BarChart3, Zap, Crown,
-  Target, Trophy, ArrowRight, X, Check
+  Target, Trophy, ArrowRight, X, Check, ChevronDown, ChevronUp, Minimize2
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
@@ -31,8 +31,8 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     title: "¡Bienvenido a PlayGPT EDU!",
     description: "Tu plataforma educativa impulsada por IA para aprender sobre juego responsable",
     icon: Sparkles,
-    color: "text-purple-400",
-    bgColor: "bg-purple-500/10",
+    color: "text-icon-primary",
+    bgColor: "bg-primary/10",
     feature: "Sistema educativo avanzado",
     benefits: [
       "Aprendizaje personalizado con IA",
@@ -45,11 +45,11 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     title: "Elige tu Modo de Aprendizaje",
     description: "Alterna entre Modo Guiado (con estructura) y Modo Libre (exploración)",
     icon: BookOpen,
-    color: "text-blue-400",
-    bgColor: "bg-blue-500/10",
+    color: "text-info",
+    bgColor: "bg-info/10",
     feature: "Modo Guiado vs Libre",
     benefits: [
-      "Modo Guiado: Estructura activa del aprendizaje",
+      "Modo Guiado: Estructura del aprendizaje",
       "Quizzes automáticos y recomendaciones",
       "Modo Libre: Conversación a tu ritmo"
     ]
@@ -59,8 +59,8 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     title: "Herramientas Interactivas",
     description: "Accede rápidamente a calculadoras, simuladores y más",
     icon: Zap,
-    color: "text-yellow-400",
-    bgColor: "bg-yellow-500/10",
+    color: "text-warning",
+    bgColor: "bg-warning/10",
     feature: "Acciones Rápidas",
     benefits: [
       "Calculadora de Valor Esperado",
@@ -73,8 +73,8 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     title: "Sistema de Gamificación",
     description: "Gana XP, sube de nivel y desbloquea logros mientras aprendes",
     icon: Trophy,
-    color: "text-orange-400",
-    bgColor: "bg-orange-500/10",
+    color: "text-achievement-gold",
+    bgColor: "bg-achievement-gold/10",
     feature: "XP y Logros",
     benefits: [
       "Gana XP por cada actividad",
@@ -87,8 +87,8 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     title: "Explora las Características",
     description: "Dashboard, Skill Tree, Aprendizaje Adaptativo y más",
     icon: Crown,
-    color: "text-green-400",
-    bgColor: "bg-green-500/10",
+    color: "text-success",
+    bgColor: "bg-success/10",
     feature: "Características Avanzadas",
     benefits: [
       "📊 Dashboard con métricas detalladas",
@@ -101,6 +101,8 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
 
 export function OnboardingTour() {
   const [currentStep, setCurrentStep] = useState(0)
+  const [isMinimized, setIsMinimized] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(true)
   const { showOnboarding, completeOnboarding, skipOnboarding } = useLearningModeStore()
   const { addXP } = useGamificationStore()
 
@@ -151,171 +153,213 @@ export function OnboardingTour() {
 
   const Icon = step.icon
 
+  // Minimized floating button
+  if (isMinimized) {
+    return (
+      <motion.button
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0, opacity: 0 }}
+        onClick={() => setIsMinimized(false)}
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-r from-primary to-accent shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
+        aria-label="Abrir tutorial"
+      >
+        <Sparkles className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+        <div className="absolute -top-1 -right-1 w-5 h-5 bg-warning rounded-full flex items-center justify-center">
+          <span className="text-xs font-bold text-background">{currentStep + 1}</span>
+        </div>
+      </motion.button>
+    )
+  }
+
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+        initial={{ x: 400, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 400, opacity: 0 }}
+        className="fixed bottom-6 right-6 z-40 w-full max-w-sm"
       >
-        <motion.div
-          initial={{ scale: 0.9, y: 20 }}
-          animate={{ scale: 1, y: 0 }}
-          exit={{ scale: 0.9, y: 20 }}
-          className="w-full max-w-2xl bg-gray-900 rounded-2xl border border-white/10 overflow-hidden shadow-2xl"
-        >
-          {/* Header */}
-          <div className={cn("p-6 border-b border-white/10", step.bgColor)}>
-            <div className="flex items-start justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <div className={cn(
-                  "w-12 h-12 rounded-xl flex items-center justify-center",
-                  step.bgColor,
-                  "border border-white/10"
-                )}>
-                  <Icon className={cn("w-6 h-6", step.color)} />
+        <div className="glass-card rounded-2xl border border-border-strong shadow-2xl overflow-hidden bg-surface-elevated/95 backdrop-blur-xl">
+          {/* Compact Header */}
+          <div className="p-4 border-b border-border-strong bg-gradient-to-r from-primary/10 to-accent/10">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/30 to-accent/30 border border-primary/40 flex items-center justify-center">
+                  <Icon className="w-4 h-4 text-icon-primary" />
                 </div>
                 <div>
-                  <Badge variant="outline" className="mb-2 text-xs bg-white/5 text-white border-white/20">
-                    Paso {currentStep + 1} de {ONBOARDING_STEPS.length}
+                  <Badge variant="outline" className="text-xs bg-primary/20 text-icon-primary border-primary/40 mb-1">
+                    {currentStep + 1} de {ONBOARDING_STEPS.length}
                   </Badge>
-                  <h2 className="text-2xl font-bold text-white">{step.title}</h2>
+                  <h3 className="text-sm font-bold text-text-primary">{step.title}</h3>
                 </div>
               </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={handleSkip}
-                className="text-gray-400 hover:text-white"
-                aria-label="Saltar tutorial"
-              >
-                <X className="w-5 h-5" />
-              </Button>
+              <div className="flex items-center gap-1">
+                <Button
+                  variant="ghost"
+                  size="icon-sm"
+                  onClick={() => setIsMinimized(true)}
+                  className="text-icon-muted hover:text-text-primary h-7 w-7"
+                  aria-label="Minimizar"
+                >
+                  <Minimize2 className="w-4 h-4" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon-sm"
+                  onClick={handleSkip}
+                  className="text-icon-muted hover:text-text-primary h-7 w-7"
+                  aria-label="Cerrar tutorial"
+                >
+                  <X className="w-4 h-4" />
+                </Button>
+              </div>
             </div>
-
-            <Progress value={progress} className="h-1.5" />
+            <Progress value={progress} className="h-1" />
           </div>
 
-          {/* Content */}
-          <div className="p-6 space-y-6">
-            <AnimatePresence mode="wait">
+          {/* Collapsible Content */}
+          <AnimatePresence>
+            {isExpanded && (
               <motion.div
-                key={step.id}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="space-y-4"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                className="overflow-hidden"
               >
-                <p className="text-lg text-gray-300">{step.description}</p>
+                <div className="p-4 space-y-4">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={step.id}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="space-y-3"
+                    >
+                      <p className="text-sm text-text-body leading-relaxed">{step.description}</p>
 
-                <div className={cn("p-4 rounded-lg border", step.bgColor, "border-white/10")}>
-                  <p className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
-                    <Target className={cn("w-4 h-4", step.color)} />
-                    {step.feature}
-                  </p>
-                  <ul className="space-y-2">
-                    {step.benefits.map((benefit, index) => (
-                      <motion.li
-                        key={`${step.id}-benefit-${index}`}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="flex items-start gap-2 text-sm text-gray-300"
-                      >
-                        <Check className={cn("w-4 h-4 mt-0.5 flex-shrink-0", step.color)} />
-                        <span>{benefit}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
+                      <div className="p-3 rounded-lg bg-primary/10 border border-primary/30">
+                        <p className="text-xs font-semibold text-text-primary mb-2 flex items-center gap-1.5">
+                          <Target className="w-3.5 h-3.5 text-icon-primary" />
+                          {step.feature}
+                        </p>
+                        <ul className="space-y-1.5">
+                          {step.benefits.map((benefit, index) => (
+                            <motion.li
+                              key={`${step.id}-benefit-${index}`}
+                              initial={{ opacity: 0, x: -5 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: index * 0.05 }}
+                              className="flex items-start gap-1.5 text-xs text-text-body"
+                            >
+                              <Check className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-success" />
+                              <span>{benefit}</span>
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Special content for specific steps */}
+                      {step.id === "welcome" && (
+                        <div className="p-3 rounded-lg bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/40">
+                          <p className="text-xs text-text-primary text-center">
+                            🎉 Completa este tutorial para ganar <strong className="text-warning">+50 XP</strong>
+                          </p>
+                        </div>
+                      )}
+
+                      {step.id === "gamification" && (
+                        <div className="grid grid-cols-3 gap-2">
+                          <div className="text-center p-2 rounded-lg bg-primary/10 border border-primary/30">
+                            <Trophy className="w-4 h-4 text-achievement-gold mx-auto mb-1" />
+                            <p className="text-xs text-text-body">Logros</p>
+                          </div>
+                          <div className="text-center p-2 rounded-lg bg-primary/10 border border-primary/30">
+                            <Zap className="w-4 h-4 text-info mx-auto mb-1" />
+                            <p className="text-xs text-text-body">XP Total</p>
+                          </div>
+                          <div className="text-center p-2 rounded-lg bg-primary/10 border border-primary/30">
+                            <Target className="w-4 h-4 text-streak-orange mx-auto mb-1" />
+                            <p className="text-xs text-text-body">Rachas</p>
+                          </div>
+                        </div>
+                      )}
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
-
-                {/* Special content for specific steps */}
-                {step.id === "welcome" && (
-                  <div className="p-4 rounded-lg bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20">
-                    <p className="text-sm text-purple-300 text-center">
-                      🎉 Completa este tutorial para ganar <strong>+50 XP</strong> y empezar con ventaja
-                    </p>
-                  </div>
-                )}
-
-                {step.id === "gamification" && (
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="text-center p-3 rounded-lg bg-white/5 border border-white/10">
-                      <Trophy className="w-6 h-6 text-yellow-400 mx-auto mb-2" />
-                      <p className="text-xs text-gray-400">Logros</p>
-                      <p className="text-sm font-bold text-white">Desbloquea</p>
-                    </div>
-                    <div className="text-center p-3 rounded-lg bg-white/5 border border-white/10">
-                      <Zap className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                      <p className="text-xs text-gray-400">XP Total</p>
-                      <p className="text-sm font-bold text-white">Acumula</p>
-                    </div>
-                    <div className="text-center p-3 rounded-lg bg-white/5 border border-white/10">
-                      <Target className="w-6 h-6 text-orange-400 mx-auto mb-2" />
-                      <p className="text-xs text-gray-400">Rachas</p>
-                      <p className="text-sm font-bold text-white">Mantén</p>
-                    </div>
-                  </div>
-                )}
               </motion.div>
-            </AnimatePresence>
-          </div>
+            )}
+          </AnimatePresence>
 
-          {/* Footer */}
-          <div className="p-6 border-t border-white/10 bg-black/30">
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex items-center gap-2">
+          {/* Compact Footer */}
+          <div className="p-3 border-t border-border-strong bg-surface-base/50">
+            <div className="flex items-center justify-between gap-3 mb-2">
+              {/* Step Indicators */}
+              <div className="flex items-center gap-1.5">
                 {ONBOARDING_STEPS.map((stepItem, index) => (
                   <div
                     key={stepItem.id}
                     className={cn(
-                      "w-2 h-2 rounded-full transition-all",
+                      "h-1.5 rounded-full transition-all",
                       index === currentStep
-                        ? `${step.color.replace('text-', 'bg-')} w-6`
+                        ? "bg-primary w-6"
                         : index < currentStep
-                        ? "bg-green-500"
-                        : "bg-gray-700"
+                        ? "bg-success w-3"
+                        : "bg-border-strong w-3"
                     )}
                   />
                 ))}
               </div>
 
-              <div className="flex items-center gap-3">
-                {currentStep > 0 && (
-                  <Button
-                    variant="outline"
-                    onClick={() => setCurrentStep(prev => prev - 1)}
-                    className="border-white/10 hover:bg-white/5"
-                  >
-                    Anterior
-                  </Button>
-                )}
+              {/* Expand/Collapse Button */}
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="text-icon-muted hover:text-text-primary h-6 w-6"
+                aria-label={isExpanded ? "Colapsar" : "Expandir"}
+              >
+                {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              </Button>
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="flex items-center gap-2">
+              {currentStep > 0 && (
                 <Button
-                  onClick={handleNext}
-                  className={cn(
-                    "bg-gradient-to-r",
-                    isLastStep
-                      ? "from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
-                      : `from-${step.color.split('-')[1]}-500 to-${step.color.split('-')[1]}-600`
-                  )}
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentStep(prev => prev - 1)}
+                  className="flex-1 text-xs"
                 >
-                  {isLastStep ? (
-                    <>
-                      <Check className="w-4 h-4 mr-2" />
-                      Empezar
-                    </>
-                  ) : (
-                    <>
-                      Siguiente
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </>
-                  )}
+                  Anterior
                 </Button>
-              </div>
+              )}
+              <Button
+                onClick={handleNext}
+                size="sm"
+                className={cn(
+                  "flex-1 text-xs",
+                  isLastStep && "bg-success hover:bg-success/90"
+                )}
+              >
+                {isLastStep ? (
+                  <>
+                    <Check className="w-3 h-3 mr-1" />
+                    Empezar
+                  </>
+                ) : (
+                  <>
+                    Siguiente
+                    <ArrowRight className="w-3 h-3 ml-1" />
+                  </>
+                )}
+              </Button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
     </AnimatePresence>
   )
