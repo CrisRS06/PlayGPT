@@ -72,7 +72,7 @@ export async function getKnowledgeComponents(userId: string) {
 
   const { data, error } = await supabase
     .from('knowledge_components')
-    .select('*')
+    .select('component_name, mastery_level, attempts, last_practiced')
     .eq('user_id', userId)
     .order('mastery_level', { ascending: false })
 
@@ -81,7 +81,7 @@ export async function getKnowledgeComponents(userId: string) {
     return []
   }
 
-  return data
+  return data || []
 }
 
 /**
@@ -92,17 +92,17 @@ export async function getQuizAttempts(userId: string) {
 
   const { data, error } = await supabase
     .from('quiz_attempts')
-    .select('*')
+    .select('score, completed_at, quiz_id')
     .eq('user_id', userId)
     .order('completed_at', { ascending: false })
-    .limit(10)
+    .limit(20)
 
   if (error) {
     logger.error('Error loading quiz attempts:', error)
     return []
   }
 
-  return data
+  return data || []
 }
 
 /**
@@ -118,7 +118,7 @@ export async function getInteractionStats(userId: string) {
     .order('created_at', { ascending: false })
     .limit(100)
 
-  if (error) {
+  if (error || !data) {
     logger.error('Error loading interaction stats:', error)
     return {
       total_interactions: 0,
@@ -129,11 +129,11 @@ export async function getInteractionStats(userId: string) {
   }
 
   const totalInteractions = data.length
-  const totalTokens = data.reduce((sum, i) => sum + (i.tokens_used || 0), 0)
-  const totalCost = data.reduce((sum, i) => sum + (i.cost_usd || 0), 0)
+  const totalTokens = data.reduce((sum: number, i: any) => sum + (i.tokens_used || 0), 0)
+  const totalCost = data.reduce((sum: number, i: any) => sum + (i.cost_usd || 0), 0)
 
   const interactionsByType = data.reduce(
-    (acc, i) => {
+    (acc: Record<string, number>, i: any) => {
       acc[i.interaction_type] = (acc[i.interaction_type] || 0) + 1
       return acc
     },
