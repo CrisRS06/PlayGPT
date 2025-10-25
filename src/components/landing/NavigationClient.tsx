@@ -31,10 +31,10 @@ export function NavigationClient({ user }: NavigationClientProps) {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
-              <Sparkles className="relative h-8 w-8 text-primary" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent blur-lg opacity-60 group-hover:opacity-100 transition-opacity" />
+              <Sparkles className="relative h-8 w-8 text-icon-primary drop-shadow-lg" />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+            <span className="text-xl font-bold text-text-primary group-hover:text-primary transition-colors drop-shadow-md">
               PlayGPT EDU
             </span>
           </Link>
@@ -43,19 +43,19 @@ export function NavigationClient({ user }: NavigationClientProps) {
           <div className="hidden md:flex items-center gap-8">
             <Link
               href="#features"
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+              className="text-sm font-medium text-text-body hover:text-text-primary transition-colors"
             >
               Características
             </Link>
             <Link
               href="#how-it-works"
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+              className="text-sm font-medium text-text-body hover:text-text-primary transition-colors"
             >
               Cómo funciona
             </Link>
             <Link
               href="#modules"
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+              className="text-sm font-medium text-text-body hover:text-text-primary transition-colors"
             >
               Módulos
             </Link>
@@ -88,14 +88,14 @@ export function NavigationClient({ user }: NavigationClientProps) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-300 hover:text-white transition-colors"
+            className="md:hidden p-2 text-text-body hover:text-text-primary transition-colors"
             aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-6 w-6 text-icon-primary" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-6 w-6 text-icon-muted" />
             )}
           </button>
         </div>
@@ -110,21 +110,21 @@ export function NavigationClient({ user }: NavigationClientProps) {
           >
             <Link
               href="#features"
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors py-2"
+              className="text-sm font-medium text-text-body hover:text-text-primary transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Características
             </Link>
             <Link
               href="#how-it-works"
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors py-2"
+              className="text-sm font-medium text-text-body hover:text-text-primary transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Cómo funciona
             </Link>
             <Link
               href="#modules"
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors py-2"
+              className="text-sm font-medium text-text-body hover:text-text-primary transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Módulos
@@ -136,7 +136,7 @@ export function NavigationClient({ user }: NavigationClientProps) {
                     <Link href="/chat">Ir al Chat</Link>
                   </Button>
                   <div className="flex items-center justify-between p-2">
-                    <span className="text-sm text-gray-300">{user.email}</span>
+                    <span className="text-sm text-text-body">{user.email}</span>
                     <UserMenu user={user} />
                   </div>
                 </>

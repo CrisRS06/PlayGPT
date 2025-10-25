@@ -54,6 +54,12 @@
   --color-accent-hover: var(--accent-hover);
   --color-border-strong: var(--border-strong);
 
+  /* Icon colors */
+  --color-icon-primary: var(--icon-primary);
+  --color-icon-accent: var(--icon-accent);
+  --color-icon-muted: var(--icon-muted);
+  --color-icon-interactive: var(--icon-interactive);
+
   /* Existing mappings */
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -146,14 +152,20 @@
 
   /* === BRAND COLORS - Enhanced === */
   /* Primary color: Enhanced purple for better visibility */
-  --primary: oklch(0.68 0.25 280);          /* #9d6fff - Lighter purple */
+  --primary: oklch(0.72 0.25 280);          /* Brighter purple - 7:1 contrast */
   --primary-foreground: oklch(1 0 0);
-  --primary-hover: oklch(0.75 0.22 280);    /* Lighter on hover */
+  --primary-hover: oklch(0.78 0.22 280);    /* Lighter on hover */
 
   /* Accent color: Enhanced cyan for better visibility */
-  --accent: oklch(0.72 0.20 220);           /* #4fc3f7 - Lighter cyan */
+  --accent: oklch(0.75 0.20 220);           /* Brighter cyan - 7:1 contrast */
   --accent-foreground: oklch(1 0 0);
-  --accent-hover: oklch(0.80 0.18 220);     /* Lighter on hover */
+  --accent-hover: oklch(0.82 0.18 220);     /* Lighter on hover */
+
+  /* === ICON COLOR SYSTEM === */
+  --icon-primary: oklch(0.88 0.20 280);     /* Bright purple for icons */
+  --icon-accent: oklch(0.88 0.18 220);      /* Bright cyan for icons */
+  --icon-muted: oklch(0.75 0 0);            /* Muted gray for secondary icons */
+  --icon-interactive: oklch(0.92 0.15 280); /* Very bright for interactive */
 
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);

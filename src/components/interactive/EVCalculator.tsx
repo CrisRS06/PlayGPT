@@ -54,19 +54,19 @@ export function EVCalculator() {
     if (ev > 0) {
       return {
         text: "Esta apuesta tiene valor positivo (+EV). A largo plazo, ganarías dinero.",
-        color: "text-green-400",
+        color: "text-success",
         icon: TrendingUp
       }
     } else if (ev === 0) {
       return {
         text: "Esta apuesta es neutra. A largo plazo, no ganarías ni perderías.",
-        color: "text-yellow-400",
+        color: "text-warning",
         icon: Info
       }
     } else {
       return {
         text: "Esta apuesta tiene valor negativo (-EV). A largo plazo, perderías dinero.",
-        color: "text-red-400",
+        color: "text-error",
         icon: TrendingDown
       }
     }
@@ -77,19 +77,19 @@ export function EVCalculator() {
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-            <Calculator className="w-5 h-5 text-blue-500" />
+          <div className="w-10 h-10 rounded-lg bg-info/20 border border-info/40 flex items-center justify-center">
+            <Calculator className="w-5 h-5 text-info" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white">Calculadora de Valor Esperado</h3>
-            <p className="text-xs text-gray-400">Descubre el valor real de tus apuestas</p>
+            <h3 className="text-lg font-semibold text-text-primary">Calculadora de Valor Esperado</h3>
+            <p className="text-xs text-text-secondary">Descubre el valor real de tus apuestas</p>
           </div>
         </div>
 
         {/* Input Fields */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="betAmount" className="text-sm text-gray-300">
+            <Label htmlFor="betAmount" className="text-sm text-text-secondary">
               Cantidad de la Apuesta ($)
             </Label>
             <Input
@@ -97,13 +97,13 @@ export function EVCalculator() {
               type="number"
               value={betAmount}
               onChange={(e) => setBetAmount(e.target.value)}
-              className="bg-black/50 border-white/10 text-white"
+              className="bg-black/50 border-white/10 text-text-primary"
               placeholder="100"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="odds" className="text-sm text-gray-300">
+            <Label htmlFor="odds" className="text-sm text-text-secondary">
               Cuota / Odds (Decimal)
             </Label>
             <Input
@@ -112,13 +112,13 @@ export function EVCalculator() {
               step="0.1"
               value={odds}
               onChange={(e) => setOdds(e.target.value)}
-              className="bg-black/50 border-white/10 text-white"
+              className="bg-black/50 border-white/10 text-text-primary"
               placeholder="2.0"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="winProbability" className="text-sm text-gray-300">
+            <Label htmlFor="winProbability" className="text-sm text-text-secondary">
               Probabilidad de Ganar (%)
             </Label>
             <Input
@@ -127,14 +127,14 @@ export function EVCalculator() {
               step="0.1"
               value={winProbability}
               onChange={(e) => setWinProbability(e.target.value)}
-              className="bg-black/50 border-white/10 text-white"
+              className="bg-black/50 border-white/10 text-text-primary"
               placeholder="48"
             />
             <Progress value={parseFloat(winProbability)} className="h-1.5" />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="numBets" className="text-sm text-gray-300">
+            <Label htmlFor="numBets" className="text-sm text-text-secondary">
               Número de Apuestas
             </Label>
             <Input
@@ -142,7 +142,7 @@ export function EVCalculator() {
               type="number"
               value={numBets}
               onChange={(e) => setNumBets(e.target.value)}
-              className="bg-black/50 border-white/10 text-white"
+              className="bg-black/50 border-white/10 text-text-primary"
               placeholder="100"
             />
           </div>
@@ -151,7 +151,7 @@ export function EVCalculator() {
         {/* Calculate Button */}
         <Button
           onClick={calculateEV}
-          className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700"
+          className="w-full"
         >
           <Calculator className="w-4 h-4 mr-2" />
           Calcular Valor Esperado
@@ -167,14 +167,14 @@ export function EVCalculator() {
             {/* EV Per Bet */}
             <div className="rounded-lg border border-white/10 bg-black/30 p-4">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-400">Valor Esperado (por apuesta)</span>
-                <DollarSign className="w-4 h-4 text-gray-500" />
+                <span className="text-sm text-text-secondary">Valor Esperado (por apuesta)</span>
+                <DollarSign className="w-4 h-4 text-icon-muted" />
               </div>
               <div className="flex items-baseline gap-2">
                 <span
                   className={cn(
                     "text-3xl font-bold",
-                    result.expectedValue > 0 ? "text-green-400" : result.expectedValue < 0 ? "text-red-400" : "text-yellow-400"
+                    result.expectedValue > 0 ? "text-success" : result.expectedValue < 0 ? "text-error" : "text-warning"
                   )}
                 >
                   ${result.expectedValue.toFixed(2)}
@@ -182,7 +182,7 @@ export function EVCalculator() {
                 <span
                   className={cn(
                     "text-lg font-medium",
-                    result.expectedValuePercentage > 0 ? "text-green-400" : result.expectedValuePercentage < 0 ? "text-red-400" : "text-yellow-400"
+                    result.expectedValuePercentage > 0 ? "text-success" : result.expectedValuePercentage < 0 ? "text-error" : "text-warning"
                   )}
                 >
                   ({result.expectedValuePercentage > 0 ? "+" : ""}{result.expectedValuePercentage.toFixed(2)}%)
