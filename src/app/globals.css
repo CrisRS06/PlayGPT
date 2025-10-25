@@ -331,22 +331,22 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Light theme */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: oklch(0.145 0 0);
+  background: oklch(0.96 0 0); /* Light gray */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: oklch(0.269 0 0);
+  background: oklch(0.75 0 0); /* Medium gray */
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.4 0 0);
+  background: oklch(0.60 0 0); /* Darker gray on hover */
 }
 
 /* ============================================= */
@@ -404,18 +404,18 @@ html {
     );
   }
 
-  /* === GLASSMORPHISM EFFECTS === */
+  /* === GLASSMORPHISM EFFECTS - Light Theme === */
 
   .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    @apply bg-white/80 backdrop-blur-xl border border-gray-200;
   }
 
   .glass-strong {
-    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
+    @apply bg-white/90 backdrop-blur-2xl border border-gray-300;
   }
 
   .glass-card {
-    @apply bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl border border-white/10;
+    @apply bg-gradient-to-br from-white to-gray-50 backdrop-blur-xl border border-gray-200;
   }
 
   /* === TEXT UTILITIES === */

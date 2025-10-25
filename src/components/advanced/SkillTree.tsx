@@ -330,9 +330,9 @@ export function SkillTree() {
   }, [initialNodes])
 
   return (
-    <Card className="border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden">
+    <Card className="border-gray-200 bg-white backdrop-blur-sm overflow-hidden">
       {/* Header */}
-      <div className="border-b border-white/10 bg-gradient-to-r from-purple-500/10 to-blue-500/10 p-4">
+      <div className="border-b border-gray-200 bg-gradient-to-r from-purple-500/10 to-blue-500/10 p-4">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
@@ -373,7 +373,7 @@ export function SkillTree() {
       </div>
 
       {/* Skill Tree Canvas */}
-      <div style={{ height: "600px" }} className="bg-black/30">
+      <div style={{ height: "600px" }} className="bg-gray-100">
         <ReactFlow
           nodes={initialNodes}
           edges={initialEdges}
@@ -389,9 +389,9 @@ export function SkillTree() {
           }}
         >
           <Background color="#374151" gap={16} />
-          <Controls className="bg-gray-800 border-white/10" />
+          <Controls className="bg-gray-800 border-gray-200" />
           <MiniMap
-            className="bg-gray-900 border border-white/10"
+            className="bg-gray-900 border border-gray-200"
             nodeColor={(node) => {
               const status = (node.data as SkillNodeData).status
               switch (status) {
@@ -404,7 +404,7 @@ export function SkillTree() {
               }
             }}
           />
-          <Panel position="bottom-right" className="bg-gray-900/90 border border-white/10 rounded-lg p-3 m-2">
+          <Panel position="bottom-right" className="bg-gray-900/90 border border-gray-200 rounded-lg p-3 m-2">
             <div className="space-y-2 text-xs">
               <div className="flex items-center gap-2">
                 <Lock className="w-3 h-3 text-text-tertiary" />

@@ -57,8 +57,8 @@ export function UserMenu({ user }: UserMenuProps) {
           />
 
           {/* Menu */}
-          <div className="absolute right-0 mt-2 w-56 rounded-lg border border-white/10 bg-black/90 backdrop-blur-xl shadow-xl z-50">
-            <div className="p-3 border-b border-white/10">
+          <div className="absolute right-0 mt-2 w-56 rounded-lg border border-gray-200 bg-white/90 backdrop-blur-xl shadow-xl z-50">
+            <div className="p-3 border-b border-gray-200">
               <p className="text-sm font-medium truncate">{userName}</p>
               <p className="text-xs text-muted-foreground truncate">{user.email}</p>
             </div>
@@ -87,7 +87,7 @@ export function UserMenu({ user }: UserMenuProps) {
               </Button>
             </div>
 
-            <div className="p-2 border-t border-white/10">
+            <div className="p-2 border-t border-gray-200">
               <Button
                 variant="ghost"
                 className="w-full justify-start text-sm text-destructive hover:text-destructive hover:bg-destructive/10"

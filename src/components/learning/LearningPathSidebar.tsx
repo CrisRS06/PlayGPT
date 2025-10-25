@@ -56,9 +56,9 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
       case 'available':
         return 'border-blue-500/30 bg-blue-500/5'
       case 'locked':
-        return 'border-white/10 bg-white/5 opacity-60'
+        return 'border-gray-200 bg-white/5 opacity-60'
       default:
-        return 'border-white/10 bg-white/5'
+        return 'border-gray-200 bg-white/5'
     }
   }
 
@@ -72,7 +72,7 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 bg-white/60 backdrop-blur-sm z-40 lg:hidden"
             onClick={onClose}
           />
 
@@ -82,10 +82,10 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
             animate={{ x: 0 }}
             exit={{ x: -320 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed left-0 top-0 bottom-0 w-80 bg-black border-r border-white/10 z-50 flex flex-col overflow-hidden"
+            className="fixed left-0 top-0 bottom-0 w-80 bg-white border-r border-gray-200 z-50 flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="p-6 border-b border-white/10">
+            <div className="p-6 border-b border-gray-200">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <BookOpen className="w-5 h-5 text-primary" />
@@ -105,7 +105,7 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
               {/* Gamification Stats */}
               <div className="space-y-4">
                 <XPProgressBar />
-                <Separator className="bg-white/10" />
+                <Separator className="bg-white" />
                 <StreakIndicator />
               </div>
             </div>
@@ -125,7 +125,7 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
                       className={cn(
                         "relative rounded-lg border p-4 transition-all",
                         getStatusColor(module.status),
-                        module.status !== 'locked' && "hover:border-white/20 cursor-pointer"
+                        module.status !== 'locked' && "hover:border-gray-300 cursor-pointer"
                       )}
                     >
                       {/* Module Header */}
@@ -178,7 +178,7 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
             </div>
 
             {/* Footer */}
-            <div className="p-4 border-t border-white/10">
+            <div className="p-4 border-t border-gray-200">
               <div className="text-center text-xs text-text-tertiary">
                 <p>Progreso total del curso</p>
                 <p className="text-text-primary font-semibold mt-1">

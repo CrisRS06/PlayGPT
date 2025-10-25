@@ -115,7 +115,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
   return (
     <div className="space-y-6">
       {/* Header */}
-      <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
+      <Card className="border-gray-200 bg-white backdrop-blur-sm p-6">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
@@ -146,7 +146,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-4">
+        <Card className="border-gray-200 bg-white backdrop-blur-sm p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs text-text-secondary">Intentos</span>
             <Target className="w-4 h-4 text-text-tertiary" />
@@ -155,7 +155,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
           <p className="text-xs text-text-tertiary">Total de preguntas</p>
         </Card>
 
-        <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-4">
+        <Card className="border-gray-200 bg-white backdrop-blur-sm p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs text-text-secondary">Precisión</span>
             <Zap className="w-4 h-4 text-text-tertiary" />
@@ -166,7 +166,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
           <p className="text-xs text-text-tertiary">{knowledge.correctAnswers} correctas</p>
         </Card>
 
-        <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-4">
+        <Card className="border-gray-200 bg-white backdrop-blur-sm p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs text-text-secondary">Siguiente</span>
             <Calendar className="w-4 h-4 text-text-tertiary" />
@@ -177,7 +177,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
           <p className="text-xs text-text-tertiary">Próxima revisión</p>
         </Card>
 
-        <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-4">
+        <Card className="border-gray-200 bg-white backdrop-blur-sm p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs text-text-secondary">Predicción</span>
             <TrendingUp className="w-4 h-4 text-text-tertiary" />
@@ -190,7 +190,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
       </div>
 
       {/* Learning Progress Chart */}
-      <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
+      <Card className="border-gray-200 bg-white backdrop-blur-sm p-6">
         <h4 className="text-lg font-semibold text-text-primary mb-4">Evolución del Conocimiento</h4>
         <ResponsiveContainer width="100%" height={250}>
           <LineChart data={history}>
@@ -268,7 +268,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
       </Card>
 
       {/* Practice Simulator */}
-      <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
+      <Card className="border-gray-200 bg-white backdrop-blur-sm p-6">
         <h4 className="text-lg font-semibold text-text-primary mb-4">Simulador de Práctica</h4>
         <p className="text-sm text-text-secondary mb-4">
           Simula respuestas para ver cómo evoluciona tu probabilidad de conocimiento con el algoritmo BKT

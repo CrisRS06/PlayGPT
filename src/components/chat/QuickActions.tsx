@@ -74,7 +74,7 @@ export function QuickActions() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="border-t border-white/10 bg-black/30 backdrop-blur-sm overflow-hidden"
+            className="border-t border-gray-200 bg-gray-100 backdrop-blur-sm overflow-hidden"
           >
             <div className="mx-auto max-w-4xl px-6 py-3">
               <div className="flex items-center justify-between mb-3">
@@ -129,7 +129,7 @@ export function QuickActions() {
 
       {/* Action Dialog */}
       <Dialog open={!!selectedAction} onOpenChange={(open) => !open && setSelectedAction(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-black border-white/10">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white border-gray-200">
           {selectedAction && (
             <>
               <DialogHeader>

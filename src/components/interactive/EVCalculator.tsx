@@ -73,7 +73,7 @@ export function EVCalculator() {
   }
 
   return (
-    <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
+    <Card className="border-gray-200 bg-white backdrop-blur-sm p-6">
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3">
@@ -97,7 +97,7 @@ export function EVCalculator() {
               type="number"
               value={betAmount}
               onChange={(e) => setBetAmount(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary"
+              className="bg-white/90 border-gray-200 text-text-primary"
               placeholder="100"
             />
           </div>
@@ -112,7 +112,7 @@ export function EVCalculator() {
               step="0.1"
               value={odds}
               onChange={(e) => setOdds(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary"
+              className="bg-white/90 border-gray-200 text-text-primary"
               placeholder="2.0"
             />
           </div>
@@ -127,7 +127,7 @@ export function EVCalculator() {
               step="0.1"
               value={winProbability}
               onChange={(e) => setWinProbability(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary"
+              className="bg-white/90 border-gray-200 text-text-primary"
               placeholder="48"
             />
             <Progress value={parseFloat(winProbability)} className="h-1.5" />
@@ -142,7 +142,7 @@ export function EVCalculator() {
               type="number"
               value={numBets}
               onChange={(e) => setNumBets(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary"
+              className="bg-white/90 border-gray-200 text-text-primary"
               placeholder="100"
             />
           </div>
@@ -162,10 +162,10 @@ export function EVCalculator() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="space-y-4 pt-4 border-t border-white/10"
+            className="space-y-4 pt-4 border-t border-gray-200"
           >
             {/* EV Per Bet */}
-            <div className="rounded-lg border border-white/10 bg-black/30 p-4">
+            <div className="rounded-lg border border-gray-200 bg-gray-100 p-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-text-secondary">Valor Esperado (por apuesta)</span>
                 <DollarSign className="w-4 h-4 text-icon-muted" />
@@ -202,7 +202,7 @@ export function EVCalculator() {
             </div>
 
             {/* Long-term Result */}
-            <div className="rounded-lg border border-white/10 bg-black/30 p-4">
+            <div className="rounded-lg border border-gray-200 bg-gray-100 p-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-text-secondary">
                   Resultado después de {numBets} apuestas

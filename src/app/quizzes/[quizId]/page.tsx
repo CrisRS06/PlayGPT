@@ -125,7 +125,7 @@ export default function QuizTakePage({
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 text-gray-900 flex items-center justify-center">
         <div className="text-center">
           <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-gray-400">Cargando quiz...</p>
@@ -136,7 +136,7 @@ export default function QuizTakePage({
 
   if (error && !quiz) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 text-gray-900 flex items-center justify-center">
         <Card className="border-destructive/20 bg-destructive/10">
           <CardContent className="pt-6">
             <p className="text-destructive">{error}</p>
@@ -157,8 +157,8 @@ export default function QuizTakePage({
     const passed = results.score >= 0.7
 
     return (
-      <div className="min-h-screen bg-black text-white">
-        <div className="border-b border-white/10 bg-black/50 backdrop-blur-xl">
+      <div className="min-h-screen bg-gray-50 text-gray-900">
+        <div className="border-b border-gray-200 bg-white/80 backdrop-blur-xl">
           <div className="mx-auto max-w-7xl px-6 py-6">
             <div className="flex items-center gap-4">
               <Button variant="ghost" size="icon" asChild aria-label="Volver a quizzes">
@@ -180,7 +180,7 @@ export default function QuizTakePage({
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
+            <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 backdrop-blur-sm">
               <CardHeader className="text-center pb-8">
                 <div className="mx-auto mb-6">
                   {passed ? (
@@ -249,7 +249,7 @@ export default function QuizTakePage({
                                       ? "border-green-500/50 bg-green-500/10"
                                       : isUserAnswer
                                         ? "border-red-500/50 bg-red-500/10"
-                                        : "border-white/10 bg-white/5"
+                                        : "border-gray-200 bg-white/5"
                                   }`}
                                 >
                                   <div className="flex items-center gap-2">
@@ -299,8 +299,8 @@ export default function QuizTakePage({
   const allAnswered = userAnswers.every((a) => a !== -1)
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="border-b border-white/10 bg-black/50 backdrop-blur-xl">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <div className="border-b border-gray-200 bg-white/80 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 py-6">
           <div className="flex items-center gap-4 mb-4">
             <Button variant="ghost" size="icon" asChild>
@@ -316,7 +316,7 @@ export default function QuizTakePage({
             </div>
           </div>
           {/* Progress Bar */}
-          <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+          <div className="h-2 bg-white rounded-full overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
@@ -336,7 +336,7 @@ export default function QuizTakePage({
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
           >
-            <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
+            <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-white text-xl leading-relaxed">
                   {currentQ.question}
@@ -350,7 +350,7 @@ export default function QuizTakePage({
                     className={`w-full text-left p-4 rounded-lg border transition-all ${
                       userAnswers[currentQuestion] === index
                         ? "border-primary bg-primary/20 scale-[1.02]"
-                        : "border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20"
+                        : "border-gray-200 bg-white/5 hover:bg-white hover:border-gray-300"
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -358,7 +358,7 @@ export default function QuizTakePage({
                         className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
                           userAnswers[currentQuestion] === index
                             ? "border-primary bg-primary"
-                            : "border-white/30"
+                            : "border-gray-400"
                         }`}
                       >
                         {userAnswers[currentQuestion] === index && (

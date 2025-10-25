@@ -20,7 +20,7 @@ export function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl p-12 text-center"
+          className="relative overflow-hidden rounded-3xl border border-gray-200 bg-gradient-to-br from-white to-white/5 backdrop-blur-xl p-12 text-center"
         >
           {/* Decorative Elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full filter blur-3xl opacity-50" />
@@ -58,7 +58,7 @@ export function CTASection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-base font-semibold px-8 py-6 border-white/20 hover:bg-white/5"
+                className="text-base font-semibold px-8 py-6 border-gray-300 hover:bg-white/5"
                 asChild
               >
                 <Link href="#modules">

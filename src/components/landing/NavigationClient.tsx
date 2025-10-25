@@ -24,7 +24,7 @@ export function NavigationClient({ user }: NavigationClientProps) {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 backdrop-blur-xl bg-black/50"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 backdrop-blur-xl bg-white/90"
     >
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="flex items-center justify-between">
@@ -129,7 +129,7 @@ export function NavigationClient({ user }: NavigationClientProps) {
             >
               Módulos
             </Link>
-            <div className="flex flex-col gap-2 pt-4 border-t border-white/10">
+            <div className="flex flex-col gap-2 pt-4 border-t border-gray-200">
               {user ? (
                 <>
                   <Button size="sm" className="w-full" asChild>

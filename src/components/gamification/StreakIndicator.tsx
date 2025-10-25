@@ -147,7 +147,7 @@ export function StreakIndicator({ compact = false, className }: StreakIndicatorP
               {currentStreak >= 14 && currentStreak < 30 && `${30 - currentStreak} días para racha de 30`}
             </span>
           </div>
-          <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+          <div className="h-1 bg-white rounded-full overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
               animate={{

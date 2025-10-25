@@ -72,9 +72,9 @@ export function ProfileClient({
   ).length
 
   return (
-    <div className="min-h-screen bg-black text-text-primary">
+    <div className="min-h-screen bg-gray-50 text-text-primary">
       {/* Header */}
-      <div className="border-b border-white/10 bg-black/50 backdrop-blur-xl">
+      <div className="border-b border-gray-200 bg-white/80 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 py-6">
           <div className="flex items-center gap-4 mb-6">
             <Button variant="ghost" size="icon" asChild aria-label="Volver al chat">
@@ -102,7 +102,7 @@ export function ProfileClient({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
+              <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 backdrop-blur-sm">
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
@@ -157,7 +157,7 @@ export function ProfileClient({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
+              <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="text-text-primary flex items-center gap-2">
                     <Trophy className="w-5 h-5 text-accent" />
@@ -210,7 +210,7 @@ export function ProfileClient({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
+              <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="text-text-primary flex items-center gap-2">
                     <Brain className="w-5 h-5 text-primary" />
@@ -245,7 +245,7 @@ export function ProfileClient({
                               </span>
                             </div>
                           </div>
-                          <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                          <div className="h-2 bg-white rounded-full overflow-hidden">
                             <motion.div
                               initial={{ width: 0 }}
                               animate={{
@@ -275,7 +275,7 @@ export function ProfileClient({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
+              <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="text-text-primary flex items-center gap-2">
                     <TrendingUp className="w-5 h-5 text-accent" />
@@ -298,7 +298,7 @@ export function ProfileClient({
                       {quizAttempts.slice(0, 5).map((attempt, index) => (
                         <div
                           key={attempt.quiz_id || `attempt-${index}`}
-                          className="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                          className="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white transition-colors"
                         >
                           <div>
                             <p className="text-sm font-medium text-text-primary">

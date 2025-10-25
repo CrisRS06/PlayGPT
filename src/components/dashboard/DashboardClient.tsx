@@ -53,9 +53,9 @@ export function DashboardClient({
   const recentQuizzes = quizAttempts.slice(0, 5).reverse()
 
   return (
-    <div className="min-h-screen bg-black text-text-primary">
+    <div className="min-h-screen bg-gray-50 text-text-primary">
       {/* Header */}
-      <div className="border-b border-white/10 bg-black/50 backdrop-blur-xl">
+      <div className="border-b border-gray-200 bg-white/80 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 py-6">
           <div className="flex items-center gap-4 mb-6">
             <Button variant="ghost" size="icon" asChild aria-label="Volver al chat">
@@ -81,7 +81,7 @@ export function DashboardClient({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Card className="border-white/10 bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm">
+            <Card className="border-gray-200 bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -101,7 +101,7 @@ export function DashboardClient({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Card className="border-white/10 bg-gradient-to-br from-accent/20 to-accent/5 backdrop-blur-sm">
+            <Card className="border-gray-200 bg-gradient-to-br from-accent/20 to-accent/5 backdrop-blur-sm">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -123,7 +123,7 @@ export function DashboardClient({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="border-white/10 bg-gradient-to-br from-green-500/20 to-green-500/5 backdrop-blur-sm">
+            <Card className="border-gray-200 bg-gradient-to-br from-green-500/20 to-green-500/5 backdrop-blur-sm">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -145,7 +145,7 @@ export function DashboardClient({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Card className="border-white/10 bg-gradient-to-br from-blue-500/20 to-blue-500/5 backdrop-blur-sm">
+            <Card className="border-gray-200 bg-gradient-to-br from-blue-500/20 to-blue-500/5 backdrop-blur-sm">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -170,7 +170,7 @@ export function DashboardClient({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
+            <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-text-primary flex items-center gap-2">
                   <TrendingUp className="h-5 w-5 text-accent" />
@@ -207,7 +207,7 @@ export function DashboardClient({
                                 transition={{ duration: 0.8, delay: index * 0.1 }}
                                 className={`w-full bg-gradient-to-t ${color} rounded-t-lg min-h-[20px] cursor-pointer group-hover:opacity-80 transition-opacity`}
                               />
-                              <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/90 px-2 py-1 rounded text-xs text-text-primary whitespace-nowrap">
+                              <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 px-2 py-1 rounded text-xs text-text-primary whitespace-nowrap">
                                 {(quiz.score * 100).toFixed(0)}%
                               </div>
                             </div>
@@ -218,7 +218,7 @@ export function DashboardClient({
                         )
                       })}
                     </div>
-                    <div className="pt-4 border-t border-white/10">
+                    <div className="pt-4 border-t border-gray-200">
                       <p className="text-sm text-text-secondary text-center">
                         Últimos {recentQuizzes.length} quizzes completados
                       </p>
@@ -235,7 +235,7 @@ export function DashboardClient({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
+            <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-text-primary flex items-center gap-2">
                   <Target className="h-5 w-5 text-primary" />
@@ -261,7 +261,7 @@ export function DashboardClient({
                           {(averageMastery * 100).toFixed(0)}%
                         </span>
                       </div>
-                      <div className="h-4 bg-white/10 rounded-full overflow-hidden">
+                      <div className="h-4 bg-white rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: `${averageMastery * 100}%` }}
@@ -290,7 +290,7 @@ export function DashboardClient({
                               {((kc.mastery_level || 0) * 100).toFixed(0)}%
                             </span>
                           </div>
-                          <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                          <div className="h-2 bg-white rounded-full overflow-hidden">
                             <motion.div
                               initial={{ width: 0 }}
                               animate={{ width: `${(kc.mastery_level || 0) * 100}%` }}

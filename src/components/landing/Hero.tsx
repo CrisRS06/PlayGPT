@@ -133,7 +133,7 @@ export function Hero() {
             className="relative hidden lg:block"
           >
             {/* Glassmorphic Card - Enhanced */}
-            <div className="relative rounded-3xl border border-white/10 glass-card p-8 shadow-2xl shadow-black/40 hover-lift">
+            <div className="relative rounded-3xl border border-gray-200 glass-card p-8 shadow-2xl shadow-black/40 hover-lift">
               {/* Floating Elements - Enhanced */}
               <motion.div
                 animate={{ y: [0, -20, 0] }}

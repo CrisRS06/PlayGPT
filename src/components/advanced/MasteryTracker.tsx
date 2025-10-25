@@ -151,7 +151,7 @@ export function MasteryTracker() {
       </Card>
 
       {/* Mastery Distribution */}
-      <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
+      <Card className="border-gray-200 bg-white backdrop-blur-sm p-6">
         <h4 className="text-lg font-semibold text-text-primary mb-4">Distribución de Dominio</h4>
         <div className="space-y-3">
           {masteryDistribution.map((level, index) => {
@@ -187,7 +187,7 @@ export function MasteryTracker() {
 
       {/* Top Modules */}
       {topModules.length > 0 && (
-        <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
+        <Card className="border-gray-200 bg-white backdrop-blur-sm p-6">
           <h4 className="text-lg font-semibold text-text-primary mb-4">Módulos con Mayor Progreso</h4>
           <div className="space-y-3">
             {topModules.map((module, index) => {
@@ -206,7 +206,7 @@ export function MasteryTracker() {
                     mastery.bgColor
                   )}
                 >
-                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-black/30 text-lg font-bold text-text-primary">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200/30 text-lg font-bold text-text-primary">
                     {index + 1}
                   </div>
                   <div className="text-2xl">{module.icon}</div>
@@ -230,7 +230,7 @@ export function MasteryTracker() {
       )}
 
       {/* Mastery Milestones */}
-      <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
+      <Card className="border-gray-200 bg-white backdrop-blur-sm p-6">
         <h4 className="text-lg font-semibold text-text-primary mb-4">Hitos de Maestría</h4>
         <div className="space-y-4">
           {MASTERY_LEVELS.map((level, index) => {

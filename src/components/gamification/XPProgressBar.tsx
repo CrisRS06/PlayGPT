@@ -77,7 +77,7 @@ export function XPProgressBar({ compact = false, className }: XPProgressBarProps
         <div className="relative">
           <Progress
             value={progressPercentage}
-            className="h-2.5 bg-white/10"
+            className="h-2.5 bg-white"
           />
           <motion.div
             initial={{ scale: 0 }}

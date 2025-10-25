@@ -88,7 +88,7 @@ export function KnowledgeProgressChart({
 
   if (variant === "compact") {
     return (
-      <Card className={cn("border-white/10 bg-white/5 backdrop-blur-sm p-4", className)}>
+      <Card className={cn("border-gray-200 bg-white backdrop-blur-sm p-4", className)}>
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -136,7 +136,7 @@ export function KnowledgeProgressChart({
 
   if (variant === "bar") {
     return (
-      <Card className={cn("border-white/10 bg-white/5 backdrop-blur-sm p-6", className)}>
+      <Card className={cn("border-gray-200 bg-white backdrop-blur-sm p-6", className)}>
         <div className="space-y-4">
           {/* Header */}
           <div className="flex items-center justify-between">
@@ -198,7 +198,7 @@ export function KnowledgeProgressChart({
           </ResponsiveContainer>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-3 pt-2 border-t border-white/10">
+          <div className="grid grid-cols-3 gap-3 pt-2 border-t border-gray-200">
             <div className="text-center">
               <p className="text-xs text-text-secondary mb-1">Expertos</p>
               <p className="text-lg font-bold text-success">
@@ -225,7 +225,7 @@ export function KnowledgeProgressChart({
 
   // Default: Radar variant
   return (
-    <Card className={cn("border-white/10 bg-white/5 backdrop-blur-sm p-6", className)}>
+    <Card className={cn("border-gray-200 bg-white backdrop-blur-sm p-6", className)}>
       <div className="space-y-4">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -306,8 +306,8 @@ export function KnowledgeProgressChart({
 
         {/* Performance Indicators */}
         {radarData.length > 0 && (
-          <div className="grid grid-cols-2 gap-3 pt-2 border-t border-white/10">
-            <div className="rounded-lg border border-white/10 bg-black/30 p-3">
+          <div className="grid grid-cols-2 gap-3 pt-2 border-t border-gray-200">
+            <div className="rounded-lg border border-gray-200 bg-gray-100 p-3">
               <div className="flex items-center gap-2 mb-2">
                 <TrendingUp className="w-4 h-4 text-success" />
                 <span className="text-xs text-text-secondary">Mejor Tema</span>
@@ -325,7 +325,7 @@ export function KnowledgeProgressChart({
               })()}
             </div>
 
-            <div className="rounded-lg border border-white/10 bg-black/30 p-3">
+            <div className="rounded-lg border border-gray-200 bg-gray-100 p-3">
               <div className="flex items-center gap-2 mb-2">
                 <Target className="w-4 h-4 text-warning" />
                 <span className="text-xs text-text-secondary">Por Mejorar</span>

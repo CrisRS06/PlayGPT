@@ -78,7 +78,7 @@ export function ProgressDashboard() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
+          className="rounded-xl border border-gray-200 bg-white backdrop-blur-sm p-6"
         >
           <h3 className="text-lg font-semibold text-text-primary mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-primary" />
@@ -127,7 +127,7 @@ export function ProgressDashboard() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
+          className="rounded-xl border border-gray-200 bg-white backdrop-blur-sm p-6"
         >
           <h3 className="text-lg font-semibold text-text-primary mb-4 flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-primary" />
@@ -182,7 +182,7 @@ export function ProgressDashboard() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
+        className="rounded-xl border border-gray-200 bg-white backdrop-blur-sm p-6"
       >
         <h3 className="text-lg font-semibold text-text-primary mb-4">Logros Recientes</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -220,7 +220,7 @@ export function ProgressDashboard() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
+        className="rounded-xl border border-gray-200 bg-white backdrop-blur-sm p-6"
       >
         <h3 className="text-lg font-semibold text-text-primary mb-4">Próximos Objetivos</h3>
         <div className="space-y-3">

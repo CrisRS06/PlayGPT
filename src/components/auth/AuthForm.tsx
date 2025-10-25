@@ -44,7 +44,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
   }
 
   return (
-    <Card className="w-full max-w-md border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl">
+    <Card className="w-full max-w-md border-gray-200 bg-gradient-to-br from-white to-white/5 backdrop-blur-xl">
       <CardHeader className="space-y-4">
         <div className="flex justify-center">
           <div className="relative">
@@ -79,7 +79,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
                 onChange={(e) => setName(e.target.value)}
                 required={!isLogin}
                 disabled={isLoading}
-                className="bg-white/5 border-white/10 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
+                className="bg-white/5 border-gray-200 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
               />
             </div>
           )}
@@ -96,7 +96,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
               onChange={(e) => setEmail(e.target.value)}
               required
               disabled={isLoading}
-              className="bg-white/5 border-white/10 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
+              className="bg-white/5 border-gray-200 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
             />
           </div>
 
@@ -113,7 +113,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
               required
               minLength={6}
               disabled={isLoading}
-              className="bg-white/5 border-white/10 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
+              className="bg-white/5 border-gray-200 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
             />
             {!isLogin && (
               <p className="text-xs text-text-body">

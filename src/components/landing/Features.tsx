@@ -112,7 +112,7 @@ export function Features() {
                   {/* Icon - Enhanced */}
                   <div className="relative">
                     <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-xl blur-xl opacity-50 group-hover:opacity-100 transition-opacity ${feature.glowColor}`} />
-                    <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform`}>
+                    <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center border border-gray-300 group-hover:scale-110 transition-transform`}>
                       <feature.icon className="w-7 h-7 text-text-primary drop-shadow-lg" />
                     </div>
                   </div>

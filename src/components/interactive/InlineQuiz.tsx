@@ -145,7 +145,7 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
         animate={{ opacity: 1, scale: 1 }}
         className="w-full"
       >
-        <Card className="border-white/10 bg-gradient-to-br from-purple-500/10 to-blue-500/10 backdrop-blur-sm p-6">
+        <Card className="border-gray-200 bg-gradient-to-br from-purple-500/10 to-blue-500/10 backdrop-blur-sm p-6">
           <div className="text-center space-y-4">
             <motion.div
               initial={{ scale: 0 }}
@@ -168,15 +168,15 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
             </div>
 
             <div className="grid grid-cols-3 gap-4">
-              <div className="rounded-lg border border-white/10 bg-black/30 p-3">
+              <div className="rounded-lg border border-gray-200 bg-gray-100 p-3">
                 <p className="text-xs text-text-secondary mb-1">Puntuación</p>
                 <p className="text-2xl font-bold text-text-primary">{percentage.toFixed(0)}%</p>
               </div>
-              <div className="rounded-lg border border-white/10 bg-black/30 p-3">
+              <div className="rounded-lg border border-gray-200 bg-gray-100 p-3">
                 <p className="text-xs text-text-secondary mb-1">Correctas</p>
                 <p className="text-2xl font-bold text-success">{score}/{questions.length}</p>
               </div>
-              <div className="rounded-lg border border-white/10 bg-black/30 p-3">
+              <div className="rounded-lg border border-gray-200 bg-gray-100 p-3">
                 <p className="text-xs text-text-secondary mb-1">XP Ganado</p>
                 <p className="text-2xl font-bold text-warning">+{calculateQuizXP(finalScore, attempts)}</p>
               </div>
@@ -201,9 +201,9 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
       animate={{ opacity: 1, y: 0 }}
       className="w-full"
     >
-      <Card className="border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden">
+      <Card className="border-gray-200 bg-white backdrop-blur-sm overflow-hidden">
         {/* Header */}
-        <div className="border-b border-white/10 bg-gradient-to-r from-purple-500/10 to-blue-500/10 p-4">
+        <div className="border-b border-gray-200 bg-gradient-to-r from-purple-500/10 to-blue-500/10 p-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
@@ -268,11 +268,11 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
                   disabled={isAnswered}
                   className={cn(
                     "w-full text-left p-4 rounded-lg border transition-all duration-200",
-                    "hover:border-white/30",
+                    "hover:border-gray-400",
                     isSelected && !isAnswered && "border-blue-500/50 bg-blue-500/10",
                     showFeedback && isCorrect && "border-green-500/50 bg-green-500/10",
                     showFeedback && !isCorrect && "border-red-500/50 bg-red-500/10",
-                    !isSelected && !showFeedback && "border-white/10 bg-black/30",
+                    !isSelected && !showFeedback && "border-gray-200 bg-gray-100",
                     isAnswered && "cursor-not-allowed opacity-75"
                   )}
                 >

@@ -38,7 +38,7 @@ export function ChatInput({ onSendMessage, isLoading, disabled }: ChatInputProps
           onKeyDown={handleKeyDown}
           placeholder="Pregúntame sobre probabilidad, valor esperado, sesgos cognitivos..."
           disabled={isLoading || disabled}
-          className="min-h-[80px] max-h-[200px] pr-14 resize-none bg-white/5 border-white/10 focus:border-primary/50 focus-visible:ring-primary/50"
+          className="min-h-[80px] max-h-[200px] pr-14 resize-none bg-white/5 border-gray-200 focus:border-primary/50 focus-visible:ring-primary/50"
         />
         <Button
           type="submit"
@@ -55,8 +55,8 @@ export function ChatInput({ onSendMessage, isLoading, disabled }: ChatInputProps
         </Button>
       </div>
       <p className="mt-2 text-xs text-muted-foreground">
-        Presiona <kbd className="px-1.5 py-0.5 rounded bg-white/10">Enter</kbd> para enviar,{" "}
-        <kbd className="px-1.5 py-0.5 rounded bg-white/10">Shift + Enter</kbd> para nueva línea
+        Presiona <kbd className="px-1.5 py-0.5 rounded bg-white">Enter</kbd> para enviar,{" "}
+        <kbd className="px-1.5 py-0.5 rounded bg-white">Shift + Enter</kbd> para nueva línea
       </p>
     </form>
   )

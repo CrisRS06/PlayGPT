@@ -216,7 +216,7 @@ export function NFLBettingSimulator() {
   const ev = calculateEV(selectedBetOdds, winProb)
 
   return (
-    <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
+    <Card className="border-gray-200 bg-white backdrop-blur-sm p-6">
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3">
@@ -234,12 +234,12 @@ export function NFLBettingSimulator() {
           <div className="space-y-2">
             <Label htmlFor="team1" className="text-sm text-text-body">Equipo Local</Label>
             <Select value={team1} onValueChange={setTeam1}>
-              <SelectTrigger id="team1" className="bg-black/50 border-white/10 text-text-primary">
+              <SelectTrigger id="team1" className="bg-white/90 border-gray-200 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-gray-900 border-white/10">
+              <SelectContent className="bg-gray-900 border-gray-200">
                 {NFL_TEAMS.filter(t => t.name !== team2).map(team => (
-                  <SelectItem key={team.name} value={team.name} className="text-text-primary hover:bg-white/10">
+                  <SelectItem key={team.name} value={team.name} className="text-text-primary hover:bg-white">
                     {team.city} {team.name} ({team.power})
                   </SelectItem>
                 ))}
@@ -250,12 +250,12 @@ export function NFLBettingSimulator() {
           <div className="space-y-2">
             <Label htmlFor="team2" className="text-sm text-text-body">Equipo Visitante</Label>
             <Select value={team2} onValueChange={setTeam2}>
-              <SelectTrigger id="team2" className="bg-black/50 border-white/10 text-text-primary">
+              <SelectTrigger id="team2" className="bg-white/90 border-gray-200 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-gray-900 border-white/10">
+              <SelectContent className="bg-gray-900 border-gray-200">
                 {NFL_TEAMS.filter(t => t.name !== team1).map(team => (
-                  <SelectItem key={team.name} value={team.name} className="text-text-primary hover:bg-white/10">
+                  <SelectItem key={team.name} value={team.name} className="text-text-primary hover:bg-white">
                     {team.city} {team.name} ({team.power})
                   </SelectItem>
                 ))}
@@ -265,7 +265,7 @@ export function NFLBettingSimulator() {
         </div>
 
         {/* Matchup Display */}
-        <div className="rounded-lg border border-white/10 bg-black/30 p-4">
+        <div className="rounded-lg border border-gray-200 bg-gray-100 p-4">
           <div className="flex items-center justify-between">
             <div className="text-center flex-1">
               <p className="text-lg font-bold text-text-primary">{team1Data.city} {team1Data.name}</p>
@@ -290,17 +290,17 @@ export function NFLBettingSimulator() {
           <div className="space-y-2">
             <Label htmlFor="betType" className="text-sm text-text-body">Tipo de Apuesta</Label>
             <Select value={betType} onValueChange={(v) => setBetType(v as BetType)}>
-              <SelectTrigger id="betType" className="bg-black/50 border-white/10 text-text-primary">
+              <SelectTrigger id="betType" className="bg-white/90 border-gray-200 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-gray-900 border-white/10">
-                <SelectItem value="moneyline" className="text-text-primary hover:bg-white/10">
+              <SelectContent className="bg-gray-900 border-gray-200">
+                <SelectItem value="moneyline" className="text-text-primary hover:bg-white">
                   Moneyline (Ganador directo)
                 </SelectItem>
-                <SelectItem value="spread" className="text-text-primary hover:bg-white/10">
+                <SelectItem value="spread" className="text-text-primary hover:bg-white">
                   Point Spread (Hándicap)
                 </SelectItem>
-                <SelectItem value="total" className="text-text-primary hover:bg-white/10">
+                <SelectItem value="total" className="text-text-primary hover:bg-white">
                   Over/Under (Total puntos)
                 </SelectItem>
               </SelectContent>
@@ -314,7 +314,7 @@ export function NFLBettingSimulator() {
               type="number"
               value={betAmount}
               onChange={(e) => setBetAmount(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary"
+              className="bg-white/90 border-gray-200 text-text-primary"
               placeholder="100"
             />
           </div>
@@ -332,7 +332,7 @@ export function NFLBettingSimulator() {
                   "p-4 rounded-lg border-2 transition-all",
                   selectedTeam === option.description ?
                     "border-blue-500 bg-blue-500/10" :
-                    "border-white/10 bg-black/30 hover:border-white/30"
+                    "border-gray-200 bg-gray-100 hover:border-gray-400"
                 )}
               >
                 <div className="flex items-center justify-between mb-2">
@@ -392,7 +392,7 @@ export function NFLBettingSimulator() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="space-y-4 pt-4 border-t border-white/10"
+              className="space-y-4 pt-4 border-t border-gray-200"
             >
               <div className={cn(
                 "rounded-lg border p-6 text-center",

@@ -85,9 +85,9 @@ export default function QuizzesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
       {/* Header */}
-      <div className="border-b border-white/10 bg-black/50 backdrop-blur-xl">
+      <div className="border-b border-gray-200 bg-white/80 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 py-6">
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" asChild aria-label="Volver al chat">
@@ -114,7 +114,7 @@ export default function QuizzesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
+          <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-white flex items-center gap-2">
                 <Sparkles className="h-5 w-5 text-accent" />
@@ -128,10 +128,10 @@ export default function QuizzesPage() {
                   Tema del Quiz
                 </Label>
                 <Select value={topic} onValueChange={setTopic}>
-                  <SelectTrigger className="bg-white/5 border-white/10 text-white">
+                  <SelectTrigger className="bg-white/5 border-gray-200 text-white">
                     <SelectValue placeholder="Selecciona un tema" />
                   </SelectTrigger>
-                  <SelectContent className="bg-black border-white/10">
+                  <SelectContent className="bg-white border-gray-200">
                     {topics.map((t) => (
                       <SelectItem key={t} value={t} className="text-white">
                         {t}
@@ -155,7 +155,7 @@ export default function QuizzesPage() {
                     placeholder="Ejemplo: Distribuciones de probabilidad"
                     value={customTopic}
                     onChange={(e) => setCustomTopic(e.target.value)}
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500"
+                    className="bg-white/5 border-gray-200 text-white placeholder:text-gray-500"
                   />
                 </div>
               )}
@@ -166,10 +166,10 @@ export default function QuizzesPage() {
                   Nivel de Dificultad
                 </Label>
                 <Select value={level} onValueChange={(v: "beginner" | "intermediate" | "advanced") => setLevel(v)}>
-                  <SelectTrigger className="bg-white/5 border-white/10 text-white">
+                  <SelectTrigger className="bg-white/5 border-gray-200 text-white">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="bg-black border-white/10">
+                  <SelectContent className="bg-white border-gray-200">
                     <SelectItem value="beginner" className="text-white">
                       Principiante
                     </SelectItem>
@@ -189,10 +189,10 @@ export default function QuizzesPage() {
                   Número de Preguntas
                 </Label>
                 <Select value={numberOfQuestions} onValueChange={setNumberOfQuestions}>
-                  <SelectTrigger className="bg-white/5 border-white/10 text-white">
+                  <SelectTrigger className="bg-white/5 border-gray-200 text-white">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="bg-black border-white/10">
+                  <SelectContent className="bg-white border-gray-200">
                     {[3, 5, 7, 10].map((num) => (
                       <SelectItem
                         key={num}

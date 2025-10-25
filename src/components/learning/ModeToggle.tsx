@@ -71,7 +71,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
               </AnimatePresence>
             </Button>
           </TooltipTrigger>
-          <TooltipContent side="bottom" className="bg-gray-900 border-white/10">
+          <TooltipContent side="bottom" className="bg-gray-900 border-gray-200">
             <div className="space-y-1">
               <p className="font-semibold">{modeInfo.title}</p>
               <p className="text-xs text-text-secondary">{modeInfo.description}</p>
@@ -89,7 +89,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
         <Button
           variant="outline"
           className={cn(
-            "border-white/10 hover:bg-white/5 transition-all group",
+            "border-gray-200 hover:bg-white/5 transition-all group",
             isGuided
               ? "bg-purple-500/10 hover:bg-purple-500/20 border-purple-500/30"
               : "bg-blue-500/10 hover:bg-blue-500/20 border-blue-500/30"
@@ -115,7 +115,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className="w-96 bg-gray-900 border-white/10 p-0"
+        className="w-96 bg-gray-900 border-gray-200 p-0"
         side="bottom"
         align="end"
       >
@@ -137,7 +137,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
                 "flex items-center gap-3 p-3 rounded-lg border-2 transition-all cursor-pointer",
                 isGuided
                   ? "border-purple-500/50 bg-purple-500/10"
-                  : "border-white/10 bg-white/5 hover:border-white/20"
+                  : "border-gray-200 bg-white/5 hover:border-gray-300"
               )}
               onClick={handleToggle}
             >
@@ -159,7 +159,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
                 "flex items-center gap-3 p-3 rounded-lg border-2 transition-all cursor-pointer",
                 !isGuided
                   ? "border-blue-500/50 bg-blue-500/10"
-                  : "border-white/10 bg-white/5 hover:border-white/20"
+                  : "border-gray-200 bg-white/5 hover:border-gray-300"
               )}
               onClick={handleToggle}
             >
@@ -218,7 +218,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="pt-3 border-t border-white/10 space-y-3"
+              className="pt-3 border-t border-gray-200 space-y-3"
             >
               <p className="text-xs font-medium text-text-primary">Configuración del Modo Guiado:</p>
 
@@ -260,7 +260,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
           )}
 
           {/* Footer tip */}
-          <div className="pt-3 border-t border-white/10">
+          <div className="pt-3 border-t border-gray-200">
             <p className="text-xs text-text-tertiary text-center">
               💡 Puedes cambiar de modo en cualquier momento
             </p>

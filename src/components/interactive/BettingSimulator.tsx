@@ -154,7 +154,7 @@ export function BettingSimulator() {
   }
 
   return (
-    <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
+    <Card className="border-gray-200 bg-white backdrop-blur-sm p-6">
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3">
@@ -174,12 +174,12 @@ export function BettingSimulator() {
               Tipo de Juego
             </Label>
             <Select value={selectedGame} onValueChange={setSelectedGame}>
-              <SelectTrigger id="game" className="bg-black/50 border-white/10 text-text-primary">
+              <SelectTrigger id="game" className="bg-white/90 border-gray-200 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-gray-900 border-white/10">
+              <SelectContent className="bg-gray-900 border-gray-200">
                 {Object.entries(GAMES).map(([key, game]) => (
-                  <SelectItem key={key} value={key} className="text-text-primary hover:bg-white/10">
+                  <SelectItem key={key} value={key} className="text-text-primary hover:bg-white">
                     {game.name}
                   </SelectItem>
                 ))}
@@ -197,7 +197,7 @@ export function BettingSimulator() {
               type="number"
               value={initialBankroll}
               onChange={(e) => setInitialBankroll(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary"
+              className="bg-white/90 border-gray-200 text-text-primary"
               placeholder="1000"
             />
           </div>
@@ -211,7 +211,7 @@ export function BettingSimulator() {
               type="number"
               value={betSize}
               onChange={(e) => setBetSize(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary"
+              className="bg-white/90 border-gray-200 text-text-primary"
               placeholder="10"
             />
           </div>
@@ -225,7 +225,7 @@ export function BettingSimulator() {
               type="number"
               value={numRounds}
               onChange={(e) => setNumRounds(e.target.value)}
-              className="bg-black/50 border-white/10 text-text-primary"
+              className="bg-white/90 border-gray-200 text-text-primary"
               placeholder="100"
             />
           </div>
@@ -233,11 +233,11 @@ export function BettingSimulator() {
 
         {/* Game Info */}
         <div className="grid grid-cols-3 gap-3">
-          <div className="rounded-lg border border-white/10 bg-black/30 p-3">
+          <div className="rounded-lg border border-gray-200 bg-gray-100 p-3">
             <p className="text-xs text-text-secondary mb-1">Prob. Ganar</p>
             <p className="text-lg font-bold text-text-primary">{(game.winProbability * 100).toFixed(1)}%</p>
           </div>
-          <div className="rounded-lg border border-white/10 bg-black/30 p-3">
+          <div className="rounded-lg border border-gray-200 bg-gray-100 p-3">
             <p className="text-xs text-text-secondary mb-1">Pago</p>
             <p className="text-lg font-bold text-text-primary">{game.payout}x</p>
           </div>
@@ -261,7 +261,7 @@ export function BettingSimulator() {
             <Button
               onClick={resetSimulation}
               variant="outline"
-              className="border-white/10 hover:bg-white/10"
+              className="border-gray-200 hover:bg-white"
             >
               <RefreshCw className="w-4 h-4 mr-2" />
               Reiniciar
@@ -274,10 +274,10 @@ export function BettingSimulator() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="space-y-4 pt-4 border-t border-white/10"
+            className="space-y-4 pt-4 border-t border-gray-200"
           >
             {/* Chart */}
-            <div className="rounded-lg border border-white/10 bg-black/30 p-4">
+            <div className="rounded-lg border border-gray-200 bg-gray-100 p-4">
               <h4 className="text-sm font-semibold text-text-primary mb-4">Evolución del Bankroll</h4>
               <ResponsiveContainer width="100%" height={250}>
                 <LineChart data={results}>
@@ -322,7 +322,7 @@ export function BettingSimulator() {
 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              <div className="rounded-lg border border-white/10 bg-black/30 p-4">
+              <div className="rounded-lg border border-gray-200 bg-gray-100 p-4">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-text-secondary">Bankroll Final</span>
                   <DollarSign className="w-4 h-4 text-text-tertiary" />
@@ -337,7 +337,7 @@ export function BettingSimulator() {
                 </p>
               </div>
 
-              <div className="rounded-lg border border-white/10 bg-black/30 p-4">
+              <div className="rounded-lg border border-gray-200 bg-gray-100 p-4">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-text-secondary">Ganancia Neta</span>
                   {finalStats.netProfit >= 0 ? (
@@ -356,7 +356,7 @@ export function BettingSimulator() {
                 </p>
               </div>
 
-              <div className="rounded-lg border border-white/10 bg-black/30 p-4">
+              <div className="rounded-lg border border-gray-200 bg-gray-100 p-4">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-text-secondary">ROI</span>
                 </div>
@@ -370,7 +370,7 @@ export function BettingSimulator() {
                 </p>
               </div>
 
-              <div className="rounded-lg border border-white/10 bg-black/30 p-4">
+              <div className="rounded-lg border border-gray-200 bg-gray-100 p-4">
                 <span className="text-xs text-text-secondary">Total Apostado</span>
                 <p className="text-lg font-bold text-text-primary mt-1">
                   {formatCurrency(finalStats.totalWagered)}

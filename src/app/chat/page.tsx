@@ -155,7 +155,7 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="flex h-screen bg-black text-white">
+    <div className="flex h-screen bg-gray-50 text-gray-900">
       {/* Onboarding Tour */}
       <OnboardingTour />
 
@@ -186,7 +186,7 @@ export default function ChatPage() {
         <motion.header
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="border-b border-white/10 backdrop-blur-xl bg-black/50 px-6 py-4"
+          className="border-b border-gray-200 backdrop-blur-xl bg-white/90 px-6 py-4"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -285,7 +285,7 @@ export default function ChatPage() {
         <QuickActions />
 
         {/* Input Area */}
-        <div className="border-t border-white/10 bg-black/50 backdrop-blur-xl p-6">
+        <div className="border-t border-gray-200 bg-white/80 backdrop-blur-xl p-6">
           <div className="mx-auto max-w-4xl">
             <ChatInput onSendMessage={handleSendMessage} isLoading={isLoading} />
             {error && (

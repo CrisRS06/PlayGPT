@@ -82,7 +82,7 @@ export function ConversationSidebar({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+            className="fixed inset-0 bg-white/80 backdrop-blur-sm z-40 md:hidden"
             data-backdrop
             tabIndex={-1}
             aria-hidden="true"
@@ -94,10 +94,10 @@ export function ConversationSidebar({
             animate={{ x: 0 }}
             exit={{ x: -320 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed md:relative left-0 top-0 h-full w-full sm:w-80 max-w-xs bg-black/95 border-r border-white/10 backdrop-blur-xl z-50 flex flex-col"
+            className="fixed md:relative left-0 top-0 h-full w-full sm:w-80 max-w-xs bg-white/95 border-r border-gray-200 backdrop-blur-xl z-50 flex flex-col"
           >
             {/* Header */}
-            <div className="p-4 border-b border-white/10">
+            <div className="p-4 border-b border-gray-200">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-semibold text-text-primary">Conversaciones</h2>
                 <Button
@@ -158,7 +158,7 @@ export function ConversationSidebar({
                         className={`w-full text-left p-3 rounded-lg transition-colors group relative cursor-pointer ${
                           isActive
                             ? "bg-primary/20 border border-primary/30"
-                            : "bg-white/5 hover:bg-white/10 border border-transparent"
+                            : "bg-white/5 hover:bg-white border border-transparent"
                         }`}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
