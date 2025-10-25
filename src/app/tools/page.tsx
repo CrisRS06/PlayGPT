@@ -91,7 +91,7 @@ const sampleTopics = [
 
 export default function ToolsPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-text-primary">
       {/* Header */}
       <motion.header
         initial={{ y: -100, opacity: 0 }}
@@ -107,10 +107,10 @@ export default function ToolsPage() {
                 </Link>
               </Button>
               <div className="flex items-center gap-2">
-                <Sparkles className="h-6 w-6 text-purple-400" />
+                <Sparkles className="h-6 w-6 text-icon-primary" />
                 <div>
-                  <h1 className="text-lg font-semibold text-white">Herramientas Interactivas</h1>
-                  <p className="text-xs text-gray-400">Aprende jugando con simuladores y calculadoras</p>
+                  <h1 className="text-lg font-semibold text-text-primary">Herramientas Interactivas</h1>
+                  <p className="text-xs text-text-secondary">Aprende jugando con simuladores y calculadoras</p>
                 </div>
               </div>
             </div>
@@ -135,8 +135,8 @@ export default function ToolsPage() {
 
           <TabsContent value="calculator" className="space-y-4">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">Calculadora de Valor Esperado</h2>
-              <p className="text-gray-400 mb-6">
+              <h2 className="text-2xl font-bold text-text-primary mb-2">Calculadora de Valor Esperado</h2>
+              <p className="text-text-secondary mb-6">
                 Calcula el valor esperado de cualquier apuesta y descubre si es favorable o no a largo plazo.
               </p>
             </div>
@@ -145,8 +145,8 @@ export default function ToolsPage() {
 
           <TabsContent value="simulator" className="space-y-4">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">Simulador de Apuestas</h2>
-              <p className="text-gray-400 mb-6">
+              <h2 className="text-2xl font-bold text-text-primary mb-2">Simulador de Apuestas</h2>
+              <p className="text-text-secondary mb-6">
                 Ejecuta miles de apuestas en segundos y visualiza cómo evoluciona tu bankroll con el tiempo.
               </p>
             </div>
@@ -155,8 +155,8 @@ export default function ToolsPage() {
 
           <TabsContent value="quiz" className="space-y-4">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">Quiz Interactivo</h2>
-              <p className="text-gray-400 mb-6">
+              <h2 className="text-2xl font-bold text-text-primary mb-2">Quiz Interactivo</h2>
+              <p className="text-text-secondary mb-6">
                 Pon a prueba tus conocimientos sobre juego responsable y conceptos matemáticos.
               </p>
             </div>
@@ -171,8 +171,8 @@ export default function ToolsPage() {
 
           <TabsContent value="progress" className="space-y-4">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">Visualización de Progreso</h2>
-              <p className="text-gray-400 mb-6">
+              <h2 className="text-2xl font-bold text-text-primary mb-2">Visualización de Progreso</h2>
+              <p className="text-text-secondary mb-6">
                 Explora diferentes formas de visualizar tu progreso de aprendizaje.
               </p>
             </div>
@@ -200,15 +200,15 @@ export default function ToolsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="mt-8 rounded-xl border border-blue-500/20 bg-blue-500/5 p-6"
+          className="mt-8 rounded-xl border border-info/20 bg-info/5 p-6"
         >
           <div className="flex items-start gap-3">
-            <Sparkles className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
+            <Sparkles className="w-6 h-6 text-info flex-shrink-0 mt-1" />
             <div>
-              <h3 className="text-lg font-semibold text-blue-300 mb-2">
+              <h3 className="text-lg font-semibold text-text-primary mb-2">
                 Aprende de Forma Interactiva
               </h3>
-              <p className="text-sm text-gray-300 leading-relaxed">
+              <p className="text-sm text-text-body leading-relaxed">
                 Estas herramientas están diseñadas para ayudarte a comprender conceptos complejos de forma práctica.
                 Experimenta con diferentes valores, ejecuta simulaciones y visualiza los resultados para desarrollar
                 una comprensión profunda del juego responsable y la matemática detrás de las apuestas.

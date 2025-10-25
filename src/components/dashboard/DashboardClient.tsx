@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowLeft, TrendingUp, Brain, Target, MessageSquare, Trophy, Calendar } from "lucide-react"
+import { ArrowLeft, TrendingUp, Brain, Target, MessageSquare, Trophy, Calendar, Calculator } from "lucide-react"
 import type { StudentProfile } from "@/lib/profile/student-profile"
 
 interface DashboardClientProps {
@@ -319,29 +319,41 @@ export function DashboardClient({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-8 grid sm:grid-cols-3 gap-4"
+          className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
+          <Button variant="outline" asChild className="h-auto p-6">
+            <Link href="/tools">
+              <div className="flex flex-col items-center gap-2">
+                <Calculator className="h-8 w-8 text-icon-accent" />
+                <span className="font-semibold">Herramientas</span>
+                <span className="text-xs text-text-tertiary text-center">Calculadoras y simuladores</span>
+              </div>
+            </Link>
+          </Button>
           <Button variant="outline" asChild className="h-auto p-6">
             <Link href="/quizzes">
               <div className="flex flex-col items-center gap-2">
-                <Trophy className="h-8 w-8" />
+                <Trophy className="h-8 w-8 text-achievement-gold" />
                 <span className="font-semibold">Tomar un Quiz</span>
+                <span className="text-xs text-text-tertiary text-center">Pon a prueba tus conocimientos</span>
               </div>
             </Link>
           </Button>
           <Button variant="outline" asChild className="h-auto p-6">
             <Link href="/chat">
               <div className="flex flex-col items-center gap-2">
-                <MessageSquare className="h-8 w-8" />
+                <MessageSquare className="h-8 w-8 text-info" />
                 <span className="font-semibold">Chatear con IA</span>
+                <span className="text-xs text-text-tertiary text-center">Aprende interactivamente</span>
               </div>
             </Link>
           </Button>
           <Button variant="outline" asChild className="h-auto p-6">
             <Link href="/profile">
               <div className="flex flex-col items-center gap-2">
-                <Brain className="h-8 w-8" />
+                <Brain className="h-8 w-8 text-success" />
                 <span className="font-semibold">Ver Mi Perfil</span>
+                <span className="text-xs text-text-tertiary text-center">Revisa tu progreso</span>
               </div>
             </Link>
           </Button>

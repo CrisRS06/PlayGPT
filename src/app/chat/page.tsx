@@ -7,7 +7,7 @@ import { ChatInput } from "@/components/chat/ChatInput"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
-import { ArrowLeft, Sparkles, MessageSquare, BookOpen, BarChart3, Zap, Crown } from "lucide-react"
+import { ArrowLeft, Sparkles, MessageSquare, BookOpen, BarChart3, Calculator, Crown } from "lucide-react"
 import type { Message } from "@/components/chat/ChatMessage"
 import { saveConversationAction, loadConversationAction } from "@/lib/chat/conversation-actions"
 import { ConversationSidebar } from "@/components/chat/ConversationSidebar"
@@ -234,7 +234,7 @@ export default function ChatPage() {
                 aria-label="Herramientas interactivas"
               >
                 <Link href="/tools">
-                  <Zap className="h-5 w-5" />
+                  <Calculator className="h-5 w-5" />
                 </Link>
               </Button>
               <Separator orientation="vertical" className="h-6" />
