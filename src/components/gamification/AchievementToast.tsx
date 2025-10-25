@@ -41,21 +41,21 @@ const rarityColors = {
     gradient: "from-blue-500 to-blue-600",
     bg: "bg-blue-500/20",
     border: "border-blue-500/30",
-    text: "text-blue-300",
+    text: "text-blue-700",
     glow: "shadow-blue-500/50"
   },
   epic: {
     gradient: "from-purple-500 to-purple-600",
     bg: "bg-purple-500/20",
     border: "border-purple-500/30",
-    text: "text-purple-300",
+    text: "text-purple-600",
     glow: "shadow-purple-500/50"
   },
   legendary: {
     gradient: "from-yellow-500 to-orange-500",
     bg: "bg-yellow-500/20",
     border: "border-yellow-500/30",
-    text: "text-yellow-300",
+    text: "text-yellow-700",
     glow: "shadow-yellow-500/50"
   }
 }

@@ -184,7 +184,7 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
 
             {percentage < 70 && (
               <div className="rounded-lg border border-blue-500/20 bg-blue-500/5 p-4">
-                <p className="text-sm text-blue-300">
+                <p className="text-sm text-blue-700">
                   💡 Revisa los conceptos y vuelve a intentarlo para mejorar tu puntuación
                 </p>
               </div>
@@ -246,7 +246,7 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
                   exit={{ opacity: 0, height: 0 }}
                   className="mt-2 rounded-lg border border-yellow-500/20 bg-yellow-500/5 p-3"
                 >
-                  <p className="text-sm text-yellow-300">💡 {currentQuestion.hint}</p>
+                  <p className="text-sm text-yellow-700">💡 {currentQuestion.hint}</p>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -320,7 +320,7 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
                 <div className="flex items-start gap-3">
                   <Zap className="w-5 h-5 text-info flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-sm font-medium text-blue-300 mb-1">Explicación</p>
+                    <p className="text-sm font-medium text-blue-700 mb-1">Explicación</p>
                     <p className="text-sm text-text-body">{currentQuestion.explanation}</p>
                   </div>
                 </div>

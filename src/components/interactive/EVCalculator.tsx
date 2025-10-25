@@ -253,7 +253,7 @@ export function EVCalculator() {
           <div className="flex items-start gap-3">
             <Info className="w-5 h-5 text-icon-primary flex-shrink-0 mt-0.5" />
             <div className="space-y-1">
-              <p className="text-sm font-medium text-purple-300">¿Qué es el Valor Esperado?</p>
+              <p className="text-sm font-medium text-purple-600">¿Qué es el Valor Esperado?</p>
               <p className="text-xs text-text-secondary leading-relaxed">
                 El EV (Expected Value) es el promedio de ganancias o pérdidas que puedes esperar por cada apuesta a largo plazo.
                 Un EV negativo significa que perderás dinero con el tiempo, mientras que un EV positivo indica una apuesta favorable.

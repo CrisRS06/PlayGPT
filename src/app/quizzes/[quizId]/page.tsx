@@ -128,7 +128,7 @@ export default function QuizTakePage({
       <div className="min-h-screen bg-gray-50 text-gray-900 flex items-center justify-center">
         <div className="text-center">
           <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-gray-400">Cargando quiz...</p>
+          <p className="text-gray-600">Cargando quiz...</p>
         </div>
       </div>
     )
@@ -167,8 +167,8 @@ export default function QuizTakePage({
                 </Link>
               </Button>
               <div>
-                <h1 className="text-2xl font-bold text-white">Resultados del Quiz</h1>
-                <p className="text-sm text-gray-400">{quiz.topic}</p>
+                <h1 className="text-2xl font-bold text-gray-900">Resultados del Quiz</h1>
+                <p className="text-sm text-gray-600">{quiz.topic}</p>
               </div>
             </div>
           </div>
@@ -195,8 +195,8 @@ export default function QuizTakePage({
                     </div>
                   )}
                 </div>
-                <h2 className="text-4xl font-bold text-white mb-2">{percentage}%</h2>
-                <p className="text-gray-400">
+                <h2 className="text-4xl font-bold text-gray-900 mb-2">{percentage}%</h2>
+                <p className="text-gray-600">
                   {results.correctAnswers} de {results.totalQuestions} preguntas correctas
                 </p>
                 <Badge
@@ -231,7 +231,7 @@ export default function QuizTakePage({
                           <XCircle className="h-6 w-6 text-red-500 flex-shrink-0 mt-1" />
                         )}
                         <div className="flex-1">
-                          <h3 className="text-white font-medium mb-2">
+                          <h3 className="text-gray-900 font-medium mb-2">
                             Pregunta {index + 1}
                           </h3>
                           <p className="text-gray-300 mb-4">{question.question}</p>
@@ -249,11 +249,11 @@ export default function QuizTakePage({
                                       ? "border-green-500/50 bg-green-500/10"
                                       : isUserAnswer
                                         ? "border-red-500/50 bg-red-500/10"
-                                        : "border-gray-200 bg-white/5"
+                                        : "border-gray-200 bg-gray-100"
                                   }`}
                                 >
                                   <div className="flex items-center gap-2">
-                                    <span className="text-sm text-white">{option}</span>
+                                    <span className="text-sm text-gray-900">{option}</span>
                                     {isCorrect && (
                                       <CheckCircle className="h-4 w-4 text-green-500 ml-auto" />
                                     )}
@@ -267,7 +267,7 @@ export default function QuizTakePage({
                           </div>
 
                           <div className="rounded-lg bg-blue-500/10 border border-blue-500/20 p-4">
-                            <p className="text-sm text-blue-300">
+                            <p className="text-sm text-blue-700">
                               <strong>Explicación:</strong> {evaluation.explanation}
                             </p>
                           </div>
@@ -309,8 +309,8 @@ export default function QuizTakePage({
               </Link>
             </Button>
             <div className="flex-1">
-              <h1 className="text-2xl font-bold text-white">{quiz.topic}</h1>
-              <p className="text-sm text-gray-400">
+              <h1 className="text-2xl font-bold text-gray-900">{quiz.topic}</h1>
+              <p className="text-sm text-gray-600">
                 Pregunta {currentQuestion + 1} de {quiz.questions.length}
               </p>
             </div>
@@ -338,7 +338,7 @@ export default function QuizTakePage({
           >
             <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="text-white text-xl leading-relaxed">
+                <CardTitle className="text-gray-900 text-xl leading-relaxed">
                   {currentQ.question}
                 </CardTitle>
               </CardHeader>
@@ -350,7 +350,7 @@ export default function QuizTakePage({
                     className={`w-full text-left p-4 rounded-lg border transition-all ${
                       userAnswers[currentQuestion] === index
                         ? "border-primary bg-primary/20 scale-[1.02]"
-                        : "border-gray-200 bg-white/5 hover:bg-white hover:border-gray-300"
+                        : "border-gray-200 bg-gray-100 hover:bg-white hover:border-gray-300"
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -365,7 +365,7 @@ export default function QuizTakePage({
                           <div className="w-3 h-3 rounded-full bg-white" />
                         )}
                       </div>
-                      <span className="text-white">{option}</span>
+                      <span className="text-gray-900">{option}</span>
                     </div>
                   </button>
                 ))}

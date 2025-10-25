@@ -28,7 +28,7 @@ function SkillNode({ data }: { data: SkillNodeData }) {
     switch (status) {
       case "locked":
         return {
-          bg: "bg-gray-800/50",
+          bg: "bg-white/50",
           border: "border-gray-600/30",
           icon: Lock,
           iconColor: "text-text-tertiary",
@@ -389,9 +389,9 @@ export function SkillTree() {
           }}
         >
           <Background color="#374151" gap={16} />
-          <Controls className="bg-gray-800 border-gray-200" />
+          <Controls className="bg-white border-gray-200" />
           <MiniMap
-            className="bg-gray-900 border border-gray-200"
+            className="bg-white border border-gray-200"
             nodeColor={(node) => {
               const status = (node.data as SkillNodeData).status
               switch (status) {
@@ -404,7 +404,7 @@ export function SkillTree() {
               }
             }}
           />
-          <Panel position="bottom-right" className="bg-gray-900/90 border border-gray-200 rounded-lg p-3 m-2">
+          <Panel position="bottom-right" className="bg-white/90 border border-gray-200 rounded-lg p-3 m-2">
             <div className="space-y-2 text-xs">
               <div className="flex items-center gap-2">
                 <Lock className="w-3 h-3 text-text-tertiary" />

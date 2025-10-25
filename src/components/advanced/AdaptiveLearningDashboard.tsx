@@ -291,7 +291,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
           </Button>
         </div>
         <div className="mt-4 p-3 rounded-lg bg-blue-500/5 border border-blue-500/20">
-          <p className="text-xs text-blue-300">
+          <p className="text-xs text-blue-700">
             💡 El sistema BKT ajusta la probabilidad de conocimiento basándose en tus respuestas,
             considerando también la posibilidad de errores por descuido (slip) y aciertos por suerte (guess).
           </p>

@@ -126,7 +126,7 @@ export default function ToolsPage() {
         className="max-w-7xl mx-auto p-6"
       >
         <Tabs defaultValue="calculator" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-6 bg-white/5 border border-gray-200">
+          <TabsList className="grid w-full grid-cols-4 mb-6 bg-gray-100 border border-gray-200">
             <TabsTrigger value="calculator">Calculadora EV</TabsTrigger>
             <TabsTrigger value="simulator">Simulador</TabsTrigger>
             <TabsTrigger value="quiz">Quiz</TabsTrigger>

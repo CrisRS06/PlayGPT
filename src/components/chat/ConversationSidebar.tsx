@@ -127,7 +127,7 @@ export function ConversationSidebar({
                   {[1, 2, 3].map((i) => (
                     <div
                       key={i}
-                      className="h-20 rounded-lg bg-white/5 animate-pulse"
+                      className="h-20 rounded-lg bg-gray-100 animate-pulse"
                     />
                   ))}
                 </div>
@@ -158,7 +158,7 @@ export function ConversationSidebar({
                         className={`w-full text-left p-3 rounded-lg transition-colors group relative cursor-pointer ${
                           isActive
                             ? "bg-primary/20 border border-primary/30"
-                            : "bg-white/5 hover:bg-white border border-transparent"
+                            : "bg-gray-100 hover:bg-white border border-transparent"
                         }`}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}

@@ -323,7 +323,7 @@ export function SuggestedPrompts({ onSelectPrompt, currentContext }: SuggestedPr
               onClick={() => onSelectPrompt(suggestion.text)}
               className={cn(
                 "group relative p-4 rounded-lg border text-left transition-all",
-                "bg-white/5 border-gray-200 hover:border-primary/50 hover:bg-white"
+                "bg-gray-100 border-gray-200 hover:border-primary/50 hover:bg-white"
               )}
             >
               {/* Content */}

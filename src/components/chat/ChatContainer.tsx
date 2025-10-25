@@ -57,7 +57,7 @@ export function ChatContainer({ messages, isLoading, onSendMessage }: ChatContai
         ))}
 
         {isLoading && (
-          <div className="flex gap-4 px-6 py-4 bg-white/5">
+          <div className="flex gap-4 px-6 py-4 bg-gray-100">
             <Skeleton className="h-10 w-10 rounded-full shrink-0" />
             <div className="flex-1 space-y-2">
               <Skeleton className="h-4 w-24" />

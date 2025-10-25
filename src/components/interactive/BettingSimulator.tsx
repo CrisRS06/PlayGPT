@@ -177,7 +177,7 @@ export function BettingSimulator() {
               <SelectTrigger id="game" className="bg-white/90 border-gray-200 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-gray-900 border-gray-200">
+              <SelectContent className="bg-white border-gray-200">
                 {Object.entries(GAMES).map(([key, game]) => (
                   <SelectItem key={key} value={key} className="text-text-primary hover:bg-white">
                     {game.name}
@@ -417,7 +417,7 @@ export function BettingSimulator() {
                   <div className="flex items-start gap-3">
                     <TrendingUp className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-sm font-medium text-green-300 mb-1">
+                      <p className="text-sm font-medium text-green-700 mb-1">
                         ¡Tuviste suerte esta vez!
                       </p>
                       <p className="text-xs text-text-secondary">
@@ -431,7 +431,7 @@ export function BettingSimulator() {
 
               {finalStats.wins / (finalStats.wins + finalStats.losses) < game.winProbability - 0.05 && (
                 <div className="rounded-lg border border-blue-500/20 bg-blue-500/5 p-4">
-                  <p className="text-xs text-blue-300">
+                  <p className="text-xs text-blue-700">
                     💡 Tu tasa de victorias ({((finalStats.wins / (finalStats.wins + finalStats.losses)) * 100).toFixed(1)}%)
                     fue menor que la probabilidad teórica ({(game.winProbability * 100).toFixed(1)}%).
                     Esto es normal con pocas rondas - la ley de los grandes números requiere muchas más repeticiones.

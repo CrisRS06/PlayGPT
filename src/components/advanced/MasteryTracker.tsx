@@ -244,7 +244,7 @@ export function MasteryTracker() {
                   "w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all",
                   isAchieved
                     ? `${level.borderColor} ${level.bgColor}`
-                    : "border-gray-700 bg-gray-800/30"
+                    : "border-gray-300 bg-white/30"
                 )}>
                   <Icon className={cn(
                     "w-5 h-5",

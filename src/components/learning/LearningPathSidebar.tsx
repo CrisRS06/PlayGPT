@@ -56,7 +56,7 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
       case 'available':
         return 'border-blue-500/30 bg-blue-500/5'
       case 'locked':
-        return 'border-gray-200 bg-white/5 opacity-60'
+        return 'border-gray-200 bg-gray-100 opacity-60'
       default:
         return 'border-gray-200 bg-white/5'
     }

@@ -38,7 +38,7 @@ export function ChatInput({ onSendMessage, isLoading, disabled }: ChatInputProps
           onKeyDown={handleKeyDown}
           placeholder="Pregúntame sobre probabilidad, valor esperado, sesgos cognitivos..."
           disabled={isLoading || disabled}
-          className="min-h-[80px] max-h-[200px] pr-14 resize-none bg-white/5 border-gray-200 focus:border-primary/50 focus-visible:ring-primary/50"
+          className="min-h-[80px] max-h-[200px] pr-14 resize-none bg-gray-100 border-gray-200 focus:border-primary/50 focus-visible:ring-primary/50"
         />
         <Button
           type="submit"

@@ -237,7 +237,7 @@ export function NFLBettingSimulator() {
               <SelectTrigger id="team1" className="bg-white/90 border-gray-200 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-gray-900 border-gray-200">
+              <SelectContent className="bg-white border-gray-200">
                 {NFL_TEAMS.filter(t => t.name !== team2).map(team => (
                   <SelectItem key={team.name} value={team.name} className="text-text-primary hover:bg-white">
                     {team.city} {team.name} ({team.power})
@@ -253,7 +253,7 @@ export function NFLBettingSimulator() {
               <SelectTrigger id="team2" className="bg-white/90 border-gray-200 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-gray-900 border-gray-200">
+              <SelectContent className="bg-white border-gray-200">
                 {NFL_TEAMS.filter(t => t.name !== team1).map(team => (
                   <SelectItem key={team.name} value={team.name} className="text-text-primary hover:bg-white">
                     {team.city} {team.name} ({team.power})
@@ -293,7 +293,7 @@ export function NFLBettingSimulator() {
               <SelectTrigger id="betType" className="bg-white/90 border-gray-200 text-text-primary">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-gray-900 border-gray-200">
+              <SelectContent className="bg-white border-gray-200">
                 <SelectItem value="moneyline" className="text-text-primary hover:bg-white">
                   Moneyline (Ganador directo)
                 </SelectItem>
@@ -337,7 +337,7 @@ export function NFLBettingSimulator() {
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-semibold text-text-primary">{option.description}</span>
-                  <Badge variant="outline" className="bg-white/5">
+                  <Badge variant="outline" className="bg-gray-100">
                     {option.odds > 0 ? '+' : ''}{option.odds}
                   </Badge>
                 </div>
@@ -425,7 +425,7 @@ export function NFLBettingSimulator() {
               </div>
 
               <div className="rounded-lg border border-blue-500/20 bg-blue-500/5 p-4">
-                <p className="text-xs text-blue-300">
+                <p className="text-xs text-blue-700">
                   💡 Recuerda: Este resultado individual no refleja el valor esperado real. A largo plazo,
                   las apuestas con EV negativo te harán perder dinero incluso si ganas algunas veces.
                 </p>

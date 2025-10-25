@@ -30,8 +30,8 @@ export default function AdvancedPage() {
               <div className="flex items-center gap-2">
                 <Sparkles className="h-6 w-6 text-purple-400" />
                 <div>
-                  <h1 className="text-lg font-semibold text-white">Características Avanzadas</h1>
-                  <p className="text-xs text-gray-400">Sistema educativo adaptativo con IA</p>
+                  <h1 className="text-lg font-semibold text-gray-900">Características Avanzadas</h1>
+                  <p className="text-xs text-gray-600">Sistema educativo adaptativo con IA</p>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function AdvancedPage() {
         className="max-w-7xl mx-auto p-6"
       >
         <Tabs defaultValue="skill-tree" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-6 bg-white/5 border border-gray-200">
+          <TabsList className="grid w-full grid-cols-4 mb-6 bg-gray-100 border border-gray-200">
             <TabsTrigger value="skill-tree">Skill Tree</TabsTrigger>
             <TabsTrigger value="adaptive">Aprendizaje Adaptativo</TabsTrigger>
             <TabsTrigger value="nfl">NFL Simulator</TabsTrigger>
@@ -56,8 +56,8 @@ export default function AdvancedPage() {
 
           <TabsContent value="skill-tree" className="space-y-4">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">Árbol de Habilidades</h2>
-              <p className="text-gray-400 mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Árbol de Habilidades</h2>
+              <p className="text-gray-600 mb-6">
                 Visualiza tu progreso a través del curriculum educativo. Las habilidades se desbloquean
                 conforme dominas los prerequisitos.
               </p>
@@ -67,7 +67,7 @@ export default function AdvancedPage() {
               <div className="flex items-start gap-3">
                 <Sparkles className="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-lg font-semibold text-purple-300 mb-2">
+                  <h3 className="text-lg font-semibold text-purple-600 mb-2">
                     Sistema de Progresión
                   </h3>
                   <p className="text-sm text-gray-300 leading-relaxed">
@@ -82,8 +82,8 @@ export default function AdvancedPage() {
 
           <TabsContent value="adaptive" className="space-y-4">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">Aprendizaje Adaptativo (BKT)</h2>
-              <p className="text-gray-400 mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Aprendizaje Adaptativo (BKT)</h2>
+              <p className="text-gray-600 mb-6">
                 Sistema de inteligencia artificial que ajusta la dificultad basándose en tu rendimiento
                 usando Bayesian Knowledge Tracing.
               </p>
@@ -94,9 +94,9 @@ export default function AdvancedPage() {
             />
             <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-6">
               <div className="flex items-start gap-3">
-                <Sparkles className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
+                <Sparkles className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-lg font-semibold text-blue-300 mb-2">
+                  <h3 className="text-lg font-semibold text-blue-700 mb-2">
                     ¿Cómo funciona BKT?
                   </h3>
                   <p className="text-sm text-gray-300 leading-relaxed mb-3">
@@ -116,8 +116,8 @@ export default function AdvancedPage() {
 
           <TabsContent value="nfl" className="space-y-4">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">Simulador de Apuestas NFL</h2>
-              <p className="text-gray-400 mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Simulador de Apuestas NFL</h2>
+              <p className="text-gray-600 mb-6">
                 Aprende sobre apuestas deportivas con un simulador realista que incluye Moneyline,
                 Point Spread y Over/Under.
               </p>
@@ -132,16 +132,16 @@ export default function AdvancedPage() {
                   </h3>
                   <div className="space-y-3 text-sm text-gray-300">
                     <div>
-                      <p className="font-semibold text-white mb-1">Moneyline</p>
+                      <p className="font-semibold text-gray-900 mb-1">Moneyline</p>
                       <p>Apuesta directa al ganador. Las cuotas reflejan la probabilidad de victoria.</p>
                     </div>
                     <div>
-                      <p className="font-semibold text-white mb-1">Point Spread</p>
+                      <p className="font-semibold text-gray-900 mb-1">Point Spread</p>
                       <p>El favorito debe ganar por más puntos que el hándicap. El underdog puede perder
                          por menos puntos y aún "cubrir el spread".</p>
                     </div>
                     <div>
-                      <p className="font-semibold text-white mb-1">Over/Under (Total)</p>
+                      <p className="font-semibold text-gray-900 mb-1">Over/Under (Total)</p>
                       <p>Apuesta a si la suma total de puntos será mayor (Over) o menor (Under) que
                          la línea establecida.</p>
                     </div>
@@ -153,8 +153,8 @@ export default function AdvancedPage() {
 
           <TabsContent value="mastery" className="space-y-4">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">Sistema de Maestría</h2>
-              <p className="text-gray-400 mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Sistema de Maestría</h2>
+              <p className="text-gray-600 mb-6">
                 Rastrea tu progreso hacia la maestría completa con un sistema de niveles que refleja
                 tu dominio real de cada concepto.
               </p>
@@ -164,28 +164,28 @@ export default function AdvancedPage() {
               <div className="flex items-start gap-3">
                 <Sparkles className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-lg font-semibold text-green-300 mb-2">
+                  <h3 className="text-lg font-semibold text-green-700 mb-2">
                     Niveles de Maestría
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-300">
                     <div>
-                      <p className="font-semibold text-white">🎯 Novato (0-30%)</p>
+                      <p className="font-semibold text-gray-900">🎯 Novato (0-30%)</p>
                       <p className="text-xs">Comenzando el viaje de aprendizaje</p>
                     </div>
                     <div>
-                      <p className="font-semibold text-white">⚡ Aprendiz (30-60%)</p>
+                      <p className="font-semibold text-gray-900">⚡ Aprendiz (30-60%)</p>
                       <p className="text-xs">Comprendiendo los fundamentos</p>
                     </div>
                     <div>
-                      <p className="font-semibold text-white">🏅 Competente (60-85%)</p>
+                      <p className="font-semibold text-gray-900">🏅 Competente (60-85%)</p>
                       <p className="text-xs">Aplicando conocimientos con confianza</p>
                     </div>
                     <div>
-                      <p className="font-semibold text-white">🏆 Experto (85-95%)</p>
+                      <p className="font-semibold text-gray-900">🏆 Experto (85-95%)</p>
                       <p className="text-xs">Dominio avanzado del tema</p>
                     </div>
                     <div className="md:col-span-2">
-                      <p className="font-semibold text-white">👑 Maestro (95%+)</p>
+                      <p className="font-semibold text-gray-900">👑 Maestro (95%+)</p>
                       <p className="text-xs">Maestría completa alcanzada</p>
                     </div>
                   </div>

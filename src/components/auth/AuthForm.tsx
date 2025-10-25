@@ -79,7 +79,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
                 onChange={(e) => setName(e.target.value)}
                 required={!isLogin}
                 disabled={isLoading}
-                className="bg-white/5 border-gray-200 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
+                className="bg-gray-100 border-gray-200 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
               />
             </div>
           )}
@@ -96,7 +96,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
               onChange={(e) => setEmail(e.target.value)}
               required
               disabled={isLoading}
-              className="bg-white/5 border-gray-200 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
+              className="bg-gray-100 border-gray-200 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
             />
           </div>
 
@@ -113,7 +113,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
               required
               minLength={6}
               disabled={isLoading}
-              className="bg-white/5 border-gray-200 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
+              className="bg-gray-100 border-gray-200 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
             />
             {!isLogin && (
               <p className="text-xs text-text-body">

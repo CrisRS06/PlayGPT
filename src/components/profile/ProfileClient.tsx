@@ -298,7 +298,7 @@ export function ProfileClient({
                       {quizAttempts.slice(0, 5).map((attempt, index) => (
                         <div
                           key={attempt.quiz_id || `attempt-${index}`}
-                          className="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white transition-colors"
+                          className="flex items-center justify-between p-3 rounded-lg bg-gray-100 hover:bg-white transition-colors"
                         >
                           <div>
                             <p className="text-sm font-medium text-text-primary">

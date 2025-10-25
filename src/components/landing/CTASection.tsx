@@ -58,7 +58,7 @@ export function CTASection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-base font-semibold px-8 py-6 border-gray-300 hover:bg-white/5"
+                className="text-base font-semibold px-8 py-6 border-gray-300 hover:bg-gray-100"
                 asChild
               >
                 <Link href="#modules">

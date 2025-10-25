@@ -144,7 +144,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
       transition={{ duration: 0.3 }}
       className={cn(
         "flex gap-4 px-6 py-4",
-        isAssistant && "bg-white/5"
+        isAssistant && "bg-gray-100"
       )}
     >
       {/* Avatar */}

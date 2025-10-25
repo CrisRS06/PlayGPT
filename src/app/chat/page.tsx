@@ -255,8 +255,8 @@ export default function ChatPage() {
                   <Sparkles className="relative h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h1 className="text-sm font-semibold text-white">PlayGPT EDU</h1>
-                  <p className="text-xs text-gray-400">Asistente de Aprendizaje</p>
+                  <h1 className="text-sm font-semibold text-gray-900">PlayGPT EDU</h1>
+                  <p className="text-xs text-gray-600">Asistente de Aprendizaje</p>
                 </div>
               </div>
             </div>

@@ -96,11 +96,11 @@ export default function QuizzesPage() {
               </Link>
             </Button>
             <div>
-              <h1 className="text-2xl font-bold text-white flex items-center gap-2">
+              <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
                 <Brain className="h-6 w-6 text-primary" />
                 Quizzes Educativos
               </h1>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-600">
                 Genera quizzes personalizados con IA para evaluar tu conocimiento
               </p>
             </div>
@@ -116,7 +116,7 @@ export default function QuizzesPage() {
         >
           <Card className="border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-white flex items-center gap-2">
+              <CardTitle className="text-gray-900 flex items-center gap-2">
                 <Sparkles className="h-5 w-5 text-accent" />
                 Generar Nuevo Quiz
               </CardTitle>
@@ -124,20 +124,20 @@ export default function QuizzesPage() {
             <CardContent className="space-y-6">
               {/* Topic Selection */}
               <div className="space-y-2">
-                <Label htmlFor="topic" className="text-white">
+                <Label htmlFor="topic" className="text-gray-900">
                   Tema del Quiz
                 </Label>
                 <Select value={topic} onValueChange={setTopic}>
-                  <SelectTrigger className="bg-white/5 border-gray-200 text-white">
+                  <SelectTrigger className="bg-gray-100 border-gray-200 text-gray-900">
                     <SelectValue placeholder="Selecciona un tema" />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-gray-200">
                     {topics.map((t) => (
-                      <SelectItem key={t} value={t} className="text-white">
+                      <SelectItem key={t} value={t} className="text-gray-900">
                         {t}
                       </SelectItem>
                     ))}
-                    <SelectItem value="custom" className="text-white">
+                    <SelectItem value="custom" className="text-gray-900">
                       Tema personalizado...
                     </SelectItem>
                   </SelectContent>
@@ -147,7 +147,7 @@ export default function QuizzesPage() {
               {/* Custom Topic Input */}
               {topic === "custom" && (
                 <div className="space-y-2">
-                  <Label htmlFor="customTopic" className="text-white">
+                  <Label htmlFor="customTopic" className="text-gray-900">
                     Tema Personalizado
                   </Label>
                   <Input
@@ -155,28 +155,28 @@ export default function QuizzesPage() {
                     placeholder="Ejemplo: Distribuciones de probabilidad"
                     value={customTopic}
                     onChange={(e) => setCustomTopic(e.target.value)}
-                    className="bg-white/5 border-gray-200 text-white placeholder:text-gray-500"
+                    className="bg-gray-100 border-gray-200 text-gray-900 placeholder:text-gray-400"
                   />
                 </div>
               )}
 
               {/* Difficulty Level */}
               <div className="space-y-2">
-                <Label htmlFor="level" className="text-white">
+                <Label htmlFor="level" className="text-gray-900">
                   Nivel de Dificultad
                 </Label>
                 <Select value={level} onValueChange={(v: "beginner" | "intermediate" | "advanced") => setLevel(v)}>
-                  <SelectTrigger className="bg-white/5 border-gray-200 text-white">
+                  <SelectTrigger className="bg-gray-100 border-gray-200 text-gray-900">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-gray-200">
-                    <SelectItem value="beginner" className="text-white">
+                    <SelectItem value="beginner" className="text-gray-900">
                       Principiante
                     </SelectItem>
-                    <SelectItem value="intermediate" className="text-white">
+                    <SelectItem value="intermediate" className="text-gray-900">
                       Intermedio
                     </SelectItem>
-                    <SelectItem value="advanced" className="text-white">
+                    <SelectItem value="advanced" className="text-gray-900">
                       Avanzado
                     </SelectItem>
                   </SelectContent>
@@ -185,11 +185,11 @@ export default function QuizzesPage() {
 
               {/* Number of Questions */}
               <div className="space-y-2">
-                <Label htmlFor="numberOfQuestions" className="text-white">
+                <Label htmlFor="numberOfQuestions" className="text-gray-900">
                   Número de Preguntas
                 </Label>
                 <Select value={numberOfQuestions} onValueChange={setNumberOfQuestions}>
-                  <SelectTrigger className="bg-white/5 border-gray-200 text-white">
+                  <SelectTrigger className="bg-gray-100 border-gray-200 text-gray-900">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-gray-200">
@@ -197,7 +197,7 @@ export default function QuizzesPage() {
                       <SelectItem
                         key={num}
                         value={num.toString()}
-                        className="text-white"
+                        className="text-gray-900"
                       >
                         {num} preguntas
                       </SelectItem>
@@ -235,7 +235,7 @@ export default function QuizzesPage() {
 
               {/* Info */}
               <div className="rounded-lg bg-blue-500/10 border border-blue-500/20 p-4">
-                <p className="text-sm text-blue-300">
+                <p className="text-sm text-blue-700">
                   💡 <strong>Tip:</strong> La IA generará preguntas personalizadas
                   basadas en el tema y nivel que elijas. Cada quiz es único y se
                   adapta a tus necesidades de aprendizaje.
