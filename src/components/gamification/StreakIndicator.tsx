@@ -31,11 +31,11 @@ export function StreakIndicator({ compact = false, className }: StreakIndicatorP
   }, [currentStreak])
 
   const getStreakColor = () => {
-    if (currentStreak >= 30) return "text-red-500"
-    if (currentStreak >= 14) return "text-orange-500"
-    if (currentStreak >= 7) return "text-yellow-500"
-    if (currentStreak >= 3) return "text-blue-500"
-    return "text-gray-500"
+    if (currentStreak >= 30) return "text-error"
+    if (currentStreak >= 14) return "text-streak-orange"
+    if (currentStreak >= 7) return "text-warning"
+    if (currentStreak >= 3) return "text-info"
+    return "text-text-tertiary"
   }
 
   const getStreakMessage = () => {
@@ -62,7 +62,7 @@ export function StreakIndicator({ compact = false, className }: StreakIndicatorP
         </motion.div>
 
         {streakFreezes > 0 && (
-          <Badge variant="outline" className="text-xs bg-blue-500/10 text-blue-400 border-blue-500/20">
+          <Badge variant="outline" className="text-xs bg-blue-500/10 text-info border-blue-500/20">
             <Shield className="w-3 h-3 mr-1" />
             {streakFreezes}
           </Badge>
@@ -101,11 +101,11 @@ export function StreakIndicator({ compact = false, className }: StreakIndicatorP
               <span className={cn("text-2xl font-bold", getStreakColor())}>
                 {currentStreak}
               </span>
-              <span className="text-sm text-gray-400">
+              <span className="text-sm text-text-secondary">
                 {currentStreak === 1 ? "día" : "días"}
               </span>
             </div>
-            <p className="text-xs text-gray-500">{getStreakMessage()}</p>
+            <p className="text-xs text-text-tertiary">{getStreakMessage()}</p>
           </div>
         </div>
 
@@ -114,19 +114,19 @@ export function StreakIndicator({ compact = false, className }: StreakIndicatorP
           {longestStreak > 0 && (
             <div className="text-right">
               <div className="flex items-center gap-1 justify-end">
-                <Trophy className="w-3.5 h-3.5 text-yellow-500" />
-                <span className="text-sm font-semibold text-yellow-500">
+                <Trophy className="w-3.5 h-3.5 text-warning" />
+                <span className="text-sm font-semibold text-warning">
                   {longestStreak}
                 </span>
               </div>
-              <p className="text-xs text-gray-500">Récord</p>
+              <p className="text-xs text-text-tertiary">Récord</p>
             </div>
           )}
 
           {streakFreezes > 0 && (
             <Badge
               variant="outline"
-              className="bg-blue-500/10 text-blue-400 border-blue-500/20"
+              className="bg-blue-500/10 text-info border-blue-500/20"
             >
               <Shield className="w-4 h-4 mr-1.5" />
               {streakFreezes} {streakFreezes === 1 ? "congelador" : "congeladores"}
@@ -138,7 +138,7 @@ export function StreakIndicator({ compact = false, className }: StreakIndicatorP
       {/* Milestone Progress */}
       {currentStreak > 0 && currentStreak < 30 && (
         <div className="space-y-1">
-          <div className="flex items-center justify-between text-xs text-gray-500">
+          <div className="flex items-center justify-between text-xs text-text-tertiary">
             <span>Próximo hito</span>
             <span>
               {currentStreak < 3 && `${3 - currentStreak} días para racha de 3`}

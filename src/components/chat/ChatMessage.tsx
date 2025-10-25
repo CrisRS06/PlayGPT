@@ -112,28 +112,28 @@ export function ChatMessage({ message }: ChatMessageProps) {
   const getCategoryColor = (cat: string) => {
     switch (cat) {
       case "Probabilidad":
-        return "bg-blue-500/10 text-blue-400 border-blue-500/20"
+        return "bg-blue-500/10 text-info border-blue-500/20"
       case "Estrategia":
-        return "bg-purple-500/10 text-purple-400 border-purple-500/20"
+        return "bg-purple-500/10 text-icon-primary border-purple-500/20"
       case "Psicología":
         return "bg-pink-500/10 text-pink-400 border-pink-500/20"
       case "Bankroll":
         return "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
       default:
-        return "bg-gray-500/10 text-gray-400 border-gray-500/20"
+        return "bg-gray-500/10 text-text-secondary border-gray-500/20"
     }
   }
 
   const getDifficultyColor = (diff: string) => {
     switch (diff) {
       case "Básico":
-        return "bg-green-500/10 text-green-400 border-green-500/20"
+        return "bg-green-500/10 text-success border-green-500/20"
       case "Intermedio":
-        return "bg-yellow-500/10 text-yellow-400 border-yellow-500/20"
+        return "bg-yellow-500/10 text-warning border-yellow-500/20"
       case "Avanzado":
-        return "bg-red-500/10 text-red-400 border-red-500/20"
+        return "bg-red-500/10 text-error border-red-500/20"
       default:
-        return "bg-gray-500/10 text-gray-400 border-gray-500/20"
+        return "bg-gray-500/10 text-text-secondary border-gray-500/20"
     }
   }
 
@@ -153,8 +153,8 @@ export function ChatMessage({ message }: ChatMessageProps) {
           className={cn(
             "border",
             isAssistant
-              ? "bg-gradient-to-br from-primary to-accent text-white border-primary/50"
-              : "bg-gradient-to-br from-secondary to-chart-1 text-white border-secondary/50"
+              ? "bg-gradient-to-br from-primary to-accent text-text-primary border-primary/50"
+              : "bg-gradient-to-br from-secondary to-chart-1 text-text-primary border-secondary/50"
           )}
         >
           {isAssistant ? (

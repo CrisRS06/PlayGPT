@@ -164,7 +164,7 @@ export function OnboardingTour() {
         className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-r from-primary to-accent shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
         aria-label="Abrir tutorial"
       >
-        <Sparkles className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+        <Sparkles className="w-6 h-6 text-text-primary group-hover:scale-110 transition-transform" />
         <div className="absolute -top-1 -right-1 w-5 h-5 bg-warning rounded-full flex items-center justify-center">
           <span className="text-xs font-bold text-background">{currentStep + 1}</span>
         </div>

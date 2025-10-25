@@ -72,7 +72,7 @@ export function ProfileClient({
   ).length
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-text-primary >
       {/* Header */}
       <div className="border-b border-white/10 bg-black/50 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 py-6">
@@ -83,8 +83,8 @@ export function ProfileClient({
               </Link>
             </Button>
             <div>
-              <h1 className="text-2xl font-bold text-white">Mi Perfil</h1>
-              <p className="text-sm text-gray-400">
+              <h1 className="text-2xl font-bold text-text-primary >Mi Perfil</h1>
+              <p className="text-sm text-text-secondary">
                 Gestiona tu información y visualiza tu progreso
               </p>
             </div>
@@ -106,13 +106,13 @@ export function ProfileClient({
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                      <User className="w-8 h-8 text-white" />
+                      <User className="w-8 h-8 text-text-primary  />
                     </div>
                     <div>
-                      <CardTitle className="text-white">
+                      <CardTitle className="text-text-primary >
                         {user.user_metadata?.full_name || "Usuario"}
                       </CardTitle>
-                      <p className="text-sm text-gray-400">{user.email}</p>
+                      <p className="text-sm text-text-secondary">{user.email}</p>
                     </div>
                   </div>
                 </CardHeader>
@@ -120,28 +120,28 @@ export function ProfileClient({
                   {profile && (
                     <>
                       <div>
-                        <p className="text-sm text-gray-400 mb-2">Nivel</p>
+                        <p className="text-sm text-text-secondary mb-2">Nivel</p>
                         <Badge
                           className={`bg-gradient-to-r ${
                             levelColors[profile.level]
-                          } text-white border-0`}
+                          } text-text-primary border-0`}
                         >
                           {levelLabels[profile.level]}
                         </Badge>
                       </div>
                       <div>
-                        <p className="text-sm text-gray-400 mb-2">
+                        <p className="text-sm text-text-secondary mb-2">
                           Estilo de Aprendizaje
                         </p>
-                        <Badge variant="outline" className="border-primary/30 text-white">
+                        <Badge variant="outline" className="border-primary/30 text-text-primary >
                           {learningStyleLabels[profile.learning_style]}
                         </Badge>
                       </div>
                       <div>
-                        <p className="text-sm text-gray-400 mb-2">
+                        <p className="text-sm text-text-secondary mb-2">
                           Módulo Actual
                         </p>
-                        <p className="text-sm text-white font-medium">
+                        <p className="text-sm text-text-primary font-medium">
                           {profile.current_module.replace(/_/g, " ")}
                         </p>
                       </div>
@@ -159,41 +159,41 @@ export function ProfileClient({
             >
               <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-2">
+                  <CardTitle className="text-text-primary flex items-center gap-2">
                     <Trophy className="w-5 h-5 text-accent" />
                     Estadísticas Generales
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-400">
+                    <span className="text-sm text-text-secondary">
                       Interacciones
                     </span>
-                    <span className="text-lg font-bold text-white">
+                    <span className="text-lg font-bold text-text-primary >
                       {interactionStats.total_interactions}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-400">
+                    <span className="text-sm text-text-secondary">
                       Conceptos Dominados
                     </span>
-                    <span className="text-lg font-bold text-white">
+                    <span className="text-lg font-bold text-text-primary >
                       {masteredComponents}/{knowledgeComponents.length}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-400">
+                    <span className="text-sm text-text-secondary">
                       Promedio Quizzes
                     </span>
-                    <span className="text-lg font-bold text-white">
+                    <span className="text-lg font-bold text-text-primary >
                       {(averageQuizScore * 100).toFixed(0)}%
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-400">
+                    <span className="text-sm text-text-secondary">
                       Quizzes Completados
                     </span>
-                    <span className="text-lg font-bold text-white">
+                    <span className="text-lg font-bold text-text-primary >
                       {quizAttempts.length}
                     </span>
                   </div>
@@ -212,7 +212,7 @@ export function ProfileClient({
             >
               <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-2">
+                  <CardTitle className="text-text-primary flex items-center gap-2">
                     <Brain className="w-5 h-5 text-primary" />
                     Dominio de Conceptos
                   </CardTitle>
@@ -220,11 +220,11 @@ export function ProfileClient({
                 <CardContent>
                   {knowledgeComponents.length === 0 ? (
                     <div className="text-center py-12">
-                      <Target className="w-12 h-12 text-gray-600 mx-auto mb-4" />
-                      <p className="text-gray-400">
+                      <Target className="w-12 h-12 text-text-tertiary mx-auto mb-4" />
+                      <p className="text-text-secondary">
                         Aún no has practicado ningún concepto
                       </p>
-                      <p className="text-sm text-gray-500 mt-2">
+                      <p className="text-sm text-text-tertiary mt-2">
                         Comienza a chatear o toma un quiz para empezar
                       </p>
                     </div>
@@ -233,14 +233,14 @@ export function ProfileClient({
                       {knowledgeComponents.slice(0, 10).map((kc, index) => (
                         <div key={kc.component_name} className="space-y-2">
                           <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-white">
+                            <span className="text-sm font-medium text-text-primary >
                               {kc.component_name}
                             </span>
                             <div className="flex items-center gap-2">
-                              <span className="text-xs text-gray-400">
+                              <span className="text-xs text-text-secondary">
                                 {kc.attempts || 0} intentos
                               </span>
-                              <span className="text-sm font-bold text-white">
+                              <span className="text-sm font-bold text-text-primary >
                                 {((kc.mastery_level || 0) * 100).toFixed(0)}%
                               </span>
                             </div>
@@ -277,7 +277,7 @@ export function ProfileClient({
             >
               <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-2">
+                  <CardTitle className="text-text-primary flex items-center gap-2">
                     <TrendingUp className="w-5 h-5 text-accent" />
                     Quizzes Recientes
                   </CardTitle>
@@ -285,8 +285,8 @@ export function ProfileClient({
                 <CardContent>
                   {quizAttempts.length === 0 ? (
                     <div className="text-center py-12">
-                      <MessageSquare className="w-12 h-12 text-gray-600 mx-auto mb-4" />
-                      <p className="text-gray-400">
+                      <MessageSquare className="w-12 h-12 text-text-tertiary mx-auto mb-4" />
+                      <p className="text-text-secondary">
                         Aún no has completado ningún quiz
                       </p>
                       <Button className="mt-4" asChild>
@@ -301,10 +301,10 @@ export function ProfileClient({
                           className="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
                         >
                           <div>
-                            <p className="text-sm font-medium text-white">
+                            <p className="text-sm font-medium text-text-primary >
                               Quiz {index + 1}
                             </p>
-                            <p className="text-xs text-gray-400">
+                            <p className="text-xs text-text-secondary">
                               {attempt.completed_at
                                 ? new Date(attempt.completed_at).toLocaleDateString("es-ES")
                                 : "Fecha no disponible"}
@@ -314,10 +314,10 @@ export function ProfileClient({
                             <p
                               className={`text-lg font-bold ${
                                 attempt.score >= 0.8
-                                  ? "text-green-500"
+                                  ? "text-success"
                                   : attempt.score >= 0.6
-                                    ? "text-blue-500"
-                                    : "text-orange-500"
+                                    ? "text-info"
+                                    : "text-streak-orange"
                               }`}
                             >
                               {(attempt.score * 100).toFixed(0)}%

@@ -35,7 +35,7 @@ export function XPProgressBar({ compact = false, className }: XPProgressBarProps
           <span className="mr-1">{levelInfo.badge}</span>
           Nivel {level}
         </Badge>
-        <div className="flex items-center gap-1 text-xs text-gray-400">
+        <div className="flex items-center gap-1 text-xs text-text-secondary">
           <Zap className="w-3 h-3 text-primary" />
           <span>{totalXP} XP</span>
         </div>
@@ -65,10 +65,10 @@ export function XPProgressBar({ compact = false, className }: XPProgressBarProps
           </Badge>
         </div>
 
-        <div className="flex items-center gap-1.5 text-sm text-gray-300">
+        <div className="flex items-center gap-1.5 text-sm text-text-body">
           <Zap className="w-4 h-4 text-primary" />
           <span className="font-semibold">{totalXP}</span>
-          <span className="text-gray-500">XP</span>
+          <span className="text-text-tertiary">XP</span>
         </div>
       </div>
 
@@ -86,7 +86,7 @@ export function XPProgressBar({ compact = false, className }: XPProgressBarProps
           />
         </div>
 
-        <div className="flex items-center justify-between text-xs text-gray-500">
+        <div className="flex items-center justify-between text-xs text-text-tertiary">
           <span>{xpInCurrentLevel} / 100 XP</span>
           <div className="flex items-center gap-1">
             <TrendingUp className="w-3 h-3" />

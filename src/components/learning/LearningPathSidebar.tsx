@@ -35,15 +35,15 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'completed':
-        return <CheckCircle2 className="w-5 h-5 text-green-500" />
+        return <CheckCircle2 className="w-5 h-5 text-success" />
       case 'in-progress':
-        return <Circle className="w-5 h-5 text-yellow-500 fill-yellow-500/20" />
+        return <Circle className="w-5 h-5 text-warning fill-yellow-500/20" />
       case 'available':
-        return <Circle className="w-5 h-5 text-blue-500" />
+        return <Circle className="w-5 h-5 text-info" />
       case 'locked':
-        return <Lock className="w-5 h-5 text-gray-500" />
+        return <Lock className="w-5 h-5 text-text-tertiary" />
       default:
-        return <Circle className="w-5 h-5 text-gray-500" />
+        return <Circle className="w-5 h-5 text-text-tertiary" />
     }
   }
 
@@ -89,7 +89,7 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <BookOpen className="w-5 h-5 text-primary" />
-                  <h2 className="text-lg font-semibold text-white">Ruta de Aprendizaje</h2>
+                  <h2 className="text-lg font-semibold text-text-primary >Ruta de Aprendizaje</h2>
                 </div>
                 <Button
                   variant="ghost"
@@ -133,12 +133,12 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
                         <div className="text-2xl flex-shrink-0">{module.icon}</div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-start justify-between gap-2">
-                            <h3 className="font-semibold text-white text-sm leading-tight">
+                            <h3 className="font-semibold text-text-primary text-sm leading-tight">
                               {module.title}
                             </h3>
                             {getStatusIcon(module.status)}
                           </div>
-                          <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                          <p className="text-xs text-text-secondary mt-1 line-clamp-2">
                             {module.description}
                           </p>
                         </div>
@@ -149,17 +149,17 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
                         <div className="space-y-1">
                           <Progress value={progress} className="h-1.5" />
                           <div className="flex items-center justify-between text-xs">
-                            <span className="text-gray-500">
+                            <span className="text-text-tertiary">
                               {module.completedLessons}/{module.totalLessons} lecciones
                             </span>
-                            <span className="text-gray-500">{Math.round(progress)}%</span>
+                            <span className="text-text-tertiary">{Math.round(progress)}%</span>
                           </div>
                         </div>
                       )}
 
                       {/* Locked State */}
                       {module.status === 'locked' && (
-                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <div className="flex items-center gap-2 text-xs text-text-tertiary">
                           <Lock className="w-3 h-3" />
                           <span>Completa el módulo anterior</span>
                         </div>
@@ -167,7 +167,7 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
 
                       {/* Completion Badge */}
                       {module.status === 'completed' && (
-                        <div className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
+                        <div className="absolute -top-2 -right-2 bg-green-500 text-text-primary text-xs font-bold px-2 py-1 rounded-full shadow-lg">
                           ✓ Completado
                         </div>
                       )}
@@ -179,9 +179,9 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
 
             {/* Footer */}
             <div className="p-4 border-t border-white/10">
-              <div className="text-center text-xs text-gray-500">
+              <div className="text-center text-xs text-text-tertiary">
                 <p>Progreso total del curso</p>
-                <p className="text-white font-semibold mt-1">
+                <p className="text-text-primary font-semibold mt-1">
                   {modulesList.filter(m => m.status === 'completed').length}/{modulesList.length} módulos
                 </p>
               </div>

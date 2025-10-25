@@ -51,7 +51,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
               onClick={handleToggle}
               className={cn(
                 "relative transition-all",
-                isGuided ? "text-purple-400 hover:text-purple-300" : "text-blue-400 hover:text-blue-300"
+                isGuided ? "text-icon-primary hover:text-purple-300" : "text-info hover:text-blue-300"
               )}
             >
               <AnimatePresence mode="wait">
@@ -74,8 +74,8 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
           <TooltipContent side="bottom" className="bg-gray-900 border-white/10">
             <div className="space-y-1">
               <p className="font-semibold">{modeInfo.title}</p>
-              <p className="text-xs text-gray-400">{modeInfo.description}</p>
-              <p className="text-xs text-gray-500 mt-2">Click para cambiar</p>
+              <p className="text-xs text-text-secondary">{modeInfo.description}</p>
+              <p className="text-xs text-text-tertiary mt-2">Click para cambiar</p>
             </div>
           </TooltipContent>
         </Tooltip>
@@ -104,14 +104,14 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
               className="flex items-center gap-2"
             >
               {isGuided ? (
-                <BookOpen className="h-4 w-4 text-purple-400" />
+                <BookOpen className="h-4 w-4 text-icon-primary" />
               ) : (
-                <Compass className="h-4 w-4 text-blue-400" />
+                <Compass className="h-4 w-4 text-info" />
               )}
-              <span className="text-sm font-medium text-white">{modeInfo.title}</span>
+              <span className="text-sm font-medium text-text-primary >{modeInfo.title}</span>
             </motion.div>
           </AnimatePresence>
-          <Info className="h-3 w-3 ml-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <Info className="h-3 w-3 ml-2 text-text-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -123,8 +123,8 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
           {/* Header */}
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1">
-              <h4 className="text-sm font-semibold text-white mb-1">Modo de Aprendizaje</h4>
-              <p className="text-xs text-gray-400">
+              <h4 className="text-sm font-semibold text-text-primary mb-1">Modo de Aprendizaje</h4>
+              <p className="text-xs text-text-secondary">
                 Personaliza cómo interactúas con el asistente
               </p>
             </div>
@@ -145,11 +145,11 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
                 "w-10 h-10 rounded-lg flex items-center justify-center",
                 isGuided ? "bg-purple-500/20" : "bg-gray-700/50"
               )}>
-                <BookOpen className={cn("h-5 w-5", isGuided ? "text-purple-400" : "text-gray-500")} />
+                <BookOpen className={cn("h-5 w-5", isGuided ? "text-icon-primary" : "text-text-tertiary")} />
               </div>
               <div className="flex-1">
-                <p className="text-sm font-medium text-white">Modo Guiado</p>
-                <p className="text-xs text-gray-400">Estructura activa del aprendizaje</p>
+                <p className="text-sm font-medium text-text-primary >Modo Guiado</p>
+                <p className="text-xs text-text-secondary">Estructura activa del aprendizaje</p>
               </div>
               <Switch checked={isGuided} onCheckedChange={handleToggle} />
             </div>
@@ -167,11 +167,11 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
                 "w-10 h-10 rounded-lg flex items-center justify-center",
                 !isGuided ? "bg-blue-500/20" : "bg-gray-700/50"
               )}>
-                <Compass className={cn("h-5 w-5", !isGuided ? "text-blue-400" : "text-gray-500")} />
+                <Compass className={cn("h-5 w-5", !isGuided ? "text-info" : "text-text-tertiary")} />
               </div>
               <div className="flex-1">
-                <p className="text-sm font-medium text-white">Modo Libre</p>
-                <p className="text-xs text-gray-400">Conversación a tu propio ritmo</p>
+                <p className="text-sm font-medium text-text-primary >Modo Libre</p>
+                <p className="text-xs text-text-secondary">Conversación a tu propio ritmo</p>
               </div>
               <Switch checked={!isGuided} onCheckedChange={handleToggle} />
             </div>
@@ -191,7 +191,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
                   : "bg-blue-500/5 border-blue-500/20"
               )}
             >
-              <p className="text-xs font-medium text-white mb-2">Características activas:</p>
+              <p className="text-xs font-medium text-text-primary mb-2">Características activas:</p>
               <ul className="space-y-1.5">
                 {modeInfo.features.map((feature, index) => (
                   <motion.li
@@ -199,11 +199,11 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="flex items-start gap-2 text-xs text-gray-300"
+                    className="flex items-start gap-2 text-xs text-text-body"
                   >
                     <span className={cn(
                       "mt-0.5",
-                      isGuided ? "text-purple-400" : "text-blue-400"
+                      isGuided ? "text-icon-primary" : "text-info"
                     )}>•</span>
                     <span>{feature}</span>
                   </motion.li>
@@ -220,13 +220,13 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
               exit={{ opacity: 0, height: 0 }}
               className="pt-3 border-t border-white/10 space-y-3"
             >
-              <p className="text-xs font-medium text-white">Configuración del Modo Guiado:</p>
+              <p className="text-xs font-medium text-text-primary >Configuración del Modo Guiado:</p>
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <p className="text-xs text-white">Auto-sugerir temas</p>
-                    <p className="text-xs text-gray-500">Recomendar qué estudiar siguiente</p>
+                    <p className="text-xs text-text-primary >Auto-sugerir temas</p>
+                    <p className="text-xs text-text-tertiary">Recomendar qué estudiar siguiente</p>
                   </div>
                   <Switch
                     checked={guidedSettings.autoSuggestTopics}
@@ -236,8 +236,8 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
 
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <p className="text-xs text-white">Quizzes inline</p>
-                    <p className="text-xs text-gray-500">Insertar evaluaciones automáticas</p>
+                    <p className="text-xs text-text-primary >Quizzes inline</p>
+                    <p className="text-xs text-text-tertiary">Insertar evaluaciones automáticas</p>
                   </div>
                   <Switch
                     checked={guidedSettings.showInlineQuizzes}
@@ -247,8 +247,8 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
 
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <p className="text-xs text-white">Recomendaciones proactivas</p>
-                    <p className="text-xs text-gray-500">Sugerencias de refuerzo</p>
+                    <p className="text-xs text-text-primary >Recomendaciones proactivas</p>
+                    <p className="text-xs text-text-tertiary">Sugerencias de refuerzo</p>
                   </div>
                   <Switch
                     checked={guidedSettings.proactiveRecommendations}
@@ -261,7 +261,7 @@ export function ModeToggle({ compact = false }: ModeToggleProps) {
 
           {/* Footer tip */}
           <div className="pt-3 border-t border-white/10">
-            <p className="text-xs text-gray-500 text-center">
+            <p className="text-xs text-text-tertiary text-center">
               💡 Puedes cambiar de modo en cualquier momento
             </p>
           </div>

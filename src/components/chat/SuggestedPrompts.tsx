@@ -240,30 +240,30 @@ export function SuggestedPrompts({ onSelectPrompt, currentContext }: SuggestedPr
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case "basic":
-        return "bg-green-500/10 text-green-500 border-green-500/20"
+        return "bg-green-500/10 text-success border-green-500/20"
       case "intermediate":
-        return "bg-yellow-500/10 text-yellow-500 border-yellow-500/20"
+        return "bg-yellow-500/10 text-warning border-yellow-500/20"
       case "advanced":
-        return "bg-red-500/10 text-red-500 border-red-500/20"
+        return "bg-red-500/10 text-error border-red-500/20"
       default:
-        return "bg-gray-500/10 text-gray-500 border-gray-500/20"
+        return "bg-gray-500/10 text-text-tertiary border-gray-500/20"
     }
   }
 
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "probability":
-        return "bg-blue-500/10 text-blue-400 border-blue-500/20"
+        return "bg-blue-500/10 text-info border-blue-500/20"
       case "strategy":
-        return "bg-purple-500/10 text-purple-400 border-purple-500/20"
+        return "bg-purple-500/10 text-icon-primary border-purple-500/20"
       case "psychology":
         return "bg-pink-500/10 text-pink-400 border-pink-500/20"
       case "bankroll":
         return "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
       case "tools":
-        return "bg-orange-500/10 text-orange-400 border-orange-500/20"
+        return "bg-orange-500/10 text-streak-orange border-orange-500/20"
       default:
-        return "bg-gray-500/10 text-gray-400 border-gray-500/20"
+        return "bg-gray-500/10 text-text-secondary border-gray-500/20"
     }
   }
 
@@ -305,7 +305,7 @@ export function SuggestedPrompts({ onSelectPrompt, currentContext }: SuggestedPr
     <div className="space-y-3">
       <div className="flex items-center gap-2">
         <Sparkles className="w-4 h-4 text-primary" />
-        <p className="text-sm font-medium text-gray-400">Preguntas sugeridas para ti</p>
+        <p className="text-sm font-medium text-text-secondary">Preguntas sugeridas para ti</p>
       </div>
 
       <div ref={promptsRef} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -333,7 +333,7 @@ export function SuggestedPrompts({ onSelectPrompt, currentContext }: SuggestedPr
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Icon className="w-4 h-4 text-primary" />
                   </div>
-                  <p className="text-sm text-white font-medium leading-snug flex-1">
+                  <p className="text-sm text-text-primary font-medium leading-snug flex-1">
                     {suggestion.text}
                   </p>
                 </div>

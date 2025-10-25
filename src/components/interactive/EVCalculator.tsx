@@ -193,10 +193,10 @@ export function EVCalculator() {
             {/* House Edge */}
             <div className="rounded-lg border border-orange-500/20 bg-orange-500/5 p-4">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-400">Ventaja de la Casa</span>
-                <TrendingDown className="w-4 h-4 text-orange-500" />
+                <span className="text-sm text-text-secondary">Ventaja de la Casa</span>
+                <TrendingDown className="w-4 h-4 text-streak-orange" />
               </div>
-              <span className="text-2xl font-bold text-orange-400">
+              <span className="text-2xl font-bold text-streak-orange">
                 {result.houseEdge.toFixed(2)}%
               </span>
             </div>
@@ -204,20 +204,20 @@ export function EVCalculator() {
             {/* Long-term Result */}
             <div className="rounded-lg border border-white/10 bg-black/30 p-4">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-text-secondary">
                   Resultado después de {numBets} apuestas
                 </span>
-                <TrendingDown className="w-4 h-4 text-gray-500" />
+                <TrendingDown className="w-4 h-4 text-text-tertiary" />
               </div>
               <span
                 className={cn(
                   "text-2xl font-bold",
-                  result.longTermResult > 0 ? "text-green-400" : result.longTermResult < 0 ? "text-red-400" : "text-yellow-400"
+                  result.longTermResult > 0 ? "text-success" : result.longTermResult < 0 ? "text-error" : "text-warning"
                 )}
               >
                 ${result.longTermResult.toFixed(2)}
               </span>
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-text-tertiary mt-1">
                 Total apostado: ${(parseFloat(betAmount) * parseFloat(numBets)).toFixed(2)}
               </p>
             </div>
@@ -231,12 +231,12 @@ export function EVCalculator() {
                   <div className="flex items-start gap-3">
                     <Icon className={cn("w-5 h-5 flex-shrink-0 mt-0.5", insight.color)} />
                     <div>
-                      <p className="text-sm font-medium text-white mb-1">Interpretación</p>
+                      <p className="text-sm font-medium text-text-primary mb-1">Interpretación</p>
                       <p className={cn("text-sm", insight.color)}>
                         {insight.text}
                       </p>
                       {result.expectedValue < 0 && (
-                        <p className="text-xs text-gray-500 mt-2">
+                        <p className="text-xs text-text-tertiary mt-2">
                           💡 Recuerda: En la mayoría de los juegos de casino, la casa siempre tiene ventaja matemática. Juega de forma responsable y dentro de tus límites.
                         </p>
                       )}
@@ -251,10 +251,10 @@ export function EVCalculator() {
         {/* Educational Note */}
         <div className="rounded-lg border border-purple-500/20 bg-purple-500/5 p-4">
           <div className="flex items-start gap-3">
-            <Info className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+            <Info className="w-5 h-5 text-icon-primary flex-shrink-0 mt-0.5" />
             <div className="space-y-1">
               <p className="text-sm font-medium text-purple-300">¿Qué es el Valor Esperado?</p>
-              <p className="text-xs text-gray-400 leading-relaxed">
+              <p className="text-xs text-text-secondary leading-relaxed">
                 El EV (Expected Value) es el promedio de ganancias o pérdidas que puedes esperar por cada apuesta a largo plazo.
                 Un EV negativo significa que perderás dinero con el tiempo, mientras que un EV positivo indica una apuesta favorable.
               </p>

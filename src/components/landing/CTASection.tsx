@@ -29,15 +29,15 @@ export function CTASection() {
           {/* Content */}
           <div className="relative space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-white">Comienza tu viaje de aprendizaje</span>
+              <Sparkles className="w-4 h-4 text-icon-primary" />
+              <span className="text-sm font-medium text-text-primary">Comienza tu viaje de aprendizaje</span>
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white">
+              <h2 className="text-4xl lg:text-5xl font-bold text-text-primary">
                 ¿Listo para aprender de forma inteligente?
               </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              <p className="text-lg text-text-body max-w-2xl mx-auto">
                 Únete ahora y experimenta una forma revolucionaria de aprender sobre
                 juego responsable con tecnología de IA de última generación.
               </p>

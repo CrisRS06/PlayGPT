@@ -40,32 +40,32 @@ interface InlineQuizProps {
 const bloomLevelConfig: Record<BloomLevel, { label: string; color: string; description: string }> = {
   remember: {
     label: "Recordar",
-    color: "bg-gray-500/10 text-gray-400 border-gray-500/20",
+    color: "bg-gray-500/10 text-text-secondary border-gray-500/20",
     description: "Conocimiento básico"
   },
   understand: {
     label: "Comprender",
-    color: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+    color: "bg-blue-500/10 text-info border-blue-500/20",
     description: "Entendimiento conceptual"
   },
   apply: {
     label: "Aplicar",
-    color: "bg-green-500/10 text-green-400 border-green-500/20",
+    color: "bg-green-500/10 text-success border-green-500/20",
     description: "Uso práctico"
   },
   analyze: {
     label: "Analizar",
-    color: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
+    color: "bg-yellow-500/10 text-warning border-yellow-500/20",
     description: "Pensamiento crítico"
   },
   evaluate: {
     label: "Evaluar",
-    color: "bg-orange-500/10 text-orange-400 border-orange-500/20",
+    color: "bg-orange-500/10 text-streak-orange border-orange-500/20",
     description: "Juicio informado"
   },
   create: {
     label: "Crear",
-    color: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+    color: "bg-purple-500/10 text-icon-primary border-purple-500/20",
     description: "Síntesis creativa"
   }
 }
@@ -153,32 +153,32 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
               transition={{ type: "spring", delay: 0.2 }}
               className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center"
             >
-              <Trophy className="w-10 h-10 text-white" />
+              <Trophy className="w-10 h-10 text-text-primary  />
             </motion.div>
 
             <div>
-              <h3 className="text-2xl font-bold text-white mb-2">
+              <h3 className="text-2xl font-bold text-text-primary mb-2">
                 {percentage >= 100
                   ? "¡Perfecto! 🎉"
                   : percentage >= 70
                   ? "¡Bien hecho! 👏"
                   : "¡Sigue practicando! 💪"}
               </h3>
-              <p className="text-gray-400">Has completado el quiz</p>
+              <p className="text-text-secondary">Has completado el quiz</p>
             </div>
 
             <div className="grid grid-cols-3 gap-4">
               <div className="rounded-lg border border-white/10 bg-black/30 p-3">
-                <p className="text-xs text-gray-400 mb-1">Puntuación</p>
-                <p className="text-2xl font-bold text-white">{percentage.toFixed(0)}%</p>
+                <p className="text-xs text-text-secondary mb-1">Puntuación</p>
+                <p className="text-2xl font-bold text-text-primary >{percentage.toFixed(0)}%</p>
               </div>
               <div className="rounded-lg border border-white/10 bg-black/30 p-3">
-                <p className="text-xs text-gray-400 mb-1">Correctas</p>
-                <p className="text-2xl font-bold text-green-400">{score}/{questions.length}</p>
+                <p className="text-xs text-text-secondary mb-1">Correctas</p>
+                <p className="text-2xl font-bold text-success">{score}/{questions.length}</p>
               </div>
               <div className="rounded-lg border border-white/10 bg-black/30 p-3">
-                <p className="text-xs text-gray-400 mb-1">XP Ganado</p>
-                <p className="text-2xl font-bold text-yellow-400">+{calculateQuizXP(finalScore, attempts)}</p>
+                <p className="text-xs text-text-secondary mb-1">XP Ganado</p>
+                <p className="text-2xl font-bold text-warning">+{calculateQuizXP(finalScore, attempts)}</p>
               </div>
             </div>
 
@@ -207,11 +207,11 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
-                <Target className="w-4 h-4 text-purple-400" />
+                <Target className="w-4 h-4 text-icon-primary" />
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-white">{title}</h3>
-                <p className="text-xs text-gray-400">
+                <h3 className="text-sm font-semibold text-text-primary >{title}</h3>
+                <p className="text-xs text-text-secondary">
                   Pregunta {currentQuestionIndex + 1} de {questions.length}
                 </p>
               </div>
@@ -226,13 +226,13 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
         {/* Question */}
         <div className="p-6 space-y-4">
           <div>
-            <h4 className="text-lg font-medium text-white mb-2">{currentQuestion.question}</h4>
+            <h4 className="text-lg font-medium text-text-primary mb-2">{currentQuestion.question}</h4>
             {currentQuestion.hint && (
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setShowHint(!showHint)}
-                className="text-xs text-gray-400 hover:text-gray-300"
+                className="text-xs text-text-secondary hover:text-text-body"
               >
                 <HelpCircle className="w-3 h-3 mr-1" />
                 {showHint ? "Ocultar pista" : "Ver pista"}
@@ -286,17 +286,17 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
                         !isSelected && !showFeedback && "border-gray-500"
                       )}
                     >
-                      {showFeedback && isCorrect && <CheckCircle2 className="w-4 h-4 text-green-400" />}
-                      {showFeedback && !isCorrect && <XCircle className="w-4 h-4 text-red-400" />}
+                      {showFeedback && isCorrect && <CheckCircle2 className="w-4 h-4 text-success" />}
+                      {showFeedback && !isCorrect && <XCircle className="w-4 h-4 text-error" />}
                       {isSelected && !isAnswered && <div className="w-2 h-2 rounded-full bg-blue-400" />}
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-white">{option.text}</p>
+                      <p className="text-sm text-text-primary >{option.text}</p>
                       {showFeedback && option.explanation && (
                         <motion.p
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
-                          className="text-xs text-gray-400 mt-2"
+                          className="text-xs text-text-secondary mt-2"
                         >
                           {option.explanation}
                         </motion.p>
@@ -318,10 +318,10 @@ export function InlineQuiz({ questions, title = "Quiz Interactivo", onComplete }
                 className="rounded-lg border border-blue-500/20 bg-blue-500/5 p-4"
               >
                 <div className="flex items-start gap-3">
-                  <Zap className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <Zap className="w-5 h-5 text-info flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-sm font-medium text-blue-300 mb-1">Explicación</p>
-                    <p className="text-sm text-gray-300">{currentQuestion.explanation}</p>
+                    <p className="text-sm text-text-body">{currentQuestion.explanation}</p>
                   </div>
                 </div>
               </motion.div>

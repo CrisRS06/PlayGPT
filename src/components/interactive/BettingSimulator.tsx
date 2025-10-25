@@ -159,37 +159,37 @@ export function BettingSimulator() {
         {/* Header */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center">
-            <Play className="w-5 h-5 text-green-500" />
+            <Play className="w-5 h-5 text-success" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white">Simulador de Apuestas</h3>
-            <p className="text-xs text-gray-400">Visualiza el impacto a largo plazo de las apuestas</p>
+            <h3 className="text-lg font-semibold text-text-primary >Simulador de Apuestas</h3>
+            <p className="text-xs text-text-secondary">Visualiza el impacto a largo plazo de las apuestas</p>
           </div>
         </div>
 
         {/* Configuration */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="game" className="text-sm text-gray-300">
+            <Label htmlFor="game" className="text-sm text-text-body">
               Tipo de Juego
             </Label>
             <Select value={selectedGame} onValueChange={setSelectedGame}>
-              <SelectTrigger id="game" className="bg-black/50 border-white/10 text-white">
+              <SelectTrigger id="game" className="bg-black/50 border-white/10 text-text-primary >
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-gray-900 border-white/10">
                 {Object.entries(GAMES).map(([key, game]) => (
-                  <SelectItem key={key} value={key} className="text-white hover:bg-white/10">
+                  <SelectItem key={key} value={key} className="text-text-primary hover:bg-white/10">
                     {game.name}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
-            <p className="text-xs text-gray-500">{game.description}</p>
+            <p className="text-xs text-text-tertiary">{game.description}</p>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="initialBankroll" className="text-sm text-gray-300">
+            <Label htmlFor="initialBankroll" className="text-sm text-text-body">
               Bankroll Inicial ($)
             </Label>
             <Input
@@ -197,13 +197,13 @@ export function BettingSimulator() {
               type="number"
               value={initialBankroll}
               onChange={(e) => setInitialBankroll(e.target.value)}
-              className="bg-black/50 border-white/10 text-white"
+              className="bg-black/50 border-white/10 text-text-primary 
               placeholder="1000"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="betSize" className="text-sm text-gray-300">
+            <Label htmlFor="betSize" className="text-sm text-text-body">
               Tamaño de Apuesta ($)
             </Label>
             <Input
@@ -211,13 +211,13 @@ export function BettingSimulator() {
               type="number"
               value={betSize}
               onChange={(e) => setBetSize(e.target.value)}
-              className="bg-black/50 border-white/10 text-white"
+              className="bg-black/50 border-white/10 text-text-primary 
               placeholder="10"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="numRounds" className="text-sm text-gray-300">
+            <Label htmlFor="numRounds" className="text-sm text-text-body">
               Número de Rondas
             </Label>
             <Input
@@ -225,7 +225,7 @@ export function BettingSimulator() {
               type="number"
               value={numRounds}
               onChange={(e) => setNumRounds(e.target.value)}
-              className="bg-black/50 border-white/10 text-white"
+              className="bg-black/50 border-white/10 text-text-primary 
               placeholder="100"
             />
           </div>
@@ -234,16 +234,16 @@ export function BettingSimulator() {
         {/* Game Info */}
         <div className="grid grid-cols-3 gap-3">
           <div className="rounded-lg border border-white/10 bg-black/30 p-3">
-            <p className="text-xs text-gray-400 mb-1">Prob. Ganar</p>
-            <p className="text-lg font-bold text-white">{(game.winProbability * 100).toFixed(1)}%</p>
+            <p className="text-xs text-text-secondary mb-1">Prob. Ganar</p>
+            <p className="text-lg font-bold text-text-primary >{(game.winProbability * 100).toFixed(1)}%</p>
           </div>
           <div className="rounded-lg border border-white/10 bg-black/30 p-3">
-            <p className="text-xs text-gray-400 mb-1">Pago</p>
-            <p className="text-lg font-bold text-white">{game.payout}x</p>
+            <p className="text-xs text-text-secondary mb-1">Pago</p>
+            <p className="text-lg font-bold text-text-primary >{game.payout}x</p>
           </div>
           <div className="rounded-lg border border-orange-500/20 bg-orange-500/5 p-3">
-            <p className="text-xs text-gray-400 mb-1">Ventaja Casa</p>
-            <p className="text-lg font-bold text-orange-400">{game.houseEdge.toFixed(1)}%</p>
+            <p className="text-xs text-text-secondary mb-1">Ventaja Casa</p>
+            <p className="text-lg font-bold text-streak-orange">{game.houseEdge.toFixed(1)}%</p>
           </div>
         </div>
 
@@ -278,7 +278,7 @@ export function BettingSimulator() {
           >
             {/* Chart */}
             <div className="rounded-lg border border-white/10 bg-black/30 p-4">
-              <h4 className="text-sm font-semibold text-white mb-4">Evolución del Bankroll</h4>
+              <h4 className="text-sm font-semibold text-text-primary mb-4">Evolución del Bankroll</h4>
               <ResponsiveContainer width="100%" height={250}>
                 <LineChart data={results}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#ffffff10" />
@@ -324,13 +324,13 @@ export function BettingSimulator() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               <div className="rounded-lg border border-white/10 bg-black/30 p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-gray-400">Bankroll Final</span>
-                  <DollarSign className="w-4 h-4 text-gray-500" />
+                  <span className="text-xs text-text-secondary">Bankroll Final</span>
+                  <DollarSign className="w-4 h-4 text-text-tertiary" />
                 </div>
                 <p
                   className={cn(
                     "text-xl font-bold",
-                    finalStats.finalBankroll >= parseFloat(initialBankroll) ? "text-green-400" : "text-red-400"
+                    finalStats.finalBankroll >= parseFloat(initialBankroll) ? "text-success" : "text-error"
                   )}
                 >
                   {formatCurrency(finalStats.finalBankroll)}
@@ -339,17 +339,17 @@ export function BettingSimulator() {
 
               <div className="rounded-lg border border-white/10 bg-black/30 p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-gray-400">Ganancia Neta</span>
+                  <span className="text-xs text-text-secondary">Ganancia Neta</span>
                   {finalStats.netProfit >= 0 ? (
-                    <TrendingUp className="w-4 h-4 text-green-500" />
+                    <TrendingUp className="w-4 h-4 text-success" />
                   ) : (
-                    <TrendingDown className="w-4 h-4 text-red-500" />
+                    <TrendingDown className="w-4 h-4 text-error" />
                   )}
                 </div>
                 <p
                   className={cn(
                     "text-xl font-bold",
-                    finalStats.netProfit >= 0 ? "text-green-400" : "text-red-400"
+                    finalStats.netProfit >= 0 ? "text-success" : "text-error"
                   )}
                 >
                   {finalStats.netProfit >= 0 ? "+" : ""}{formatCurrency(finalStats.netProfit)}
@@ -358,12 +358,12 @@ export function BettingSimulator() {
 
               <div className="rounded-lg border border-white/10 bg-black/30 p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-gray-400">ROI</span>
+                  <span className="text-xs text-text-secondary">ROI</span>
                 </div>
                 <p
                   className={cn(
                     "text-xl font-bold",
-                    finalStats.roi >= 0 ? "text-green-400" : "text-red-400"
+                    finalStats.roi >= 0 ? "text-success" : "text-error"
                   )}
                 >
                   {finalStats.roi >= 0 ? "+" : ""}{finalStats.roi.toFixed(2)}%
@@ -371,22 +371,22 @@ export function BettingSimulator() {
               </div>
 
               <div className="rounded-lg border border-white/10 bg-black/30 p-4">
-                <span className="text-xs text-gray-400">Total Apostado</span>
-                <p className="text-lg font-bold text-white mt-1">
+                <span className="text-xs text-text-secondary">Total Apostado</span>
+                <p className="text-lg font-bold text-text-primary mt-1">
                   {formatCurrency(finalStats.totalWagered)}
                 </p>
               </div>
 
               <div className="rounded-lg border border-green-500/20 bg-green-500/5 p-4">
-                <span className="text-xs text-gray-400">Victorias</span>
-                <p className="text-lg font-bold text-green-400 mt-1">
+                <span className="text-xs text-text-secondary">Victorias</span>
+                <p className="text-lg font-bold text-success mt-1">
                   {finalStats.wins}
                 </p>
               </div>
 
               <div className="rounded-lg border border-red-500/20 bg-red-500/5 p-4">
-                <span className="text-xs text-gray-400">Derrotas</span>
-                <p className="text-lg font-bold text-red-400 mt-1">
+                <span className="text-xs text-text-secondary">Derrotas</span>
+                <p className="text-lg font-bold text-error mt-1">
                   {finalStats.losses}
                 </p>
               </div>
@@ -397,12 +397,12 @@ export function BettingSimulator() {
               {finalStats.netProfit < 0 && game.houseEdge > 0 && (
                 <div className="rounded-lg border border-orange-500/20 bg-orange-500/5 p-4">
                   <div className="flex items-start gap-3">
-                    <AlertTriangle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
+                    <AlertTriangle className="w-5 h-5 text-streak-orange flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-orange-300 mb-1">
                         La ventaja de la casa prevalece
                       </p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-text-secondary">
                         Aunque puedes ganar en el corto plazo, la ventaja matemática de {game.houseEdge.toFixed(1)}%
                         de la casa tiende a manifestarse a lo largo del tiempo. Este es el motivo por el cual los casinos
                         siempre ganan a largo plazo.
@@ -415,12 +415,12 @@ export function BettingSimulator() {
               {finalStats.netProfit > 0 && (
                 <div className="rounded-lg border border-green-500/20 bg-green-500/5 p-4">
                   <div className="flex items-start gap-3">
-                    <TrendingUp className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <TrendingUp className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-green-300 mb-1">
                         ¡Tuviste suerte esta vez!
                       </p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-text-secondary">
                         Obtuviste ganancias en esta simulación, pero recuerda que esto es varianza a corto plazo.
                         {game.houseEdge > 0 && " La ventaja de la casa significa que, en promedio, perderías dinero si continuaras jugando indefinidamente."}
                       </p>

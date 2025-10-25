@@ -31,15 +31,15 @@ function SkillNode({ data }: { data: SkillNodeData }) {
           bg: "bg-gray-800/50",
           border: "border-gray-600/30",
           icon: Lock,
-          iconColor: "text-gray-500",
-          textColor: "text-gray-500"
+          iconColor: "text-text-tertiary",
+          textColor: "text-text-tertiary"
         }
       case "available":
         return {
           bg: "bg-blue-500/10",
           border: "border-blue-500/50",
           icon: Play,
-          iconColor: "text-blue-400",
+          iconColor: "text-info",
           textColor: "text-blue-200"
         }
       case "in-progress":
@@ -47,7 +47,7 @@ function SkillNode({ data }: { data: SkillNodeData }) {
           bg: "bg-yellow-500/10",
           border: "border-yellow-500/50",
           icon: Zap,
-          iconColor: "text-yellow-400",
+          iconColor: "text-warning",
           textColor: "text-yellow-200"
         }
       case "completed":
@@ -55,7 +55,7 @@ function SkillNode({ data }: { data: SkillNodeData }) {
           bg: "bg-green-500/10",
           border: "border-green-500/50",
           icon: CheckCircle2,
-          iconColor: "text-green-400",
+          iconColor: "text-success",
           textColor: "text-green-200"
         }
       case "mastered":
@@ -63,7 +63,7 @@ function SkillNode({ data }: { data: SkillNodeData }) {
           bg: "bg-purple-500/10",
           border: "border-purple-500/50",
           icon: Star,
-          iconColor: "text-purple-400",
+          iconColor: "text-icon-primary",
           textColor: "text-purple-200"
         }
     }
@@ -88,7 +88,7 @@ function SkillNode({ data }: { data: SkillNodeData }) {
             {data.label}
           </p>
           {data.status !== "locked" && (
-            <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+            <p className="text-xs text-text-secondary mt-1 line-clamp-2">
               {data.description}
             </p>
           )}
@@ -98,14 +98,14 @@ function SkillNode({ data }: { data: SkillNodeData }) {
       {data.status === "in-progress" && (
         <div className="mt-2">
           <Progress value={data.progress} className="h-1.5" />
-          <p className="text-xs text-gray-500 mt-1">{data.progress}% completado</p>
+          <p className="text-xs text-text-tertiary mt-1">{data.progress}% completado</p>
         </div>
       )}
 
       {(data.status === "available" || data.status === "in-progress") && (
         <div className="flex items-center gap-1 mt-2">
-          <Trophy className="w-3 h-3 text-yellow-500" />
-          <span className="text-xs text-yellow-400">+{data.xpReward} XP</span>
+          <Trophy className="w-3 h-3 text-warning" />
+          <span className="text-xs text-warning">+{data.xpReward} XP</span>
         </div>
       )}
     </motion.div>
@@ -336,36 +336,36 @@ export function SkillTree() {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
-              <Trophy className="w-5 h-5 text-purple-400" />
+              <Trophy className="w-5 h-5 text-icon-primary" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white">Árbol de Habilidades</h3>
-              <p className="text-xs text-gray-400">Progreso del curriculum educativo</p>
+              <h3 className="text-lg font-semibold text-text-primary >Árbol de Habilidades</h3>
+              <p className="text-xs text-text-secondary">Progreso del curriculum educativo</p>
             </div>
           </div>
           <div className="text-right">
-            <p className="text-2xl font-bold text-white">{stats.completed}/{stats.total}</p>
-            <p className="text-xs text-gray-400">Completadas</p>
+            <p className="text-2xl font-bold text-text-primary >{stats.completed}/{stats.total}</p>
+            <p className="text-xs text-text-secondary">Completadas</p>
           </div>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-4 gap-2">
           <div className="rounded-lg border border-purple-500/20 bg-purple-500/5 p-2 text-center">
-            <p className="text-xs text-gray-400">Dominadas</p>
-            <p className="text-lg font-bold text-purple-400">{stats.mastered}</p>
+            <p className="text-xs text-text-secondary">Dominadas</p>
+            <p className="text-lg font-bold text-icon-primary">{stats.mastered}</p>
           </div>
           <div className="rounded-lg border border-green-500/20 bg-green-500/5 p-2 text-center">
-            <p className="text-xs text-gray-400">Completadas</p>
-            <p className="text-lg font-bold text-green-400">{stats.completed}</p>
+            <p className="text-xs text-text-secondary">Completadas</p>
+            <p className="text-lg font-bold text-success">{stats.completed}</p>
           </div>
           <div className="rounded-lg border border-blue-500/20 bg-blue-500/5 p-2 text-center">
-            <p className="text-xs text-gray-400">Disponibles</p>
-            <p className="text-lg font-bold text-blue-400">{stats.available}</p>
+            <p className="text-xs text-text-secondary">Disponibles</p>
+            <p className="text-lg font-bold text-info">{stats.available}</p>
           </div>
           <div className="rounded-lg border border-gray-500/20 bg-gray-500/5 p-2 text-center">
-            <p className="text-xs text-gray-400">Bloqueadas</p>
-            <p className="text-lg font-bold text-gray-400">
+            <p className="text-xs text-text-secondary">Bloqueadas</p>
+            <p className="text-lg font-bold text-text-secondary">
               {stats.total - stats.completed - stats.available}
             </p>
           </div>
@@ -407,24 +407,24 @@ export function SkillTree() {
           <Panel position="bottom-right" className="bg-gray-900/90 border border-white/10 rounded-lg p-3 m-2">
             <div className="space-y-2 text-xs">
               <div className="flex items-center gap-2">
-                <Lock className="w-3 h-3 text-gray-500" />
-                <span className="text-gray-400">Bloqueada</span>
+                <Lock className="w-3 h-3 text-text-tertiary" />
+                <span className="text-text-secondary">Bloqueada</span>
               </div>
               <div className="flex items-center gap-2">
-                <Play className="w-3 h-3 text-blue-400" />
-                <span className="text-gray-400">Disponible</span>
+                <Play className="w-3 h-3 text-info" />
+                <span className="text-text-secondary">Disponible</span>
               </div>
               <div className="flex items-center gap-2">
-                <Zap className="w-3 h-3 text-yellow-400" />
-                <span className="text-gray-400">En progreso</span>
+                <Zap className="w-3 h-3 text-warning" />
+                <span className="text-text-secondary">En progreso</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3 h-3 text-green-400" />
-                <span className="text-gray-400">Completada</span>
+                <CheckCircle2 className="w-3 h-3 text-success" />
+                <span className="text-text-secondary">Completada</span>
               </div>
               <div className="flex items-center gap-2">
-                <Star className="w-3 h-3 text-purple-400" />
-                <span className="text-gray-400">Dominada</span>
+                <Star className="w-3 h-3 text-icon-primary" />
+                <span className="text-text-secondary">Dominada</span>
               </div>
             </div>
           </Panel>

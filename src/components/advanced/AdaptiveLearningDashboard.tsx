@@ -51,25 +51,25 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
       case "easy":
         return {
           label: "Fácil",
-          color: "bg-green-500/10 text-green-400 border-green-500/20",
+          color: "bg-green-500/10 text-success border-green-500/20",
           description: "Preguntas básicas para construir fundamentos"
         }
       case "medium":
         return {
           label: "Medio",
-          color: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+          color: "bg-blue-500/10 text-info border-blue-500/20",
           description: "Preguntas de dificultad moderada"
         }
       case "hard":
         return {
           label: "Difícil",
-          color: "bg-orange-500/10 text-orange-400 border-orange-500/20",
+          color: "bg-orange-500/10 text-streak-orange border-orange-500/20",
           description: "Preguntas desafiantes para expertos"
         }
       case "expert":
         return {
           label: "Experto",
-          color: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+          color: "bg-purple-500/10 text-icon-primary border-purple-500/20",
           description: "Preguntas de nivel avanzado"
         }
     }
@@ -80,28 +80,28 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
       case "struggling":
         return {
           icon: AlertCircle,
-          color: "text-red-400",
+          color: "text-error",
           bg: "bg-red-500/10",
           border: "border-red-500/20"
         }
       case "learning":
         return {
           icon: Brain,
-          color: "text-yellow-400",
+          color: "text-warning",
           bg: "bg-yellow-500/10",
           border: "border-yellow-500/20"
         }
       case "proficient":
         return {
           icon: TrendingUp,
-          color: "text-blue-400",
+          color: "text-info",
           bg: "bg-blue-500/10",
           border: "border-blue-500/20"
         }
       case "mastered":
         return {
           icon: CheckCircle2,
-          color: "text-green-400",
+          color: "text-success",
           bg: "bg-green-500/10",
           border: "border-green-500/20"
         }
@@ -119,23 +119,23 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
-              <Brain className="w-6 h-6 text-purple-400" />
+              <Brain className="w-6 h-6 text-icon-primary" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white">{conceptName}</h3>
-              <p className="text-sm text-gray-400">Sistema de Aprendizaje Adaptativo</p>
+              <h3 className="text-xl font-bold text-text-primary >{conceptName}</h3>
+              <p className="text-sm text-text-secondary">Sistema de Aprendizaje Adaptativo</p>
             </div>
           </div>
           <div className="text-right">
-            <p className="text-3xl font-bold text-white">{(knowledge.pLn * 100).toFixed(0)}%</p>
-            <p className="text-xs text-gray-400">Probabilidad de dominio</p>
+            <p className="text-3xl font-bold text-text-primary >{(knowledge.pLn * 100).toFixed(0)}%</p>
+            <p className="text-xs text-text-secondary">Probabilidad de dominio</p>
           </div>
         </div>
 
         {/* Progress Bar */}
         <div className="space-y-2">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-400">Progreso hacia dominio completo</span>
+            <span className="text-text-secondary">Progreso hacia dominio completo</span>
             <span className={cn("font-semibold", statusConfig.color)}>
               {insights.status === "mastered" ? "Dominado" : insights.status === "proficient" ? "Competente" : insights.status === "learning" ? "Aprendiendo" : "En desarrollo"}
             </span>
@@ -148,50 +148,50 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs text-gray-400">Intentos</span>
-            <Target className="w-4 h-4 text-gray-500" />
+            <span className="text-xs text-text-secondary">Intentos</span>
+            <Target className="w-4 h-4 text-text-tertiary" />
           </div>
-          <p className="text-2xl font-bold text-white">{knowledge.attempts}</p>
-          <p className="text-xs text-gray-500">Total de preguntas</p>
+          <p className="text-2xl font-bold text-text-primary >{knowledge.attempts}</p>
+          <p className="text-xs text-text-tertiary">Total de preguntas</p>
         </Card>
 
         <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs text-gray-400">Precisión</span>
-            <Zap className="w-4 h-4 text-gray-500" />
+            <span className="text-xs text-text-secondary">Precisión</span>
+            <Zap className="w-4 h-4 text-text-tertiary" />
           </div>
-          <p className="text-2xl font-bold text-white">
+          <p className="text-2xl font-bold text-text-primary >
             {knowledge.attempts > 0 ? ((knowledge.correctAnswers / knowledge.attempts) * 100).toFixed(0) : 0}%
           </p>
-          <p className="text-xs text-gray-500">{knowledge.correctAnswers} correctas</p>
+          <p className="text-xs text-text-tertiary">{knowledge.correctAnswers} correctas</p>
         </Card>
 
         <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs text-gray-400">Siguiente</span>
-            <Calendar className="w-4 h-4 text-gray-500" />
+            <span className="text-xs text-text-secondary">Siguiente</span>
+            <Calendar className="w-4 h-4 text-text-tertiary" />
           </div>
-          <p className="text-lg font-bold text-white">
+          <p className="text-lg font-bold text-text-primary >
             {Math.ceil((nextReview.getTime() - Date.now()) / (1000 * 60 * 60 * 24))}d
           </p>
-          <p className="text-xs text-gray-500">Próxima revisión</p>
+          <p className="text-xs text-text-tertiary">Próxima revisión</p>
         </Card>
 
         <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs text-gray-400">Predicción</span>
-            <TrendingUp className="w-4 h-4 text-gray-500" />
+            <span className="text-xs text-text-secondary">Predicción</span>
+            <TrendingUp className="w-4 h-4 text-text-tertiary" />
           </div>
-          <p className="text-2xl font-bold text-white">
+          <p className="text-2xl font-bold text-text-primary >
             {(predictedSuccess * 100).toFixed(0)}%
           </p>
-          <p className="text-xs text-gray-500">Próximo acierto</p>
+          <p className="text-xs text-text-tertiary">Próximo acierto</p>
         </Card>
       </div>
 
       {/* Learning Progress Chart */}
       <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
-        <h4 className="text-lg font-semibold text-white mb-4">Evolución del Conocimiento</h4>
+        <h4 className="text-lg font-semibold text-text-primary mb-4">Evolución del Conocimiento</h4>
         <ResponsiveContainer width="100%" height={250}>
           <LineChart data={history}>
             <CartesianGrid strokeDasharray="3 3" stroke="#ffffff10" />
@@ -250,8 +250,8 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
             <h4 className={cn("text-lg font-semibold mb-2", statusConfig.color)}>
               Estado: {insights.status === "mastered" ? "Dominado" : insights.status === "proficient" ? "Competente" : insights.status === "learning" ? "En Aprendizaje" : "En Desarrollo"}
             </h4>
-            <p className="text-sm text-white mb-3">{insights.recommendation}</p>
-            <div className="flex items-center gap-4 text-sm text-gray-300">
+            <p className="text-sm text-text-primary mb-3">{insights.recommendation}</p>
+            <div className="flex items-center gap-4 text-sm text-text-body">
               <div className="flex items-center gap-2">
                 <Badge variant="outline" className={difficultyConfig.color}>
                   Nivel: {difficultyConfig.label}
@@ -269,8 +269,8 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
 
       {/* Practice Simulator */}
       <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
-        <h4 className="text-lg font-semibold text-white mb-4">Simulador de Práctica</h4>
-        <p className="text-sm text-gray-400 mb-4">
+        <h4 className="text-lg font-semibold text-text-primary mb-4">Simulador de Práctica</h4>
+        <p className="text-sm text-text-secondary mb-4">
           Simula respuestas para ver cómo evoluciona tu probabilidad de conocimiento con el algoritmo BKT
         </p>
         <div className="flex gap-3">
@@ -284,7 +284,7 @@ export function AdaptiveLearningDashboard({ conceptId, conceptName }: AdaptiveLe
           <Button
             onClick={() => handleAnswer(false)}
             variant="outline"
-            className="flex-1 border-red-500/50 hover:bg-red-500/10 text-red-400"
+            className="flex-1 border-red-500/50 hover:bg-red-500/10 text-error"
           >
             <AlertCircle className="w-4 h-4 mr-2" />
             Respuesta Incorrecta

@@ -53,7 +53,7 @@ export function DashboardClient({
   const recentQuizzes = quizAttempts.slice(0, 5).reverse()
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-text-primary >
       {/* Header */}
       <div className="border-b border-white/10 bg-black/50 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 py-6">
@@ -64,8 +64,8 @@ export function DashboardClient({
               </Link>
             </Button>
             <div>
-              <h1 className="text-2xl font-bold text-white">Dashboard de Progreso</h1>
-              <p className="text-sm text-gray-400">
+              <h1 className="text-2xl font-bold text-text-primary >Dashboard de Progreso</h1>
+              <p className="text-sm text-text-secondary">
                 Visualiza tu evolución y métricas de aprendizaje
               </p>
             </div>
@@ -85,8 +85,8 @@ export function DashboardClient({
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-gray-400 mb-1">Quizzes Completados</p>
-                    <p className="text-3xl font-bold text-white">{quizAttempts.length}</p>
+                    <p className="text-sm text-text-secondary mb-1">Quizzes Completados</p>
+                    <p className="text-3xl font-bold text-text-primary >{quizAttempts.length}</p>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                     <Trophy className="h-6 w-6 text-primary" />
@@ -105,8 +105,8 @@ export function DashboardClient({
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-gray-400 mb-1">Promedio de Calificación</p>
-                    <p className="text-3xl font-bold text-white">
+                    <p className="text-sm text-text-secondary mb-1">Promedio de Calificación</p>
+                    <p className="text-3xl font-bold text-text-primary >
                       {(averageScore * 100).toFixed(0)}%
                     </p>
                   </div>
@@ -127,13 +127,13 @@ export function DashboardClient({
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-gray-400 mb-1">Conceptos Dominados</p>
-                    <p className="text-3xl font-bold text-white">
+                    <p className="text-sm text-text-secondary mb-1">Conceptos Dominados</p>
+                    <p className="text-3xl font-bold text-text-primary >
                       {masteredComponents}/{knowledgeComponents.length}
                     </p>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <Brain className="h-6 w-6 text-green-500" />
+                    <Brain className="h-6 w-6 text-success" />
                   </div>
                 </div>
               </CardContent>
@@ -149,13 +149,13 @@ export function DashboardClient({
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-gray-400 mb-1">Total Interacciones</p>
-                    <p className="text-3xl font-bold text-white">
+                    <p className="text-sm text-text-secondary mb-1">Total Interacciones</p>
+                    <p className="text-3xl font-bold text-text-primary >
                       {interactionStats.total_interactions}
                     </p>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
-                    <MessageSquare className="h-6 w-6 text-blue-500" />
+                    <MessageSquare className="h-6 w-6 text-info" />
                   </div>
                 </div>
               </CardContent>
@@ -172,15 +172,15 @@ export function DashboardClient({
           >
             <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
+                <CardTitle className="text-text-primary flex items-center gap-2">
                   <TrendingUp className="h-5 w-5 text-accent" />
                   Progreso en Quizzes
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 {recentQuizzes.length === 0 ? (
-                  <div className="text-center py-12 text-gray-400">
-                    <Calendar className="h-12 w-12 mx-auto mb-4 text-gray-600" />
+                  <div className="text-center py-12 text-text-secondary">
+                    <Calendar className="h-12 w-12 mx-auto mb-4 text-text-tertiary" />
                     <p>Aún no has completado ningún quiz</p>
                     <Button className="mt-4" asChild>
                       <Link href="/quizzes">Tomar un Quiz</Link>
@@ -207,11 +207,11 @@ export function DashboardClient({
                                 transition={{ duration: 0.8, delay: index * 0.1 }}
                                 className={`w-full bg-gradient-to-t ${color} rounded-t-lg min-h-[20px] cursor-pointer group-hover:opacity-80 transition-opacity`}
                               />
-                              <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/90 px-2 py-1 rounded text-xs text-white whitespace-nowrap">
+                              <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/90 px-2 py-1 rounded text-xs text-text-primary whitespace-nowrap">
                                 {(quiz.score * 100).toFixed(0)}%
                               </div>
                             </div>
-                            <p className="text-xs text-gray-500">
+                            <p className="text-xs text-text-tertiary">
                               #{recentQuizzes.length - index}
                             </p>
                           </div>
@@ -219,7 +219,7 @@ export function DashboardClient({
                       })}
                     </div>
                     <div className="pt-4 border-t border-white/10">
-                      <p className="text-sm text-gray-400 text-center">
+                      <p className="text-sm text-text-secondary text-center">
                         Últimos {recentQuizzes.length} quizzes completados
                       </p>
                     </div>
@@ -237,15 +237,15 @@ export function DashboardClient({
           >
             <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
+                <CardTitle className="text-text-primary flex items-center gap-2">
                   <Target className="h-5 w-5 text-primary" />
                   Dominio de Conceptos
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 {knowledgeComponents.length === 0 ? (
-                  <div className="text-center py-12 text-gray-400">
-                    <Brain className="h-12 w-12 mx-auto mb-4 text-gray-600" />
+                  <div className="text-center py-12 text-text-secondary">
+                    <Brain className="h-12 w-12 mx-auto mb-4 text-text-tertiary" />
                     <p>Aún no has practicado ningún concepto</p>
                     <Button className="mt-4" asChild>
                       <Link href="/quizzes">Comenzar a Practicar</Link>
@@ -256,8 +256,8 @@ export function DashboardClient({
                     {/* Overall Mastery */}
                     <div className="mb-6">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-gray-400">Dominio General</span>
-                        <span className="text-sm font-bold text-white">
+                        <span className="text-sm text-text-secondary">Dominio General</span>
+                        <span className="text-sm font-bold text-text-primary >
                           {(averageMastery * 100).toFixed(0)}%
                         </span>
                       </div>
@@ -279,14 +279,14 @@ export function DashboardClient({
 
                     {/* Top 5 Concepts */}
                     <div className="space-y-3">
-                      <h4 className="text-sm font-medium text-gray-400">Top 5 Conceptos</h4>
+                      <h4 className="text-sm font-medium text-text-secondary">Top 5 Conceptos</h4>
                       {knowledgeComponents.slice(0, 5).map((kc, index) => (
                         <div key={kc.component_name} className="space-y-1">
                           <div className="flex items-center justify-between text-sm">
-                            <span className="text-white truncate">
+                            <span className="text-text-primary truncate">
                               {kc.component_name}
                             </span>
-                            <span className="text-gray-400 ml-2">
+                            <span className="text-text-secondary ml-2">
                               {((kc.mastery_level || 0) * 100).toFixed(0)}%
                             </span>
                           </div>

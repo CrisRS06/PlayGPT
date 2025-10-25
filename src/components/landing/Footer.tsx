@@ -34,24 +34,24 @@ export function Footer() {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent blur-lg opacity-50" />
                 <Sparkles className="relative h-8 w-8 text-primary" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+              <span className="text-xl font-bold text-text-primary">
                 PlayGPT EDU
               </span>
             </Link>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-text-secondary">
               Educación en juego responsable impulsada por IA avanzada.
             </p>
           </div>
 
           {/* Product Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Producto</h4>
+            <h4 className="font-semibold mb-4 text-text-primary">Producto</h4>
             <ul className="space-y-2">
               {footerLinks.product.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -62,13 +62,13 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Compañía</h4>
+            <h4 className="font-semibold mb-4 text-text-primary">Compañía</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -79,13 +79,13 @@ export function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Legal</h4>
+            <h4 className="font-semibold mb-4 text-text-primary">Legal</h4>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -99,19 +99,19 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-text-secondary">
             © 2025 PlayGPT EDU. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-6">
             <Link
               href="/terms"
-              className="text-sm text-gray-400 hover:text-white transition-colors"
+              className="text-sm text-text-secondary hover:text-text-primary transition-colors"
             >
               Términos
             </Link>
             <Link
               href="/privacy"
-              className="text-sm text-gray-400 hover:text-white transition-colors"
+              className="text-sm text-text-secondary hover:text-text-primary transition-colors"
             >
               Privacidad
             </Link>

@@ -19,39 +19,39 @@ interface StatCardProps {
 
 const colorVariants = {
   primary: {
-    gradient: "from-blue-500 to-blue-600",
-    bg: "bg-blue-500/10",
-    border: "border-blue-500/20",
-    text: "text-blue-400",
-    icon: "text-blue-500"
+    gradient: "from-primary to-primary-hover",
+    bg: "bg-primary/10",
+    border: "border-primary/30",
+    text: "text-primary",
+    icon: "text-icon-primary"
   },
   secondary: {
-    gradient: "from-purple-500 to-purple-600",
-    bg: "bg-purple-500/10",
-    border: "border-purple-500/20",
-    text: "text-purple-400",
-    icon: "text-purple-500"
+    gradient: "from-accent to-accent-hover",
+    bg: "bg-accent/10",
+    border: "border-accent/30",
+    text: "text-accent",
+    icon: "text-icon-accent"
   },
   success: {
-    gradient: "from-green-500 to-green-600",
-    bg: "bg-green-500/10",
-    border: "border-green-500/20",
-    text: "text-green-400",
-    icon: "text-green-500"
+    gradient: "from-success to-success",
+    bg: "bg-success/10",
+    border: "border-success/30",
+    text: "text-success",
+    icon: "text-success"
   },
   warning: {
-    gradient: "from-yellow-500 to-yellow-600",
-    bg: "bg-yellow-500/10",
-    border: "border-yellow-500/20",
-    text: "text-yellow-400",
-    icon: "text-yellow-500"
+    gradient: "from-warning to-warning",
+    bg: "bg-warning/10",
+    border: "border-warning/30",
+    text: "text-warning",
+    icon: "text-warning"
   },
   danger: {
-    gradient: "from-red-500 to-red-600",
-    bg: "bg-red-500/10",
-    border: "border-red-500/20",
-    text: "text-red-400",
-    icon: "text-red-500"
+    gradient: "from-error to-error",
+    bg: "bg-error/10",
+    border: "border-error/30",
+    text: "text-error",
+    icon: "text-error"
   }
 }
 
@@ -89,14 +89,14 @@ export function StatCard({
         {/* Header */}
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <p className="text-sm text-gray-400 font-medium">{title}</p>
+            <p className="text-sm text-text-secondary font-medium">{title}</p>
             <div className="flex items-baseline gap-2 mt-1">
-              <h3 className="text-3xl font-bold text-white">{value}</h3>
+              <h3 className="text-3xl font-bold text-text-primary">{value}</h3>
               {trend && (
                 <span
                   className={cn(
                     "text-sm font-medium",
-                    trend.isPositive ? "text-green-400" : "text-red-400"
+                    trend.isPositive ? "text-success" : "text-error"
                   )}
                 >
                   {trend.isPositive ? "+" : ""}
@@ -121,7 +121,7 @@ export function StatCard({
 
         {/* Description */}
         {description && (
-          <p className="text-xs text-gray-500 leading-relaxed">{description}</p>
+          <p className="text-xs text-text-tertiary leading-relaxed">{description}</p>
         )}
       </div>
     </motion.div>

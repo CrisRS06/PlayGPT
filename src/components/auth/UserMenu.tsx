@@ -42,7 +42,7 @@ export function UserMenu({ user }: UserMenuProps) {
         aria-label={isOpen ? "Cerrar menú de usuario" : "Abrir menú de usuario"}
       >
         <Avatar className="h-8 w-8">
-          <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-white text-sm">
+          <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-text-primary text-sm">
             {initials}
           </AvatarFallback>
         </Avatar>

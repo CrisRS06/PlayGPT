@@ -36,8 +36,8 @@ export function ProgressDashboard() {
     <div className="space-y-6 p-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Mi Progreso</h1>
-        <p className="text-gray-400">Resumen de tu aprendizaje y logros alcanzados</p>
+        <h1 className="text-3xl font-bold text-text-primary mb-2">Mi Progreso</h1>
+        <p className="text-text-secondary">Resumen de tu aprendizaje y logros alcanzados</p>
       </div>
 
       {/* Stats Grid */}
@@ -80,7 +80,7 @@ export function ProgressDashboard() {
           animate={{ opacity: 1, y: 0 }}
           className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
         >
-          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-text-primary mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-primary" />
             Progresión de XP
           </h3>
@@ -129,14 +129,14 @@ export function ProgressDashboard() {
           transition={{ delay: 0.1 }}
           className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
         >
-          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-text-primary mb-4 flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-primary" />
             Progreso de Módulos
           </h3>
           <div className="space-y-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-gray-400">Progreso general</span>
-              <span className="text-sm font-semibold text-white">
+              <span className="text-sm text-text-secondary">Progreso general</span>
+              <span className="text-sm font-semibold text-text-primary >
                 {completedModules}/{totalModules} completados
               </span>
             </div>
@@ -154,13 +154,13 @@ export function ProgressDashboard() {
                   <div className="flex-shrink-0 text-xl">{module.icon}</div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium text-white truncate">
+                      <span className="text-sm font-medium text-text-primary truncate">
                         {module.title}
                       </span>
                       {module.status === 'completed' ? (
-                        <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-success flex-shrink-0" />
                       ) : (
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-text-tertiary">
                           {Math.round(module.progress)}%
                         </span>
                       )}
@@ -184,7 +184,7 @@ export function ProgressDashboard() {
         transition={{ delay: 0.2 }}
         className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
       >
-        <h3 className="text-lg font-semibold text-white mb-4">Logros Recientes</h3>
+        <h3 className="text-lg font-semibold text-text-primary mb-4">Logros Recientes</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {unlockedAchievements.length > 0 ? (
             unlockedAchievements.slice(-3).map((achievementId, index) => (
@@ -196,18 +196,18 @@ export function ProgressDashboard() {
                 className="p-4 rounded-lg border border-yellow-500/20 bg-yellow-500/5 flex items-center gap-3"
               >
                 <div className="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center">
-                  <Trophy className="w-5 h-5 text-yellow-500" />
+                  <Trophy className="w-5 h-5 text-warning" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-white truncate">
+                  <p className="text-sm font-semibold text-text-primary truncate">
                     Logro Desbloqueado
                   </p>
-                  <p className="text-xs text-gray-400 truncate">{achievementId}</p>
+                  <p className="text-xs text-text-secondary truncate">{achievementId}</p>
                 </div>
               </motion.div>
             ))
           ) : (
-            <div className="col-span-3 text-center py-8 text-gray-500">
+            <div className="col-span-3 text-center py-8 text-text-tertiary">
               <Trophy className="w-12 h-12 mx-auto mb-3 opacity-50" />
               <p>¡Desbloquea tu primer logro completando actividades!</p>
             </div>
@@ -222,18 +222,18 @@ export function ProgressDashboard() {
         transition={{ delay: 0.3 }}
         className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
       >
-        <h3 className="text-lg font-semibold text-white mb-4">Próximos Objetivos</h3>
+        <h3 className="text-lg font-semibold text-text-primary mb-4">Próximos Objetivos</h3>
         <div className="space-y-3">
           {level < 5 && (
             <div className="flex items-start gap-3 p-3 rounded-lg border border-blue-500/20 bg-blue-500/5">
-              <Trophy className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+              <Trophy className="w-5 h-5 text-info flex-shrink-0 mt-0.5" />
               <div className="flex-1">
-                <p className="text-sm font-medium text-white">Alcanza Nivel {level + 1}</p>
-                <p className="text-xs text-gray-400 mt-1">
+                <p className="text-sm font-medium text-text-primary >Alcanza Nivel {level + 1}</p>
+                <p className="text-xs text-text-secondary mt-1">
                   Faltan {(level * 100) - totalXP} XP para subir de nivel
                 </p>
               </div>
-              <Badge variant="outline" className="bg-blue-500/10 text-blue-400 border-blue-500/20">
+              <Badge variant="outline" className="bg-blue-500/10 text-info border-blue-500/20">
                 {Math.floor(((totalXP % 100) / 100) * 100)}%
               </Badge>
             </div>
@@ -241,14 +241,14 @@ export function ProgressDashboard() {
 
           {currentStreak < 7 && (
             <div className="flex items-start gap-3 p-3 rounded-lg border border-orange-500/20 bg-orange-500/5">
-              <Flame className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+              <Flame className="w-5 h-5 text-streak-orange flex-shrink-0 mt-0.5" />
               <div className="flex-1">
-                <p className="text-sm font-medium text-white">Racha de 7 Días</p>
-                <p className="text-xs text-gray-400 mt-1">
+                <p className="text-sm font-medium text-text-primary >Racha de 7 Días</p>
+                <p className="text-xs text-text-secondary mt-1">
                   Continúa tu racha {7 - currentStreak} días más para obtener +50 XP
                 </p>
               </div>
-              <Badge variant="outline" className="bg-orange-500/10 text-orange-400 border-orange-500/20">
+              <Badge variant="outline" className="bg-orange-500/10 text-streak-orange border-orange-500/20">
                 {currentStreak}/7
               </Badge>
             </div>
@@ -256,14 +256,14 @@ export function ProgressDashboard() {
 
           {completedModules < totalModules && (
             <div className="flex items-start gap-3 p-3 rounded-lg border border-green-500/20 bg-green-500/5">
-              <BookOpen className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+              <BookOpen className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
               <div className="flex-1">
-                <p className="text-sm font-medium text-white">Completa Todos los Módulos</p>
-                <p className="text-xs text-gray-400 mt-1">
+                <p className="text-sm font-medium text-text-primary >Completa Todos los Módulos</p>
+                <p className="text-xs text-text-secondary mt-1">
                   Te faltan {totalModules - completedModules} módulos para completar el curso
                 </p>
               </div>
-              <Badge variant="outline" className="bg-green-500/10 text-green-400 border-green-500/20">
+              <Badge variant="outline" className="bg-green-500/10 text-success border-green-500/20">
                 {completedModules}/{totalModules}
               </Badge>
             </div>

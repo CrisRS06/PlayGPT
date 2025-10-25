@@ -78,10 +78,10 @@ export function KnowledgeProgressChart({
   }
 
   const getMasteryLevel = (mastery: number): { label: string; color: string } => {
-    if (mastery >= 80) return { label: "Experto", color: "text-green-400" }
-    if (mastery >= 60) return { label: "Avanzado", color: "text-blue-400" }
-    if (mastery >= 40) return { label: "Intermedio", color: "text-yellow-400" }
-    return { label: "Principiante", color: "text-red-400" }
+    if (mastery >= 80) return { label: "Experto", color: "text-success" }
+    if (mastery >= 60) return { label: "Avanzado", color: "text-info" }
+    if (mastery >= 40) return { label: "Intermedio", color: "text-warning" }
+    return { label: "Principiante", color: "text-error" }
   }
 
   const averageMastery = topicData.reduce((sum, item) => sum + item.mastery, 0) / topicData.length || 0
@@ -92,10 +92,10 @@ export function KnowledgeProgressChart({
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Brain className="w-5 h-5 text-purple-400" />
-              <h4 className="text-sm font-semibold text-white">Dominio de Temas</h4>
+              <Brain className="w-5 h-5 text-icon-primary" />
+              <h4 className="text-sm font-semibold text-text-primary >Dominio de Temas</h4>
             </div>
-            <Badge variant="outline" className="bg-purple-500/10 text-purple-400 border-purple-500/20">
+            <Badge variant="outline" className="bg-purple-500/10 text-icon-primary border-purple-500/20">
               {averageMastery.toFixed(0)}% Promedio
             </Badge>
           </div>
@@ -112,14 +112,14 @@ export function KnowledgeProgressChart({
                   className="space-y-2"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-white truncate flex-1 mr-2">
+                    <span className="text-xs font-medium text-text-primary truncate flex-1 mr-2">
                       {topic.topic}
                     </span>
                     <div className="flex items-center gap-2">
                       <Badge variant="outline" className={cn("text-xs", level.color)}>
                         {level.label}
                       </Badge>
-                      <span className="text-xs font-semibold text-white min-w-[3rem] text-right">
+                      <span className="text-xs font-semibold text-text-primary min-w-[3rem] text-right">
                         {Math.round(topic.mastery)}%
                       </span>
                     </div>
@@ -142,16 +142,16 @@ export function KnowledgeProgressChart({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-                <Target className="w-5 h-5 text-blue-500" />
+                <Target className="w-5 h-5 text-info" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">Progreso por Tema</h3>
-                <p className="text-xs text-gray-400">Nivel de dominio en cada área</p>
+                <h3 className="text-lg font-semibold text-text-primary >Progreso por Tema</h3>
+                <p className="text-xs text-text-secondary">Nivel de dominio en cada área</p>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-2xl font-bold text-white">{averageMastery.toFixed(0)}%</p>
-              <p className="text-xs text-gray-400">Promedio</p>
+              <p className="text-2xl font-bold text-text-primary >{averageMastery.toFixed(0)}%</p>
+              <p className="text-xs text-text-secondary">Promedio</p>
             </div>
           </div>
 
@@ -200,20 +200,20 @@ export function KnowledgeProgressChart({
           {/* Stats */}
           <div className="grid grid-cols-3 gap-3 pt-2 border-t border-white/10">
             <div className="text-center">
-              <p className="text-xs text-gray-400 mb-1">Expertos</p>
-              <p className="text-lg font-bold text-green-400">
+              <p className="text-xs text-text-secondary mb-1">Expertos</p>
+              <p className="text-lg font-bold text-success">
                 {barData.filter(d => d.mastery >= 80).length}
               </p>
             </div>
             <div className="text-center">
-              <p className="text-xs text-gray-400 mb-1">En Progreso</p>
-              <p className="text-lg font-bold text-blue-400">
+              <p className="text-xs text-text-secondary mb-1">En Progreso</p>
+              <p className="text-lg font-bold text-info">
                 {barData.filter(d => d.mastery >= 40 && d.mastery < 80).length}
               </p>
             </div>
             <div className="text-center">
-              <p className="text-xs text-gray-400 mb-1">Por Mejorar</p>
-              <p className="text-lg font-bold text-red-400">
+              <p className="text-xs text-text-secondary mb-1">Por Mejorar</p>
+              <p className="text-lg font-bold text-error">
                 {barData.filter(d => d.mastery < 40).length}
               </p>
             </div>
@@ -231,14 +231,14 @@ export function KnowledgeProgressChart({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
-              <Brain className="w-5 h-5 text-purple-500" />
+              <Brain className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white">Mapa de Conocimiento</h3>
-              <p className="text-xs text-gray-400">Visualización del dominio por área</p>
+              <h3 className="text-lg font-semibold text-text-primary >Mapa de Conocimiento</h3>
+              <p className="text-xs text-text-secondary">Visualización del dominio por área</p>
             </div>
           </div>
-          <Badge variant="outline" className="bg-purple-500/10 text-purple-400 border-purple-500/20">
+          <Badge variant="outline" className="bg-purple-500/10 text-icon-primary border-purple-500/20">
             <Zap className="w-3 h-3 mr-1" />
             {averageMastery.toFixed(0)}%
           </Badge>
@@ -297,7 +297,7 @@ export function KnowledgeProgressChart({
           </ResponsiveContainer>
         ) : (
           <div className="h-[350px] flex items-center justify-center">
-            <div className="text-center text-gray-500">
+            <div className="text-center text-text-tertiary">
               <Brain className="w-12 h-12 mx-auto mb-3 opacity-50" />
               <p className="text-sm">Completa algunas lecciones para ver tu progreso</p>
             </div>
@@ -309,8 +309,8 @@ export function KnowledgeProgressChart({
           <div className="grid grid-cols-2 gap-3 pt-2 border-t border-white/10">
             <div className="rounded-lg border border-white/10 bg-black/30 p-3">
               <div className="flex items-center gap-2 mb-2">
-                <TrendingUp className="w-4 h-4 text-green-400" />
-                <span className="text-xs text-gray-400">Mejor Tema</span>
+                <TrendingUp className="w-4 h-4 text-success" />
+                <span className="text-xs text-text-secondary">Mejor Tema</span>
               </div>
               {(() => {
                 const best = radarData.reduce((max, item) =>
@@ -318,8 +318,8 @@ export function KnowledgeProgressChart({
                 , radarData[0])
                 return (
                   <>
-                    <p className="text-sm font-medium text-white truncate">{best.fullTopic}</p>
-                    <p className="text-lg font-bold text-green-400">{best.mastery}%</p>
+                    <p className="text-sm font-medium text-text-primary truncate">{best.fullTopic}</p>
+                    <p className="text-lg font-bold text-success">{best.mastery}%</p>
                   </>
                 )
               })()}
@@ -327,8 +327,8 @@ export function KnowledgeProgressChart({
 
             <div className="rounded-lg border border-white/10 bg-black/30 p-3">
               <div className="flex items-center gap-2 mb-2">
-                <Target className="w-4 h-4 text-yellow-400" />
-                <span className="text-xs text-gray-400">Por Mejorar</span>
+                <Target className="w-4 h-4 text-warning" />
+                <span className="text-xs text-text-secondary">Por Mejorar</span>
               </div>
               {(() => {
                 const worst = radarData.reduce((min, item) =>
@@ -336,8 +336,8 @@ export function KnowledgeProgressChart({
                 , radarData[0])
                 return (
                   <>
-                    <p className="text-sm font-medium text-white truncate">{worst.fullTopic}</p>
-                    <p className="text-lg font-bold text-yellow-400">{worst.mastery}%</p>
+                    <p className="text-sm font-medium text-text-primary truncate">{worst.fullTopic}</p>
+                    <p className="text-lg font-bold text-warning">{worst.mastery}%</p>
                   </>
                 )
               })()}

@@ -13,7 +13,7 @@ const modules = [
     topics: ["Concepto de EV", "Cálculo de probabilidades", "Análisis de decisiones"],
     color: "from-primary to-accent",
     bgGradient: "from-primary/30 to-accent/30",
-    badgeClass: "border-primary/60 bg-primary/30 text-white font-medium backdrop-blur-sm",
+    badgeClass: "border-primary/60 bg-primary/30 text-text-primary font-medium backdrop-blur-sm",
   },
   {
     icon: Lightbulb,
@@ -22,7 +22,7 @@ const modules = [
     topics: ["Teoría de probabilidad", "Eventos independientes", "Distribuciones"],
     color: "from-accent to-info",
     bgGradient: "from-accent/30 to-info/30",
-    badgeClass: "border-accent/60 bg-accent/30 text-white font-medium backdrop-blur-sm",
+    badgeClass: "border-accent/60 bg-accent/30 text-text-primary font-medium backdrop-blur-sm",
   },
   {
     icon: Brain,
@@ -31,7 +31,7 @@ const modules = [
     topics: ["Gamblers fallacy", "Hot hand fallacy", "Toma de decisiones"],
     color: "from-warning to-primary",
     bgGradient: "from-warning/30 to-primary/30",
-    badgeClass: "border-warning/60 bg-warning/30 text-white font-medium backdrop-blur-sm",
+    badgeClass: "border-warning/60 bg-warning/30 text-text-primary font-medium backdrop-blur-sm",
   },
   {
     icon: DollarSign,
@@ -40,7 +40,7 @@ const modules = [
     topics: ["Kelly Criterion", "Gestión de riesgo", "Planificación financiera"],
     color: "from-success to-accent",
     bgGradient: "from-success/30 to-accent/30",
-    badgeClass: "border-success/60 bg-success/30 text-white font-medium backdrop-blur-sm",
+    badgeClass: "border-success/60 bg-success/30 text-text-primary font-medium backdrop-blur-sm",
   },
 ]
 
@@ -91,7 +91,7 @@ export function Modules() {
                     <div className="relative">
                       <div className={`absolute inset-0 bg-gradient-to-br ${module.color} rounded-xl blur-lg opacity-50 group-hover:opacity-100 transition-opacity`} />
                       <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${module.color} flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform`}>
-                        <module.icon className="w-7 h-7 text-white drop-shadow-lg" />
+                        <module.icon className="w-7 h-7 text-text-primary drop-shadow-lg" />
                       </div>
                     </div>
 

@@ -221,25 +221,25 @@ export function NFLBettingSimulator() {
         {/* Header */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
-            <Trophy className="w-5 h-5 text-orange-500" />
+            <Trophy className="w-5 h-5 text-streak-orange" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white">Simulador NFL</h3>
-            <p className="text-xs text-gray-400">Aprende sobre apuestas deportivas</p>
+            <h3 className="text-lg font-semibold text-text-primary >Simulador NFL</h3>
+            <p className="text-xs text-text-secondary">Aprende sobre apuestas deportivas</p>
           </div>
         </div>
 
         {/* Team Selection */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="team1" className="text-sm text-gray-300">Equipo Local</Label>
+            <Label htmlFor="team1" className="text-sm text-text-body">Equipo Local</Label>
             <Select value={team1} onValueChange={setTeam1}>
-              <SelectTrigger id="team1" className="bg-black/50 border-white/10 text-white">
+              <SelectTrigger id="team1" className="bg-black/50 border-white/10 text-text-primary >
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-gray-900 border-white/10">
                 {NFL_TEAMS.filter(t => t.name !== team2).map(team => (
-                  <SelectItem key={team.name} value={team.name} className="text-white hover:bg-white/10">
+                  <SelectItem key={team.name} value={team.name} className="text-text-primary hover:bg-white/10">
                     {team.city} {team.name} ({team.power})
                   </SelectItem>
                 ))}
@@ -248,14 +248,14 @@ export function NFLBettingSimulator() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="team2" className="text-sm text-gray-300">Equipo Visitante</Label>
+            <Label htmlFor="team2" className="text-sm text-text-body">Equipo Visitante</Label>
             <Select value={team2} onValueChange={setTeam2}>
-              <SelectTrigger id="team2" className="bg-black/50 border-white/10 text-white">
+              <SelectTrigger id="team2" className="bg-black/50 border-white/10 text-text-primary >
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-gray-900 border-white/10">
                 {NFL_TEAMS.filter(t => t.name !== team1).map(team => (
-                  <SelectItem key={team.name} value={team.name} className="text-white hover:bg-white/10">
+                  <SelectItem key={team.name} value={team.name} className="text-text-primary hover:bg-white/10">
                     {team.city} {team.name} ({team.power})
                   </SelectItem>
                 ))}
@@ -268,17 +268,17 @@ export function NFLBettingSimulator() {
         <div className="rounded-lg border border-white/10 bg-black/30 p-4">
           <div className="flex items-center justify-between">
             <div className="text-center flex-1">
-              <p className="text-lg font-bold text-white">{team1Data.city} {team1Data.name}</p>
-              <p className="text-sm text-gray-400">Power: {team1Data.power}</p>
-              <Badge variant="outline" className={cn("mt-2", team1WinProb > 0.5 ? "bg-green-500/10 text-green-400" : "bg-orange-500/10 text-orange-400")}>
+              <p className="text-lg font-bold text-text-primary >{team1Data.city} {team1Data.name}</p>
+              <p className="text-sm text-text-secondary">Power: {team1Data.power}</p>
+              <Badge variant="outline" className={cn("mt-2", team1WinProb > 0.5 ? "bg-green-500/10 text-success" : "bg-orange-500/10 text-streak-orange")}>
                 {team1Odds > 0 ? '+' : ''}{team1Odds}
               </Badge>
             </div>
-            <div className="px-4 text-gray-500 font-bold">VS</div>
+            <div className="px-4 text-text-tertiary font-bold">VS</div>
             <div className="text-center flex-1">
-              <p className="text-lg font-bold text-white">{team2Data.city} {team2Data.name}</p>
-              <p className="text-sm text-gray-400">Power: {team2Data.power}</p>
-              <Badge variant="outline" className={cn("mt-2", team2WinProb > 0.5 ? "bg-green-500/10 text-green-400" : "bg-orange-500/10 text-orange-400")}>
+              <p className="text-lg font-bold text-text-primary >{team2Data.city} {team2Data.name}</p>
+              <p className="text-sm text-text-secondary">Power: {team2Data.power}</p>
+              <Badge variant="outline" className={cn("mt-2", team2WinProb > 0.5 ? "bg-green-500/10 text-success" : "bg-orange-500/10 text-streak-orange")}>
                 {team2Odds > 0 ? '+' : ''}{team2Odds}
               </Badge>
             </div>
@@ -288,19 +288,19 @@ export function NFLBettingSimulator() {
         {/* Bet Configuration */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="betType" className="text-sm text-gray-300">Tipo de Apuesta</Label>
+            <Label htmlFor="betType" className="text-sm text-text-body">Tipo de Apuesta</Label>
             <Select value={betType} onValueChange={(v) => setBetType(v as BetType)}>
-              <SelectTrigger id="betType" className="bg-black/50 border-white/10 text-white">
+              <SelectTrigger id="betType" className="bg-black/50 border-white/10 text-text-primary >
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-gray-900 border-white/10">
-                <SelectItem value="moneyline" className="text-white hover:bg-white/10">
+                <SelectItem value="moneyline" className="text-text-primary hover:bg-white/10">
                   Moneyline (Ganador directo)
                 </SelectItem>
-                <SelectItem value="spread" className="text-white hover:bg-white/10">
+                <SelectItem value="spread" className="text-text-primary hover:bg-white/10">
                   Point Spread (Hándicap)
                 </SelectItem>
-                <SelectItem value="total" className="text-white hover:bg-white/10">
+                <SelectItem value="total" className="text-text-primary hover:bg-white/10">
                   Over/Under (Total puntos)
                 </SelectItem>
               </SelectContent>
@@ -308,13 +308,13 @@ export function NFLBettingSimulator() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="betAmount" className="text-sm text-gray-300">Cantidad ($)</Label>
+            <Label htmlFor="betAmount" className="text-sm text-text-body">Cantidad ($)</Label>
             <Input
               id="betAmount"
               type="number"
               value={betAmount}
               onChange={(e) => setBetAmount(e.target.value)}
-              className="bg-black/50 border-white/10 text-white"
+              className="bg-black/50 border-white/10 text-text-primary 
               placeholder="100"
             />
           </div>
@@ -322,7 +322,7 @@ export function NFLBettingSimulator() {
 
         {/* Bet Selection */}
         <div className="space-y-2">
-          <Label className="text-sm text-gray-300">Selecciona tu apuesta</Label>
+          <Label className="text-sm text-text-body">Selecciona tu apuesta</Label>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {betOptions.map((option, index) => (
               <button
@@ -336,12 +336,12 @@ export function NFLBettingSimulator() {
                 )}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-semibold text-white">{option.description}</span>
+                  <span className="font-semibold text-text-primary >{option.description}</span>
                   <Badge variant="outline" className="bg-white/5">
                     {option.odds > 0 ? '+' : ''}{option.odds}
                   </Badge>
                 </div>
-                <div className="text-xs text-gray-400 text-left">
+                <div className="text-xs text-text-secondary text-left">
                   {betType === "moneyline" && `Win prob: ${((option.description.includes(team1) ? team1WinProb : team2WinProb) * 100).toFixed(0)}%`}
                   {betType === "spread" && `Cover ${Math.abs(option.threshold!)} pts`}
                   {betType === "total" && option.description}
@@ -358,16 +358,16 @@ export function NFLBettingSimulator() {
         )}>
           <div className="flex items-start gap-3">
             {ev > 0 ? (
-              <TrendingUp className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <TrendingUp className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
             ) : (
-              <TrendingDown className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+              <TrendingDown className="w-5 h-5 text-error flex-shrink-0 mt-0.5" />
             )}
             <div className="flex-1">
-              <p className="text-sm font-medium text-white mb-1">Análisis de Valor Esperado</p>
-              <p className={cn("text-2xl font-bold mb-2", ev > 0 ? "text-green-400" : "text-red-400")}>
+              <p className="text-sm font-medium text-text-primary mb-1">Análisis de Valor Esperado</p>
+              <p className={cn("text-2xl font-bold mb-2", ev > 0 ? "text-success" : "text-error")}>
                 {ev >= 0 ? '+' : ''}${ev.toFixed(2)}
               </p>
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-text-secondary">
                 {ev > 0
                   ? `Esta apuesta tiene valor positivo (+EV). Ganancia esperada por apuesta.`
                   : `Esta apuesta tiene valor negativo (-EV). Pérdida esperada a largo plazo.`}
@@ -399,25 +399,25 @@ export function NFLBettingSimulator() {
                 result.won ? "border-green-500/50 bg-green-500/10" : "border-red-500/50 bg-red-500/10"
               )}>
                 {result.won ? (
-                  <Target className="w-12 h-12 text-green-400 mx-auto mb-3" />
+                  <Target className="w-12 h-12 text-success mx-auto mb-3" />
                 ) : (
-                  <AlertTriangle className="w-12 h-12 text-red-400 mx-auto mb-3" />
+                  <AlertTriangle className="w-12 h-12 text-error mx-auto mb-3" />
                 )}
-                <h4 className={cn("text-2xl font-bold mb-2", result.won ? "text-green-400" : "text-red-400")}>
+                <h4 className={cn("text-2xl font-bold mb-2", result.won ? "text-success" : "text-error")}>
                   {result.won ? "¡Ganaste!" : "Perdiste"}
                 </h4>
-                <p className="text-gray-300 mb-4">
+                <p className="text-text-body mb-4">
                   {result.won ? `Tu apuesta de $${result.amount} ganó` : `Perdiste $${result.amount}`}
                 </p>
                 {result.won && (
                   <div className="space-y-2">
                     <div className="flex items-center justify-center gap-2">
-                      <DollarSign className="w-5 h-5 text-green-400" />
-                      <span className="text-3xl font-bold text-green-400">
+                      <DollarSign className="w-5 h-5 text-success" />
+                      <span className="text-3xl font-bold text-success">
                         +${result.profit.toFixed(2)}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-text-secondary">
                       Pago total: ${result.payout.toFixed(2)}
                     </p>
                   </div>

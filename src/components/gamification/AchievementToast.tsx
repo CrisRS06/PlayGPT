@@ -34,7 +34,7 @@ const rarityColors = {
     gradient: "from-gray-500 to-gray-600",
     bg: "bg-gray-500/20",
     border: "border-gray-500/30",
-    text: "text-gray-300",
+    text: "text-text-body",
     glow: "shadow-gray-500/50"
   },
   rare: {
@@ -139,13 +139,13 @@ export function AchievementToast({ achievement, onClose, duration = 5000 }: Achi
                   shadow-lg ${colors.glow}
                 `}
               >
-                <Icon className="w-7 h-7 text-white" />
+                <Icon className="w-7 h-7 text-text-primary  />
               </motion.div>
 
               {/* Text Content */}
               <div className="flex-1 space-y-1">
                 <div className="flex items-center gap-2">
-                  <h3 className="font-bold text-white text-lg">
+                  <h3 className="font-bold text-text-primary text-lg">
                     ¡Logro Desbloqueado!
                   </h3>
                   {achievement.rarity === "legendary" && (
@@ -153,14 +153,14 @@ export function AchievementToast({ achievement, onClose, duration = 5000 }: Achi
                       animate={{ rotate: 360 }}
                       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                     >
-                      <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                      <Star className="w-4 h-4 text-warning fill-yellow-400" />
                     </motion.div>
                   )}
                 </div>
-                <p className="font-semibold text-white">
+                <p className="font-semibold text-text-primary >
                   {achievement.title}
                 </p>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-text-body">
                   {achievement.description}
                 </p>
                 {achievement.xp && (

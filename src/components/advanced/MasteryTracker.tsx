@@ -27,7 +27,7 @@ const MASTERY_LEVELS: MasteryBadge[] = [
     title: "Novato",
     description: "Comenzando el viaje de aprendizaje",
     icon: Target,
-    color: "text-gray-400",
+    color: "text-text-secondary",
     bgColor: "bg-gray-500/10",
     borderColor: "border-gray-500/20",
     minProficiency: 0
@@ -37,7 +37,7 @@ const MASTERY_LEVELS: MasteryBadge[] = [
     title: "Aprendiz",
     description: "Comprendiendo los fundamentos",
     icon: Zap,
-    color: "text-blue-400",
+    color: "text-info",
     bgColor: "bg-blue-500/10",
     borderColor: "border-blue-500/20",
     minProficiency: 0.3
@@ -47,7 +47,7 @@ const MASTERY_LEVELS: MasteryBadge[] = [
     title: "Competente",
     description: "Aplicando conocimientos con confianza",
     icon: Award,
-    color: "text-green-400",
+    color: "text-success",
     bgColor: "bg-green-500/10",
     borderColor: "border-green-500/20",
     minProficiency: 0.6
@@ -57,7 +57,7 @@ const MASTERY_LEVELS: MasteryBadge[] = [
     title: "Experto",
     description: "Dominio avanzado del tema",
     icon: Trophy,
-    color: "text-purple-400",
+    color: "text-icon-primary",
     bgColor: "bg-purple-500/10",
     borderColor: "border-purple-500/20",
     minProficiency: 0.85
@@ -67,7 +67,7 @@ const MASTERY_LEVELS: MasteryBadge[] = [
     title: "Maestro",
     description: "Maestría completa alcanzada",
     icon: Crown,
-    color: "text-yellow-400",
+    color: "text-warning",
     bgColor: "bg-yellow-500/10",
     borderColor: "border-yellow-500/20",
     minProficiency: 0.95
@@ -124,19 +124,19 @@ export function MasteryTracker() {
           </div>
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-2">
-              <h3 className="text-2xl font-bold text-white">{currentMastery.title}</h3>
+              <h3 className="text-2xl font-bold text-text-primary >{currentMastery.title}</h3>
               <Badge variant="outline" className={cn("text-xs", currentMastery.color)}>
                 Nivel {MASTERY_LEVELS.findIndex(l => l.level === currentMastery.level) + 1}/5
               </Badge>
             </div>
-            <p className="text-sm text-gray-400 mb-3">{currentMastery.description}</p>
+            <p className="text-sm text-text-secondary mb-3">{currentMastery.description}</p>
             {nextMastery && (
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">
+                  <span className="text-text-secondary">
                     Progreso hacia {nextMastery.title}
                   </span>
-                  <span className="text-white font-semibold">
+                  <span className="text-text-primary font-semibold">
                     {((totalProficiency - currentMastery.minProficiency) / (nextMastery.minProficiency - currentMastery.minProficiency) * 100).toFixed(0)}%
                   </span>
                 </div>
@@ -152,7 +152,7 @@ export function MasteryTracker() {
 
       {/* Mastery Distribution */}
       <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
-        <h4 className="text-lg font-semibold text-white mb-4">Distribución de Dominio</h4>
+        <h4 className="text-lg font-semibold text-text-primary mb-4">Distribución de Dominio</h4>
         <div className="space-y-3">
           {masteryDistribution.map((level, index) => {
             const Icon = level.icon
@@ -169,11 +169,11 @@ export function MasteryTracker() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Icon className={cn("w-4 h-4", level.color)} />
-                    <span className="text-sm font-medium text-white">{level.title}</span>
+                    <span className="text-sm font-medium text-text-primary >{level.title}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-gray-400">{level.count} módulos</span>
-                    <span className="text-sm font-semibold text-white min-w-[3rem] text-right">
+                    <span className="text-sm text-text-secondary">{level.count} módulos</span>
+                    <span className="text-sm font-semibold text-text-primary min-w-[3rem] text-right">
                       {percentage.toFixed(0)}%
                     </span>
                   </div>
@@ -188,7 +188,7 @@ export function MasteryTracker() {
       {/* Top Modules */}
       {topModules.length > 0 && (
         <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
-          <h4 className="text-lg font-semibold text-white mb-4">Módulos con Mayor Progreso</h4>
+          <h4 className="text-lg font-semibold text-text-primary mb-4">Módulos con Mayor Progreso</h4>
           <div className="space-y-3">
             {topModules.map((module, index) => {
               const mastery = getMasteryLevel(module.progress / 100)
@@ -206,13 +206,13 @@ export function MasteryTracker() {
                     mastery.bgColor
                   )}
                 >
-                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-black/30 text-lg font-bold text-white">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-black/30 text-lg font-bold text-text-primary >
                     {index + 1}
                   </div>
                   <div className="text-2xl">{module.icon}</div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-white truncate">{module.title}</p>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-sm font-medium text-text-primary truncate">{module.title}</p>
+                    <p className="text-xs text-text-secondary">
                       {module.completedLessons}/{module.totalLessons} lecciones completadas
                     </p>
                   </div>
@@ -220,7 +220,7 @@ export function MasteryTracker() {
                     <p className={cn("text-lg font-bold", mastery.color)}>
                       {module.progress.toFixed(0)}%
                     </p>
-                    <p className="text-xs text-gray-500">{mastery.title}</p>
+                    <p className="text-xs text-text-tertiary">{mastery.title}</p>
                   </div>
                 </motion.div>
               )
@@ -231,7 +231,7 @@ export function MasteryTracker() {
 
       {/* Mastery Milestones */}
       <Card className="border-white/10 bg-white/5 backdrop-blur-sm p-6">
-        <h4 className="text-lg font-semibold text-white mb-4">Hitos de Maestría</h4>
+        <h4 className="text-lg font-semibold text-text-primary mb-4">Hitos de Maestría</h4>
         <div className="space-y-4">
           {MASTERY_LEVELS.map((level, index) => {
             const Icon = level.icon
@@ -248,33 +248,33 @@ export function MasteryTracker() {
                 )}>
                   <Icon className={cn(
                     "w-5 h-5",
-                    isAchieved ? level.color : "text-gray-600"
+                    isAchieved ? level.color : "text-text-tertiary"
                   )} />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <h5 className={cn(
                       "text-sm font-semibold",
-                      isAchieved ? "text-white" : "text-gray-500"
+                      isAchieved ? "text-text-primary  : "text-text-tertiary"
                     )}>
                       {level.title}
                     </h5>
                     {isCurrent && (
-                      <Badge variant="outline" className="text-xs bg-blue-500/10 text-blue-400 border-blue-500/20">
+                      <Badge variant="outline" className="text-xs bg-blue-500/10 text-info border-blue-500/20">
                         Actual
                       </Badge>
                     )}
                     {isAchieved && !isCurrent && (
-                      <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                      <Star className="w-4 h-4 text-warning fill-yellow-400" />
                     )}
                   </div>
                   <p className={cn(
                     "text-xs",
-                    isAchieved ? "text-gray-400" : "text-gray-600"
+                    isAchieved ? "text-text-secondary" : "text-text-tertiary"
                   )}>
                     {level.description}
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-text-tertiary mt-1">
                     Requiere {(level.minProficiency * 100).toFixed(0)}% de dominio
                   </p>
                 </div>

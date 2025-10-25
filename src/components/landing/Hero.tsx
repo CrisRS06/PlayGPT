@@ -37,7 +37,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Badge className="px-4 py-2 text-sm font-medium bg-gradient-to-r from-primary/30 to-accent/30 border-primary/60 text-white backdrop-blur-sm hover:from-primary/40 hover:to-accent/40 hover:border-primary/80 transition-all shadow-lg">
+              <Badge className="px-4 py-2 text-sm font-medium bg-gradient-to-r from-primary/30 to-accent/30 border-primary/60 text-text-primary backdrop-blur-sm hover:from-primary/40 hover:to-accent/40 hover:border-primary/80 transition-all shadow-lg">
                 <Sparkles className="w-4 h-4 mr-2 inline" />
                 Educación con IA Avanzada
               </Badge>
@@ -140,7 +140,7 @@ export function Hero() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-6 -right-6 w-24 h-24 rounded-2xl gradient-aurora flex items-center justify-center shadow-lg glow-primary"
               >
-                <Brain className="w-12 h-12 text-white drop-shadow-lg" />
+                <Brain className="w-12 h-12 text-text-primary drop-shadow-lg" />
               </motion.div>
 
               <motion.div
@@ -148,7 +148,7 @@ export function Hero() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 className="absolute -bottom-6 -left-6 w-24 h-24 rounded-2xl bg-gradient-to-br from-accent to-success flex items-center justify-center shadow-lg glow-accent"
               >
-                <Target className="w-12 h-12 text-white drop-shadow-lg" />
+                <Target className="w-12 h-12 text-text-primary drop-shadow-lg" />
               </motion.div>
 
               {/* Chat Preview - Enhanced */}

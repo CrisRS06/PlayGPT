@@ -53,10 +53,10 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
           </div>
         </div>
         <div className="space-y-2 text-center">
-          <CardTitle className="text-2xl font-bold text-white">
+          <CardTitle className="text-2xl font-bold text-text-primary >
             {isLogin ? "Bienvenido de vuelta" : "Crear cuenta"}
           </CardTitle>
-          <CardDescription className="text-gray-300">
+          <CardDescription className="text-text-body">
             {isLogin
               ? "Ingresa tus credenciales para continuar"
               : "Regístrate para comenzar tu aprendizaje"}
@@ -68,7 +68,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
         <form onSubmit={handleSubmit} className="space-y-4">
           {!isLogin && (
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-medium text-white">
+              <label htmlFor="name" className="text-sm font-medium text-text-primary >
                 Nombre completo
               </label>
               <Input
@@ -79,13 +79,13 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
                 onChange={(e) => setName(e.target.value)}
                 required={!isLogin}
                 disabled={isLoading}
-                className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:border-primary/50"
+                className="bg-white/5 border-white/10 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
               />
             </div>
           )}
 
           <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium text-white">
+            <label htmlFor="email" className="text-sm font-medium text-text-primary >
               Correo electrónico
             </label>
             <Input
@@ -96,12 +96,12 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
               onChange={(e) => setEmail(e.target.value)}
               required
               disabled={isLoading}
-              className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:border-primary/50"
+              className="bg-white/5 border-white/10 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
             />
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="password" className="text-sm font-medium text-white">
+            <label htmlFor="password" className="text-sm font-medium text-text-primary >
               Contraseña
             </label>
             <Input
@@ -113,10 +113,10 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
               required
               minLength={6}
               disabled={isLoading}
-              className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:border-primary/50"
+              className="bg-white/5 border-white/10 text-text-primary placeholder:text-text-secondary focus:border-primary/50"
             />
             {!isLogin && (
-              <p className="text-xs text-gray-300">
+              <p className="text-xs text-text-body">
                 Mínimo 6 caracteres
               </p>
             )}
@@ -146,7 +146,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
           </Button>
 
           <div className="text-center text-sm">
-            <span className="text-gray-300">
+            <span className="text-text-body">
               {isLogin ? "¿No tienes cuenta?" : "¿Ya tienes cuenta?"}{" "}
             </span>
             <Link
@@ -161,7 +161,7 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
             <div className="text-center">
               <Link
                 href="/auth/reset-password"
-                className="text-sm text-gray-300 hover:text-white transition-colors"
+                className="text-sm text-text-body hover:text-text-primary transition-colors"
               >
                 ¿Olvidaste tu contraseña?
               </Link>

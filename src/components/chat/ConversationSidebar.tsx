@@ -99,7 +99,7 @@ export function ConversationSidebar({
             {/* Header */}
             <div className="p-4 border-b border-white/10">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold text-white">Conversaciones</h2>
+                <h2 className="text-lg font-semibold text-text-primary >Conversaciones</h2>
                 <Button
                   variant="ghost"
                   size="icon"
@@ -133,11 +133,11 @@ export function ConversationSidebar({
                 </div>
               ) : conversations.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-center p-6">
-                  <MessageSquare className="h-12 w-12 text-gray-600 mb-4" />
-                  <p className="text-sm text-gray-400">
+                  <MessageSquare className="h-12 w-12 text-text-tertiary mb-4" />
+                  <p className="text-sm text-text-secondary">
                     No hay conversaciones guardadas
                   </p>
-                  <p className="text-xs text-gray-500 mt-2">
+                  <p className="text-xs text-text-tertiary mt-2">
                     Inicia una nueva conversación para comenzar
                   </p>
                 </div>
@@ -175,15 +175,15 @@ export function ConversationSidebar({
                           <div className="flex-1 min-w-0">
                             <h3
                               className={`text-sm font-medium truncate ${
-                                isActive ? "text-white" : "text-gray-300"
+                                isActive ? "text-text-primary  : "text-text-body"
                               }`}
                             >
                               {title}
                             </h3>
-                            <p className="text-xs text-gray-500 mt-1">
+                            <p className="text-xs text-text-tertiary mt-1">
                               {conversation.messages.length} mensajes
                             </p>
-                            <p className="text-xs text-gray-600 mt-1">
+                            <p className="text-xs text-text-tertiary mt-1">
                               {formatDistanceToNow(updatedAt, {
                                 addSuffix: true,
                                 locale: es,
