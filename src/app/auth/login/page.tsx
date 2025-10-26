@@ -13,7 +13,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 flex items-center justify-center p-6 relative overflow-hidden">
+    <div className="min-h-screen-mobile bg-gray-50 text-gray-900 flex items-center justify-center p-6 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob" />

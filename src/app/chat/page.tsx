@@ -155,7 +155,7 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="flex h-screen bg-gray-50 text-gray-900">
+    <div className="flex h-screen-mobile bg-gray-50 text-gray-900">
       {/* Onboarding Tour */}
       <OnboardingTour />
 

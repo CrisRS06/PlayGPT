@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
+import { WebVitalsReporter } from "@/components/analytics/WebVitalsReporter";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,6 +13,14 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: "cover", // Enable safe area insets for iOS
+};
 
 export const metadata: Metadata = {
   title: {
@@ -96,6 +105,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <WebVitalsReporter />
         <Toaster position="top-right" richColors closeButton />
         {children}
       </body>

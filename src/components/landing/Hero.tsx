@@ -8,7 +8,7 @@ import { ArrowRight, Sparkles, Brain, Target } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-20">
+    <section className="relative min-h-screen-mobile flex items-center justify-center overflow-hidden px-6 pt-20">
       {/* Modern Mesh Gradient Background */}
       <div className="absolute inset-0 -z-10 gradient-mesh-strong opacity-40" />
 
