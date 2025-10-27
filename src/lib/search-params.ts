@@ -1,4 +1,4 @@
-import { parseAsString, parseAsBoolean, createSearchParamsCache } from 'nuqs'
+import { parseAsString, parseAsBoolean, createSearchParamsCache } from 'nuqs/server'
 
 /**
  * Available module IDs for deep linking
