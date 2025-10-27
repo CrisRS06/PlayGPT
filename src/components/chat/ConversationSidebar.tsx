@@ -82,19 +82,34 @@ export function ConversationSidebar({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-white/80 backdrop-blur-sm z-40 md:hidden"
+            className="fixed inset-0 bg-white/90 md:bg-white/80 md:backdrop-blur-sm z-40 md:hidden"
             data-backdrop
             tabIndex={-1}
             aria-hidden="true"
           />
 
-          {/* Sidebar */}
+          {/* Sidebar with swipe-to-close gesture */}
           <motion.div
             initial={{ x: -320 }}
             animate={{ x: 0 }}
             exit={{ x: -320 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed md:relative left-0 top-0 h-full w-full sm:w-80 max-w-xs bg-white/95 border-r border-gray-200 backdrop-blur-xl z-50 flex flex-col"
+            drag="x"
+            dragConstraints={{ left: -320, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(_, info) => {
+              const offset = info.offset.x
+              const velocity = info.velocity.x
+
+              // Velocity-based threshold: close if fast swipe left OR dragged far left
+              const SWIPE_DISTANCE = -100 // pixels
+              const SWIPE_VELOCITY = -500 // px/s
+
+              if (offset < SWIPE_DISTANCE || velocity < SWIPE_VELOCITY) {
+                onClose()
+              }
+            }}
+            className="fixed md:relative left-0 top-0 h-full w-full sm:w-80 max-w-xs bg-white border-r border-gray-200 md:bg-white/95 md:backdrop-blur-sm z-50 flex flex-col md:!transform-none touch-none"
           >
             {/* Header */}
             <div className="p-4 border-b border-gray-200">

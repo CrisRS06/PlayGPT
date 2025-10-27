@@ -72,17 +72,32 @@ export function LearningPathSidebar({ isOpen, onClose }: LearningPathSidebarProp
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-white/60 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 bg-white/80 md:bg-white/60 md:backdrop-blur-sm z-40 lg:hidden"
             onClick={onClose}
           />
 
-          {/* Sidebar */}
+          {/* Sidebar with swipe-to-close gesture */}
           <motion.aside
             initial={{ x: -320 }}
             animate={{ x: 0 }}
             exit={{ x: -320 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed left-0 top-0 bottom-0 w-80 bg-white border-r border-gray-200 z-50 flex flex-col overflow-hidden"
+            drag="x"
+            dragConstraints={{ left: -320, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(_, info) => {
+              const offset = info.offset.x
+              const velocity = info.velocity.x
+
+              // Velocity-based threshold: close if fast swipe left OR dragged far left
+              const SWIPE_DISTANCE = -100 // pixels
+              const SWIPE_VELOCITY = -500 // px/s
+
+              if (offset < SWIPE_DISTANCE || velocity < SWIPE_VELOCITY) {
+                onClose()
+              }
+            }}
+            className="fixed left-0 top-0 bottom-0 w-80 bg-white border-r border-gray-200 z-50 flex flex-col overflow-hidden touch-none"
           >
             {/* Header */}
             <div className="p-6 border-b border-gray-200">

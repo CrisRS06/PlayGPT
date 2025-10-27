@@ -163,6 +163,39 @@ const nextConfig: NextConfig = {
     serverActions: {
       bodySizeLimit: "2mb",
     },
+
+    // Package imports optimization - Reduces bundle size by tree-shaking barrel exports
+    optimizePackageImports: [
+      // ALTA PRIORIDAD - Paquetes grandes con barrel exports
+      "recharts",                       // 54.3 KB - Charts en dashboard
+      "framer-motion",                  // 99 KB → 13.7 KB con optimización
+
+      // Radix UI components (13 paquetes en el proyecto)
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-collapsible",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-label",
+      "@radix-ui/react-popover",
+      "@radix-ui/react-progress",
+      "@radix-ui/react-scroll-area",
+      "@radix-ui/react-select",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-switch",
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-tooltip",
+
+      // MEDIA PRIORIDAD
+      "react-circular-progressbar",
+      "@xyflow/react",
+      "canvas-confetti",
+
+      // State management
+      "zustand",
+
+      // NOTA: lucide-react y date-fns ya están optimizados por defecto en Next.js
+    ],
   },
 
   // ===============================================

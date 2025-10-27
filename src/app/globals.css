@@ -339,9 +339,27 @@
   animation-delay: 4s;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Smooth scrolling with reduced motion support */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* === iOS AUTO-ZOOM PREVENTION === */
+/* Prevent iOS Safari from zooming in on input focus by ensuring 16px minimum font-size */
+@media (hover: none) and (pointer: coarse) {
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1em) !important;
+  }
 }
 
 /* Custom scrollbar - Light theme */
@@ -417,18 +435,42 @@ html {
     );
   }
 
-  /* === GLASSMORPHISM EFFECTS - Light Theme === */
+  /* === GLASSMORPHISM EFFECTS - Mobile-First Performance === */
 
   .glass {
-    @apply bg-white/80 backdrop-blur-xl border border-gray-200;
+    /* Mobile: No blur for better performance */
+    @apply bg-white/90 border border-gray-200;
+  }
+
+  @media (min-width: 768px) {
+    .glass {
+      /* Desktop: Moderate blur */
+      @apply bg-white/80 backdrop-blur-sm border border-gray-200;
+    }
   }
 
   .glass-strong {
-    @apply bg-white/90 backdrop-blur-2xl border border-gray-300;
+    /* Mobile: Solid background */
+    @apply bg-white/95 border border-gray-300;
+  }
+
+  @media (min-width: 768px) {
+    .glass-strong {
+      /* Desktop: Strong blur */
+      @apply bg-white/90 backdrop-blur-md border border-gray-300;
+    }
   }
 
   .glass-card {
-    @apply bg-gradient-to-br from-white to-gray-50 backdrop-blur-xl border border-gray-200;
+    /* Mobile-first approach */
+    @apply bg-gradient-to-br from-white to-gray-50 border border-gray-200;
+  }
+
+  @media (min-width: 768px) {
+    .glass-card {
+      /* Desktop only blur */
+      @apply bg-gradient-to-br from-white/80 to-gray-50/80 backdrop-blur-sm border border-gray-200;
+    }
   }
 
   /* === TEXT UTILITIES === */
@@ -638,5 +680,46 @@ html {
 
   .mb-safe {
     margin-bottom: max(1rem, var(--safe-area-bottom));
+  }
+
+  /* === TOUCH TARGET UTILITIES - WCAG 2.2 Compliant === */
+
+  /* Level AA: 24px minimum */
+  .touch-target-aa {
+    @apply min-w-[24px] min-h-[24px] inline-flex items-center justify-center;
+  }
+
+  /* Level AAA: 44px desktop, 48px mobile (recommended) */
+  .touch-target {
+    @apply min-w-[44px] min-h-[44px] inline-flex items-center justify-center;
+  }
+
+  /* Large touch target: 48px (Material Design + iOS compliant) */
+  .touch-target-lg {
+    @apply min-w-[48px] min-h-[48px] inline-flex items-center justify-center;
+  }
+
+  /* Responsive: 48px mobile, 44px desktop */
+  .touch-target-mobile {
+    @apply min-w-[48px] min-h-[48px] md:min-w-[44px] md:min-h-[44px] inline-flex items-center justify-center;
+  }
+
+  /* Hitbox expansion without affecting layout (invisible pseudo-element) */
+  .touch-target-hitbox {
+    @apply relative;
+  }
+
+  .touch-target-hitbox::before {
+    content: '';
+    @apply absolute -inset-3;
+  }
+
+  /* Minimum tap spacing between adjacent targets (WCAG 2.5.8) */
+  .touch-spacing {
+    @apply gap-2; /* 8px minimum spacing */
+  }
+
+  .touch-spacing-lg {
+    @apply gap-4; /* 16px comfortable spacing */
   }
 }
