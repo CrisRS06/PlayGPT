@@ -7,7 +7,7 @@ import { ChatInput } from "@/components/chat/ChatInput"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
-import { ArrowLeft, Sparkles, MessageSquare, BookOpen, BarChart3, Calculator, Crown } from "lucide-react"
+import { Sparkles } from "lucide-react"
 import type { Message } from "@/components/chat/ChatMessage"
 import { saveConversationAction, loadConversationAction } from "@/lib/chat/conversation-actions"
 import { ConversationSidebar } from "@/components/chat/ConversationSidebar"
@@ -18,6 +18,7 @@ import { AchievementToast } from "@/components/gamification/AchievementToast"
 import { ModeToggle } from "@/components/learning/ModeToggle"
 import { QuickActions } from "@/components/chat/QuickActions"
 import { OnboardingTour } from "@/components/onboarding/OnboardingTour"
+import { ChatHeaderMenu } from "@/components/chat/ChatHeaderMenu"
 import { useGamificationStore } from "@/stores/gamification-store"
 
 export default function ChatPage() {
@@ -186,75 +187,31 @@ export default function ChatPage() {
         <motion.header
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="border-b border-gray-200 backdrop-blur-xl bg-white/90 px-6 py-4"
+          className="border-b border-gray-200 backdrop-blur-xl bg-white/90 px-4 py-3 md:px-6 md:py-4"
         >
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="sm" className="gap-2" asChild>
-                <Link href="/">
-                  <ArrowLeft className="h-4 w-4" />
-                  <span className="hidden sm:inline">Inicio</span>
-                </Link>
-              </Button>
-              <Separator orientation="vertical" className="h-6" />
-              <Button
-                variant="ghost"
-                size="sm"
-                className="gap-2"
-                onClick={handleToggleConversationSidebar}
-                aria-pressed={sidebarOpen}
-              >
-                <MessageSquare className="h-4 w-4" />
-                <span className="hidden sm:inline">Historial</span>
-              </Button>
-              <Separator orientation="vertical" className="h-6" />
-              <Button
-                variant="ghost"
-                size="sm"
-                className="gap-2"
-                onClick={handleToggleLearningPath}
-                aria-pressed={learningPathOpen}
-              >
-                <BookOpen className="h-4 w-4" />
-                <span className="hidden sm:inline">Aprendizaje</span>
-              </Button>
-              <Separator orientation="vertical" className="h-6 hidden md:block" />
-              <Button
-                variant="ghost"
-                size="sm"
-                className="gap-2 hidden md:inline-flex"
-                asChild
-              >
-                <Link href="/dashboard">
-                  <BarChart3 className="h-4 w-4" />
-                  <span className="hidden lg:inline">Dashboard</span>
-                </Link>
-              </Button>
-              <Separator orientation="vertical" className="h-6 hidden lg:block" />
-              <Button
-                variant="ghost"
-                size="sm"
-                className="gap-2 hidden lg:inline-flex"
-                asChild
-              >
-                <Link href="/tools">
-                  <Calculator className="h-4 w-4" />
-                  <span>Herramientas</span>
-                </Link>
-              </Button>
-              <Separator orientation="vertical" className="h-6" />
-              <div className="flex items-center gap-2">
+          <div className="flex items-center justify-between gap-4">
+            {/* Left Section: Menu + Logo */}
+            <div className="flex items-center gap-3">
+              {/* Hamburger Menu - Mobile Only */}
+              <ChatHeaderMenu
+                onOpenHistorial={handleToggleConversationSidebar}
+                onOpenAprendizaje={handleToggleLearningPath}
+              />
+
+              {/* Logo */}
+              <Link href="/" className="flex items-center gap-2">
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent blur-lg opacity-50" />
-                  <Sparkles className="relative h-6 w-6 text-primary" />
+                  <Sparkles className="relative h-5 w-5 md:h-6 md:w-6 text-primary" />
                 </div>
-                <div>
+                <div className="hidden sm:block">
                   <h1 className="text-sm font-semibold text-gray-900">PlayGPT EDU</h1>
                   <p className="text-xs text-gray-600">Asistente de Aprendizaje</p>
                 </div>
-              </div>
+              </Link>
             </div>
 
+            {/* Right Section: Desktop Stats */}
             <div className="hidden md:flex items-center gap-3">
               <ModeToggle compact />
               <Separator orientation="vertical" className="h-6" />
