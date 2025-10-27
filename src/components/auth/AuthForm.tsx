@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { isRedirectError } from "next/dist/client/components/redirect-error"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -35,10 +36,14 @@ export function AuthForm({ mode, onSubmit }: AuthFormProps) {
       // Success handled by parent component's redirect
       toast.dismiss("auth-action")
     } catch (err) {
+      // Don't catch NEXT_REDIRECT errors - they need to propagate for navigation
+      if (isRedirectError(err)) {
+        throw err
+      }
+
       const errorMessage = err instanceof Error ? err.message : "Ocurrió un error"
       setError(errorMessage)
       toast.error(errorMessage, { id: "auth-action" })
-    } finally {
       setIsLoading(false)
     }
   }
