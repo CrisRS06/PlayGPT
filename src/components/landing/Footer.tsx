@@ -1,19 +1,22 @@
 "use client"
 
 import Link from "next/link"
-import { Sparkles } from "lucide-react"
+import { Sparkles, Mail } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 
 const footerLinks = {
   product: [
     { label: "Características", href: "#features" },
     { label: "Módulos", href: "#modules" },
-    { label: "Cómo funciona", href: "#how-it-works" },
   ],
-  company: [
+  contact: [
+    {
+      label: "soporte@playgptedu.com",
+      href: "mailto:soporte@playgptedu.com",
+      icon: Mail,
+      external: true
+    },
     { label: "Sobre nosotros", href: "/about" },
-    { label: "Contacto", href: "/contact" },
-    { label: "Blog", href: "/blog" },
   ],
   legal: [
     { label: "Privacidad", href: "/privacy" },
@@ -60,20 +63,29 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company Links */}
+          {/* Contact Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-text-primary">Compañía</h4>
+            <h4 className="font-semibold mb-4 text-text-primary">Contacto</h4>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {footerLinks.contact.map((link) => {
+                const LinkComponent = link.external ? 'a' : Link
+                const linkProps = link.external
+                  ? { href: link.href }
+                  : { href: link.href }
+                const Icon = link.icon
+
+                return (
+                  <li key={link.href}>
+                    <LinkComponent
+                      {...linkProps}
+                      className="text-sm text-text-secondary hover:text-text-primary transition-colors flex items-center gap-2"
+                    >
+                      {Icon && <Icon className="h-4 w-4" />}
+                      {link.label}
+                    </LinkComponent>
+                  </li>
+                )
+              })}
             </ul>
           </div>
 

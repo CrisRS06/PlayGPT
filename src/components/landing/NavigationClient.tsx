@@ -48,12 +48,6 @@ export function NavigationClient({ user }: NavigationClientProps) {
               Características
             </Link>
             <Link
-              href="#how-it-works"
-              className="text-sm font-medium text-text-body hover:text-text-primary transition-colors"
-            >
-              Cómo funciona
-            </Link>
-            <Link
               href="#modules"
               className="text-sm font-medium text-text-body hover:text-text-primary transition-colors"
             >
@@ -114,13 +108,6 @@ export function NavigationClient({ user }: NavigationClientProps) {
               onClick={() => setMobileMenuOpen(false)}
             >
               Características
-            </Link>
-            <Link
-              href="#how-it-works"
-              className="text-sm font-medium text-text-body hover:text-text-primary transition-colors py-2"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Cómo funciona
             </Link>
             <Link
               href="#modules"

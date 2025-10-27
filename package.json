@@ -46,6 +46,7 @@
     "langchain": "^1.0.1",
     "lucide-react": "^0.546.0",
     "next": "16.0.0",
+    "nuqs": "^2.7.2",
     "openai": "^6.6.0",
     "pdf-parse": "^2.4.5",
     "react": "19.2.0",

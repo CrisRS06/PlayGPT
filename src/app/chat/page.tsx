@@ -189,63 +189,57 @@ export default function ChatPage() {
           className="border-b border-gray-200 backdrop-blur-xl bg-white/90 px-6 py-4"
         >
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Button variant="ghost" size="icon" asChild aria-label="Volver al inicio">
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" size="sm" className="gap-2" asChild>
                 <Link href="/">
-                  <ArrowLeft className="h-5 w-5" />
+                  <ArrowLeft className="h-4 w-4" />
+                  <span className="hidden sm:inline">Inicio</span>
                 </Link>
               </Button>
               <Separator orientation="vertical" className="h-6" />
               <Button
                 variant="ghost"
-                size="icon"
+                size="sm"
+                className="gap-2"
                 onClick={handleToggleConversationSidebar}
-                className="relative"
-                aria-label={sidebarOpen ? "Cerrar conversaciones" : "Abrir conversaciones"}
+                aria-pressed={sidebarOpen}
               >
-                <MessageSquare className="h-5 w-5" />
+                <MessageSquare className="h-4 w-4" />
+                <span className="hidden sm:inline">Historial</span>
               </Button>
               <Separator orientation="vertical" className="h-6" />
               <Button
                 variant="ghost"
-                size="icon"
+                size="sm"
+                className="gap-2"
                 onClick={handleToggleLearningPath}
-                className="relative"
-                aria-label={learningPathOpen ? "Cerrar ruta de aprendizaje" : "Abrir ruta de aprendizaje"}
+                aria-pressed={learningPathOpen}
               >
-                <BookOpen className="h-5 w-5" />
+                <BookOpen className="h-4 w-4" />
+                <span className="hidden sm:inline">Aprendizaje</span>
               </Button>
-              <Separator orientation="vertical" className="h-6" />
+              <Separator orientation="vertical" className="h-6 hidden md:block" />
               <Button
                 variant="ghost"
-                size="icon"
+                size="sm"
+                className="gap-2 hidden md:inline-flex"
                 asChild
-                aria-label="Ver dashboard"
               >
                 <Link href="/dashboard">
-                  <BarChart3 className="h-5 w-5" />
+                  <BarChart3 className="h-4 w-4" />
+                  <span className="hidden lg:inline">Dashboard</span>
                 </Link>
               </Button>
-              <Separator orientation="vertical" className="h-6" />
+              <Separator orientation="vertical" className="h-6 hidden lg:block" />
               <Button
                 variant="ghost"
-                size="icon"
+                size="sm"
+                className="gap-2 hidden lg:inline-flex"
                 asChild
-                aria-label="Herramientas interactivas"
               >
                 <Link href="/tools">
-                  <Calculator className="h-5 w-5" />
-                </Link>
-              </Button>
-              <Separator orientation="vertical" className="h-6" />
-              <Button
-                variant="ghost"
-                size="icon"
-                asChild
-                aria-label="Características avanzadas"
-              >
-                <Link href="/advanced">
-                  <Crown className="h-5 w-5" />
+                  <Calculator className="h-4 w-4" />
+                  <span>Herramientas</span>
                 </Link>
               </Button>
               <Separator orientation="vertical" className="h-6" />
