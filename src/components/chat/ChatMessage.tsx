@@ -7,6 +7,8 @@ import { Sparkles, User, Brain, Calculator, TrendingUp, DollarSign, Zap } from "
 import { cn } from "@/lib/utils"
 import { useEffect, useState } from "react"
 import { useGamificationStore } from "@/stores/gamification-store"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 
 export interface Message {
   id: string
@@ -211,10 +213,92 @@ export function ChatMessage({ message }: ChatMessageProps) {
           )}
         </div>
 
-        <div className="prose prose-invert prose-sm max-w-none">
-          <p className="text-sm leading-relaxed whitespace-pre-wrap">
+        <div className="prose prose-sm max-w-none">
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            className="text-sm leading-relaxed text-gray-900"
+            components={{
+              // Inline code
+              code({ node, inline, className, children, ...props }: any) {
+                if (inline) {
+                  return (
+                    <code
+                      className="bg-gray-200 px-1.5 py-0.5 rounded text-sm font-mono text-primary"
+                      {...props}
+                    >
+                      {children}
+                    </code>
+                  )
+                }
+
+                // Block code
+                return (
+                  <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-3">
+                    <code className="text-sm font-mono" {...props}>
+                      {children}
+                    </code>
+                  </pre>
+                )
+              },
+
+              // Lists with better spacing
+              ul({ children }) {
+                return <ul className="list-disc list-inside space-y-1 my-2 text-gray-900">{children}</ul>
+              },
+
+              ol({ children }) {
+                return <ol className="list-decimal list-inside space-y-1 my-2 text-gray-900">{children}</ol>
+              },
+
+              // Paragraphs with proper spacing
+              p({ children }) {
+                return <p className="mb-3 last:mb-0 text-gray-900">{children}</p>
+              },
+
+              // Headings
+              h1({ children }) {
+                return <h1 className="text-xl font-bold mt-4 mb-2 text-gray-900">{children}</h1>
+              },
+
+              h2({ children }) {
+                return <h2 className="text-lg font-bold mt-4 mb-2 text-gray-900">{children}</h2>
+              },
+
+              h3({ children }) {
+                return <h3 className="text-base font-bold mt-3 mb-2 text-gray-900">{children}</h3>
+              },
+
+              // Bold text
+              strong({ children }) {
+                return <strong className="font-bold text-gray-900">{children}</strong>
+              },
+
+              // Links
+              a({ children, href }) {
+                return (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    {children}
+                  </a>
+                )
+              },
+
+              // Blockquotes
+              blockquote({ children }) {
+                return (
+                  <blockquote className="border-l-4 border-primary pl-4 italic text-gray-700 my-3">
+                    {children}
+                  </blockquote>
+                )
+              },
+            }}
+          >
             {message.content}
-          </p>
+          </ReactMarkdown>
         </div>
       </div>
     </motion.div>

@@ -113,7 +113,7 @@ export default function ChatPage() {
         throw new Error("Failed to get response")
       }
 
-      // Read the stream
+      // Read the stream with buffering for better performance
       const reader = response.body?.getReader()
       const decoder = new TextDecoder()
 
@@ -121,8 +121,9 @@ export default function ChatPage() {
         throw new Error("No reader available")
       }
 
-      let assistantMessage = ""
+      let buffer = ""
       const assistantMessageId = (Date.now() + 1).toString()
+      let isStreaming = true
 
       // Add empty assistant message first
       setMessages((prev) => [
@@ -135,23 +136,50 @@ export default function ChatPage() {
         },
       ])
 
-      while (true) {
-        const { done, value } = await reader.read()
-
-        if (done) break
-
-        // Decode the chunk directly (Vercel AI SDK v3 uses plain text streaming)
-        const chunk = decoder.decode(value, { stream: true })
-        assistantMessage += chunk
-
-        // Update message in real-time
-        setMessages((prev) =>
-          prev.map((m) =>
-            m.id === assistantMessageId
-              ? { ...m, content: assistantMessage }
-              : m
+      // Batch updates every 50ms (20 FPS) for smooth rendering without excessive re-renders
+      const updateInterval = setInterval(() => {
+        if (buffer) {
+          setMessages((prev) =>
+            prev.map((m) =>
+              m.id === assistantMessageId
+                ? { ...m, content: buffer }
+                : m
+            )
           )
-        )
+        }
+
+        if (!isStreaming) {
+          clearInterval(updateInterval)
+        }
+      }, 50)
+
+      try {
+        while (true) {
+          const { done, value } = await reader.read()
+
+          if (done) {
+            isStreaming = false
+
+            // Final update with complete message
+            setMessages((prev) =>
+              prev.map((m) =>
+                m.id === assistantMessageId
+                  ? { ...m, content: buffer }
+                  : m
+              )
+            )
+
+            clearInterval(updateInterval)
+            break
+          }
+
+          // Decode the chunk and buffer it (no re-render here)
+          const chunk = decoder.decode(value, { stream: true })
+          buffer += chunk
+        }
+      } catch (streamError) {
+        clearInterval(updateInterval)
+        throw streamError
       }
     } catch (err) {
       setError(err as Error)
