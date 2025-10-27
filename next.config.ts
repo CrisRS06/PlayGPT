@@ -168,9 +168,8 @@ const nextConfig: NextConfig = {
     optimizePackageImports: [
       // ALTA PRIORIDAD - Paquetes grandes con barrel exports
       "recharts",                       // 54.3 KB - Charts en dashboard
-      "framer-motion",                  // 99 KB → 13.7 KB con optimización
 
-      // Radix UI components (13 paquetes en el proyecto)
+      // Radix UI components (14 paquetes en el proyecto)
       "@radix-ui/react-accordion",
       "@radix-ui/react-avatar",
       "@radix-ui/react-collapsible",
@@ -194,7 +193,8 @@ const nextConfig: NextConfig = {
       // State management
       "zustand",
 
-      // NOTA: lucide-react y date-fns ya están optimizados por defecto en Next.js
+      // NOTA: framer-motion, lucide-react y date-fns ya están optimizados por defecto en Next.js 16
+      // y no necesitan estar en esta lista
     ],
   },
 
@@ -209,7 +209,7 @@ const nextConfig: NextConfig = {
   output: process.env.BUILD_STANDALONE === "true" ? "standalone" : undefined,
 
   // ===============================================
-  // TYPESCRIPT & LINTING
+  // TYPESCRIPT
   // ===============================================
 
   typescript: {
@@ -218,10 +218,8 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: false,
   },
 
-  eslint: {
-    // Warn during builds but don't fail
-    ignoreDuringBuilds: false,
-  },
+  // NOTE: ESLint configuration moved to eslint.config.mjs (flat config)
+  // The 'eslint' option in next.config.ts is deprecated in Next.js 16
 };
 
 export default nextConfig;
