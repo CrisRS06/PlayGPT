@@ -20,6 +20,9 @@ import { QuickActions } from "@/components/chat/QuickActions"
 import { OnboardingTour } from "@/components/onboarding/OnboardingTour"
 import { ChatHeaderMenu } from "@/components/chat/ChatHeaderMenu"
 import { useGamificationStore } from "@/stores/gamification-store"
+import { GuidedProgressBar } from "@/components/learning/GuidedProgressBar"
+import { GuidedSessionControl } from "@/components/learning/GuidedSessionControl"
+import { useLearningModeStore } from "@/stores/learning-mode-store"
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([])
@@ -29,6 +32,8 @@ export default function ChatPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [learningPathOpen, setLearningPathOpen] = useState(false)
   const { currentAchievement, clearCurrentAchievement } = useGamificationStore()
+  const { mode } = useLearningModeStore()
+  const isGuidedMode = mode === 'guided'
 
   // Save conversation after messages update
   useEffect(() => {
@@ -222,6 +227,9 @@ export default function ChatPage() {
           </div>
         </motion.header>
 
+        {/* Guided Learning Progress Bar (only in guided mode) */}
+        {isGuidedMode && <GuidedProgressBar />}
+
       {/* Chat Area */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -229,6 +237,13 @@ export default function ChatPage() {
         transition={{ delay: 0.2 }}
         className="flex-1 flex flex-col overflow-hidden"
       >
+        {/* Guided Session Control (only in guided mode) */}
+        {isGuidedMode && (
+          <div className="px-4 pt-4">
+            <GuidedSessionControl />
+          </div>
+        )}
+
         {/* Messages */}
         <ChatContainer messages={messages} isLoading={isLoading} onSendMessage={handleSendMessage} />
 

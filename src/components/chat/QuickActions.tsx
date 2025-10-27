@@ -2,8 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Calculator, Brain, Dices, TrendingUp, Sparkles, ChevronRight, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Calculator, Dices, TrendingUp, X } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -11,7 +10,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 import { EVCalculator } from "@/components/interactive/EVCalculator"
 import { BettingSimulator } from "@/components/interactive/BettingSimulator"
@@ -25,7 +23,6 @@ interface QuickAction {
   description: string
   component: React.ReactNode
   color: string
-  badge?: string
 }
 
 const QUICK_ACTIONS: QuickAction[] = [
@@ -35,8 +32,7 @@ const QUICK_ACTIONS: QuickAction[] = [
     icon: Calculator,
     description: "Calcula el valor esperado de cualquier apuesta",
     component: <EVCalculator />,
-    color: "text-icon-accent",
-    badge: "Popular"
+    color: "text-primary"
   },
   {
     id: "betting-sim",
@@ -44,7 +40,7 @@ const QUICK_ACTIONS: QuickAction[] = [
     icon: Dices,
     description: "Simula miles de apuestas y visualiza resultados",
     component: <BettingSimulator />,
-    color: "text-success"
+    color: "text-accent"
   },
   {
     id: "progress",
@@ -52,79 +48,73 @@ const QUICK_ACTIONS: QuickAction[] = [
     icon: TrendingUp,
     description: "Visualiza tu evolución de aprendizaje",
     component: <KnowledgeProgressChart variant="compact" />,
-    color: "text-icon-primary"
+    color: "text-primary"
   }
 ]
 
 export function QuickActions() {
   const [selectedAction, setSelectedAction] = useState<QuickAction | null>(null)
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isDismissed, setIsDismissed] = useState(false)
   const { mode } = useLearningModeStore()
   const isGuided = mode === 'guided'
 
-  // Only show in guided mode by default
-  if (!isGuided && !isExpanded) return null
+  // Only show in guided mode and if not dismissed
+  if (!isGuided || isDismissed) return null
 
   return (
     <>
-      {/* Quick Actions Bar */}
+      {/* Horizontal Scroll Quick Actions - Non-blocking design */}
       <AnimatePresence>
-        {(isGuided || isExpanded) && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="border-t border-gray-200 bg-gray-100 backdrop-blur-sm overflow-hidden"
-          >
-            <div className="mx-auto max-w-4xl px-6 py-3">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-icon-primary" />
-                  <span className="text-xs font-semibold text-text-primary">Acciones Rápidas</span>
-                  <Badge variant="outline" className="text-xs bg-primary/20 text-icon-primary border-primary/40">
-                    Modo Guiado
-                  </Badge>
-                </div>
-              </div>
+        <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 10, opacity: 0 }}
+          className="relative px-4 pb-2"
+        >
+          {/* Dismissible hint */}
+          <div className="flex items-center justify-between mb-2 px-2">
+            <span className="text-xs text-gray-600 font-medium">Herramientas sugeridas</span>
+            <button
+              onClick={() => setIsDismissed(true)}
+              className="touch-target-mobile p-1.5 rounded-full hover:bg-gray-200 transition-colors"
+              aria-label="Ocultar acciones rápidas"
+            >
+              <X className="w-3.5 h-3.5 text-gray-500" />
+            </button>
+          </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {QUICK_ACTIONS.map((action, index) => {
-                  const Icon = action.icon
-                  return (
-                    <motion.button
-                      key={action.id}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      onClick={() => setSelectedAction(action)}
-                      className={cn(
-                        "flex items-center gap-3 px-4 py-3 rounded-lg border transition-all group",
-                        "border-border-strong bg-primary/10 hover:bg-primary/20 hover:border-primary/40",
-                        "text-left w-full"
-                      )}
-                    >
-                      <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center bg-primary/20 border border-primary/30")}>
-                        <Icon className={cn("w-5 h-5", action.color)} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-medium text-text-primary">{action.label}</span>
-                          {action.badge && (
-                            <Badge variant="outline" className="text-xs bg-warning/20 text-warning border-warning/40">
-                              {action.badge}
-                            </Badge>
-                          )}
-                        </div>
-                        <p className="text-xs text-text-secondary mt-0.5 line-clamp-1">{action.description}</p>
-                      </div>
-                      <ChevronRight className="w-4 h-4 text-icon-muted opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
-                    </motion.button>
-                  )
-                })}
-              </div>
+          {/* Horizontal scrollable chips */}
+          <div className="relative">
+            {/* Fade gradient for scroll indication */}
+            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10" />
+
+            <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1 scroll-smooth">
+              {QUICK_ACTIONS.map((action, index) => {
+                const Icon = action.icon
+                return (
+                  <motion.button
+                    key={action.id}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    onClick={() => setSelectedAction(action)}
+                    className={cn(
+                      "inline-flex items-center gap-2 px-4 py-2.5 min-h-[48px]",
+                      "rounded-full bg-white border-2 border-gray-200",
+                      "hover:border-primary hover:bg-primary/5",
+                      "transition-all duration-200",
+                      "whitespace-nowrap flex-shrink-0",
+                      "active:scale-95"
+                    )}
+                  >
+                    <Icon className={cn("w-4 h-4 flex-shrink-0", action.color)} />
+                    <span className="text-sm font-medium text-gray-900">{action.label}</span>
+                  </motion.button>
+                )
+              })}
             </div>
-          </motion.div>
-        )}
+          </div>
+        </motion.div>
       </AnimatePresence>
 
       {/* Action Dialog */}
