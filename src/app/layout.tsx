@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 import { WebVitalsReporter } from "@/components/analytics/WebVitalsReporter";
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -107,7 +108,7 @@ export default function RootLayout({
       >
         <WebVitalsReporter />
         <Toaster position="top-right" richColors closeButton />
-        {children}
+        <NuqsAdapter>{children}</NuqsAdapter>
       </body>
     </html>
   );
